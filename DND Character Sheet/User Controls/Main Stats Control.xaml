@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.Main_Stats_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
+               FontSize="20" HorizontalAlignment="Center">Main Stats</Label>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">Stat</Label>
+        <Label Grid.Row="3" Grid.Column="1">Strength:</Label>
+        <Label Grid.Row="4" Grid.Column="1">Dexterity:</Label>
+        <Label Grid.Row="5" Grid.Column="1">Constitution:</Label>
+        <Label Grid.Row="6" Grid.Column="1">Intelligence:</Label>
+        <Label Grid.Row="7" Grid.Column="1">Wisdom:</Label>
+        <Label Grid.Row="8" Grid.Column="1">Charisma:</Label>
+
+        <Label Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center">Score</Label>
+        <TextBox Grid.Row="3" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Str, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Dex, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Con, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Intl, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Wis, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="8" Grid.Column="2" Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                 Text="{Binding Character.MainStats.Cha, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <Label Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center">Modifier</Label>
+        <TextBox Grid.Row="3" Grid.Column="3"
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.StrMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="3" 
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.DexMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="3" 
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.ConMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="3" 
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.IntlMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="3" 
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.WisMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="8" Grid.Column="3" 
+                 Margin="5" IsReadOnly="True"
+                 Text="{Binding Character.MainStats.ChaMod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <Label Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center">Saving Throw</Label>
+        <uc:StatModifierTextBox Grid.Row="3" Grid.Column="4" Margin="5" 
+                 Content="{Binding Character.MainStats.StrSvThr, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="4" Grid.Column="4" Margin="5" 
+                 Text="{Binding Character.MainStats.DexSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="4" Margin="5" 
+                 Text="{Binding Character.MainStats.ConSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="4" Margin="5" 
+                 Text="{Binding Character.MainStats.IntlSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="4" Margin="5" 
+                 Text="{Binding Character.MainStats.WisSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <uc:StatModifierTextBox Grid.Row="8" Grid.Column="4"></uc:StatModifierTextBox>
+        <!--<TextBox Grid.Row="8" Grid.Column="4" Margin="5" 
+                 Text="{Binding Character.MainStats.ChaSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
+    </Grid>
+</UserControl>

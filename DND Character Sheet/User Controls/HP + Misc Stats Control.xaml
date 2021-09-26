@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.HP___Misc_Stats_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center" FontSize="30">HP And Armour</Label>
+        
+        <Label Grid.Row="2" Grid.Column="1">AC:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Character.MiscStats.AC, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+
+        <Label Grid.Row="2" Grid.Column="2">Initiative:</Label>
+        <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Character.MiscStats.Initiative, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5"></TextBox>
+        
+        <Label Grid.Row="4" Grid.Column="1">Proficiency Bonus:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Character.MiscStats.Proficiency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5"></TextBox>
+
+        <Label Grid.Row="4" Grid.Column="2">Speed:</Label>
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Character.MiscStats.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5"></TextBox>
+
+        
+        <Label Grid.Row="6" Grid.Column="1">Hit Point Maximum:</Label>
+        <TextBox Grid.Row="6" Grid.Column="2" Margin="5" Text="{Binding Character.HPStats.MaxHP, Converter={StaticResource IntegerStatConverter}, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+        
+        <Label Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">Current HP</Label>
+        <TextBox Grid.Row="7" Grid.Column="2" Margin="5" Text="{Binding Character.HPStats.CurrentHP, Converter={StaticResource IntegerStatConverter}, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+        
+        <Label Grid.Row="8" Grid.Column="1">Temporary HP</Label>
+        <TextBox Grid.Row="8" Grid.Column="2" Margin="5" Text="{Binding Character.HPStats.TempHP, Converter={StaticResource IntegerStatConverter}, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+
+    </Grid>
+</UserControl>

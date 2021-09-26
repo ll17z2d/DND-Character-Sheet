@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.All_Notes_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Inventory"
+               HorizontalAlignment="Center"/>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="1" Grid.Column="1" Content="Platinum" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="False" FontSize="30"
+                     Text="{Binding CharacterNotes.Money.Platinum}"/>
+
+            <Label Grid.Row="1" Grid.Column="2" Content="Gold" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="30"
+                     Text="{Binding CharacterNotes.Money.Gold}"/>
+
+            <Label Grid.Row="1" Grid.Column="3" Content="Silver" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="30"
+                     Text="{Binding CharacterNotes.Money.Silver}"/>
+
+            <Label Grid.Row="1" Grid.Column="4" Content="Bronze" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="4" AcceptsReturn="False" FontSize="30"
+                     Text="{Binding CharacterNotes.Money.Bronze}"/>
+
+            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
+                   HorizontalAlignment="Center" Content="Equipment"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" 
+                     VerticalScrollBarVisibility="Auto" Text="{Binding CharacterNotes.Equipment}"/>
+
+        </Grid>
+
+        <Label Grid.Row="3" Grid.Column="2" Content="Session Notes"
+               HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="2" VerticalScrollBarVisibility="Auto"
+                 Text="{Binding CharacterNotes.SessionNotes}"/>
+
+        <Label Grid.Row="1" Grid.Column="3" Content="Ability Descriptions"
+               HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="3" VerticalScrollBarVisibility="Auto"
+                 Text="{Binding CharacterNotes.AbilityDesc}"/>
+
+        <Label Grid.Row="3" Grid.Column="3" Content="Proficiencies"
+               HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="3" VerticalScrollBarVisibility="Auto"
+                 Text="{Binding CharacterNotes.Proficiencies}"/>
+
+        <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Character Appearance"
+                   HorizontalAlignment="Center"/>
+            <Image Grid.Row="1" Grid.Column="0" 
+                   Source="{Binding CharacterNotes.CharacterAppearanceFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Row="2" Grid.Column="0" Content="Browse images"
+                    Command="{Binding BrowseCharacterAppearanceCommand}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

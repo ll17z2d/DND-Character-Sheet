@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>DND_Character_Sheet</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Invalid Character Appearance.png" />
+    <None Remove="Images\Placeholder Character Appearance.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="ObjectsComparer" Version="1.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Testing Raxer Chroma SDK">
+      <HintPath>..\..\Testing Raxer Chroma SDK\Testing Raxer Chroma SDK\bin\Debug\netcoreapp3.1\Testing Raxer Chroma SDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Invalid Character Appearance.png" />
+    <Resource Include="Images\Placeholder Character Appearance.png" />
+  </ItemGroup>
+
+</Project>
