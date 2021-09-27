@@ -41,6 +41,8 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
+        public bool InverseIsReadOnly => !isReadOnly;
+
         public SkillsDialogViewModel(AllSkills allSkills, bool isReadOnly)
         {
             AllSkills = allSkills;

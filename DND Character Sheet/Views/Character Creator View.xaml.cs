@@ -20,12 +20,19 @@ namespace DND_Character_Sheet.Views
     /// </summary>
     public partial class CharacterCreatorView : Window
     {
-        public CharacterCreatorView(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        public CharacterCreatorView(CharacterCreatorViewModel characterCreatorViewModel)
         {
             InitializeComponent();
-            var vm = new CharacterCreatorViewModel(new CharacterModel(), dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper);
-            this.DataContext = vm;
-            Closing += vm.ExitWindow;
+            this.DataContext = characterCreatorViewModel;
+            Closing += characterCreatorViewModel.ExitWindow;
         }
+
+        //public CharacterCreatorView(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        //{
+        //    InitializeComponent();
+        //    var vm = new CharacterCreatorViewModel(new CharacterModel(), dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper);
+        //    this.DataContext = vm;
+        //    Closing += vm.ExitWindow;
+        //}
     }
 }

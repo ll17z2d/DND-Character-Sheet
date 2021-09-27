@@ -12,7 +12,7 @@ namespace DND_Character_Sheet.ViewModels
     {
         private SkillsDialogViewModel skillsDialogViewModel;
 
-        public SkillsDialogViewModel SkillsDialogViewModel //TODO: Investigate what value this is when updating the skills section, maybe this is updated but not passed on to Character through that action delegate I did, if so then need to refactor
+        public SkillsDialogViewModel SkillsDialogViewModel
         {
             get
             {
@@ -43,8 +43,8 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand ResetCharacterCommand { get; set; }
         public ICommand AutoGenerateSkillModsCommand { get; set; }
 
-        public CharacterCreatorViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper) 
-            : base(character, dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper)
+        public CharacterCreatorViewModel(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper) 
+            : base(new CharacterModel(), dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper, windowServiceWrapper)
         {
             Initialise();
         }

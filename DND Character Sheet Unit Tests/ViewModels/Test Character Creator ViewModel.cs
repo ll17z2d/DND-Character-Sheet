@@ -252,7 +252,8 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()))
                 .Returns("Test Window Title");
 
-            CharacterCreatorViewModel = new CharacterCreatorViewModel(new CharacterModel(), MockDialogWindowWrapper.Object, MockTextFormatterWrapper.Object, new SerializeCharacterWrapper());
+            CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
+                MockTextFormatterWrapper.Object, new SerializeCharacterWrapper(), new WindowServiceWrapper());
         }
 
         private void ChangeCharacterStrValue(int str)
