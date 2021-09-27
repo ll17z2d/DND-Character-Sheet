@@ -22,6 +22,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public CharacterSheetViewModel CharacterSheetViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
         public Mock<ITextFormatterWrapper> MockTextFormatterWrapper { get; set; }
+        public Mock<IWindowServiceWrapper> MockWindowServiceWrapper { get; set; }
 
         [TestMethod]
         public void CanAPISearch_EmptyTextBox()
@@ -83,7 +84,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             Assert.IsFalse(actual);
         }
 
-        [TestMethod]
+        [TestMethod, STAThread]
         public void APISearch_TestEmptyTextBox()
         {
             //arrange
@@ -183,22 +184,37 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         }
 
         [TestMethod]
-        public void OpenNotesWindow_()
+        public void OpenNotesWindow_Successful()
         {
             //arrange
             var expected1 = true;
             var expected2 = 1;
             GetUnderTest();
-            var mockNotesWindowWrapper = new Mock<IWindowWrapper>();
-            mockNotesWindowWrapper.Setup(x => x.ShowDialog()).Returns(true);
-            CharacterSheetViewModel.NotesWindowWrapper = mockNotesWindowWrapper.Object;
+            MockWindowServiceWrapper.Setup(x => x.OpenNotesWindow(It.IsAny<NotesDialogViewModel>())).Returns(true);
 
             //act
             var actual = CharacterSheetViewModel.OpenNotesWindow();
 
             //assert
             Assert.AreEqual(expected1, true);
-            mockNotesWindowWrapper.Verify(x => x.ShowDialog(), Times.Exactly(expected2));
+            MockWindowServiceWrapper.Verify(x => x.OpenNotesWindow(It.IsAny<NotesDialogViewModel>()), Times.Exactly(expected2));
+        }
+
+        [TestMethod]
+        public void OpenSkillsWindow_Successful()
+        {
+            //arrange
+            var expected1 = true;
+            var expected2 = 1;
+            GetUnderTest();
+            MockWindowServiceWrapper.Setup(x => x.OpenSkillsWindow(It.IsAny<SkillsDialogViewModel>())).Returns(true);
+
+            //act
+            var actual = CharacterSheetViewModel.OpenSkillsWindow();
+
+            //assert
+            Assert.AreEqual(expected1, true);
+            MockWindowServiceWrapper.Verify(x => x.OpenSkillsWindow(It.IsAny<SkillsDialogViewModel>()), Times.Exactly(expected2));
         }
 
         [TestMethod]
@@ -272,8 +288,14 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockTextFormatterWrapper.Setup(x => x.ListToString(It.IsAny<List<string>>(), It.IsAny<bool>()))
                 .Returns("Oops! That wasn't a valid search option, please try again");
 
-            CharacterSheetViewModel = new CharacterSheetViewModel(character, 
-                MockDialogWindowWrapper.Object, MockTextFormatterWrapper.Object, new SerializeCharacterWrapper());
+            MockWindowServiceWrapper = new Mock<IWindowServiceWrapper>();
+
+            CharacterSheetViewModel = new CharacterSheetViewModel(
+                character,
+                MockDialogWindowWrapper.Object, 
+                MockTextFormatterWrapper.Object, 
+                new SerializeCharacterWrapper(),
+                MockWindowServiceWrapper.Object);
         }
     }
 }

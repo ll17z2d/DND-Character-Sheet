@@ -6,6 +6,6 @@ namespace DND_Character_Sheet.Wrappers
 {
     public interface IFileDialogWrapper
     {
-        public bool? ShowDialog();
+        public bool ShowDialog();
     }
 }

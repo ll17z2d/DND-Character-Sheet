@@ -26,13 +26,20 @@ namespace DND_Character_Sheet.Views
     /// </summary>
     public partial class CharacterSheetView : Window
     {
-        public CharacterSheetView(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        public CharacterSheetView(CharacterSheetViewModel characterSheetViewModel)
         {
             InitializeComponent();
-            var vm = new CharacterSheetViewModel(character, dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper);
-            this.DataContext = vm;
-            Closing += vm.ExitWindow;
+            this.DataContext = characterSheetViewModel;
+            Closing += characterSheetViewModel.ExitWindow;
         }
+
+        //public CharacterSheetView(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        //{
+        //    InitializeComponent();
+        //    var vm = new CharacterSheetViewModel(character, dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper);
+        //    this.DataContext = vm;
+        //    Closing += vm.ExitWindow;
+        //}
 
 
     }

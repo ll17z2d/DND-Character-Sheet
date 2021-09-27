@@ -31,7 +31,8 @@ namespace DND_Character_Sheet.Views
                 new SaveFileDialogWrapper(new SaveFileDialog()),
                 new MessageBoxWrapper()), 
                 new TextFormatterWrapper(),
-                new SerializeCharacterWrapper());
+                new SerializeCharacterWrapper(),
+                new WindowServiceWrapper());
         }
     }
 }

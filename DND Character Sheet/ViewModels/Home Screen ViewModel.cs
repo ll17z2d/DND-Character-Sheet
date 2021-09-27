@@ -21,9 +21,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
 
-        public IWindowWrapper CharacterCreatorWindowWrapper { get; set; }
-
-        public IWindowWrapper CharacterSheetWindowWrapper { get; set; }
+        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
 
         public ICharacterModel Character { get; set; }
 
@@ -33,33 +31,17 @@ namespace DND_Character_Sheet.ViewModels
 
         //public ICommand EditCharacterCommand { get; set; }
 
-        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper)
         {
             NewCharacterCommand = new MethodCommands(NewCharacter);
             OpenCharacterCommand = new MethodCommands(OpenCharacter);
             DialogWindowWrapper = dialogWindowWrapper;
             TextFormatterWrapper = textFormatterWrapper;
             SerializeCharacterWrapper = serializeCharacterWrapper;
-            
-            //CharacterSheetWindowWrapper = new WindowWrapper(new CharacterSheetView(Character, DialogWindowWrapper,
-            //    TextFormatterWrapper, SerializeCharacterWrapper));
-            //CharacterCreatorWindowWrapper =
-            //    new WindowWrapper(new CharacterCreatorView(DialogWindowWrapper, TextFormatterWrapper,
-            //        SerializeCharacterWrapper));
-
-            InitialiseCharacterSheetWindowWrapper();
-            InitialiseCharacterCreatorWindowWrapper();
+            WindowServiceWrapper = windowServiceWrapper;
 
             //MessageBoxWrapper.Show("peta griffin", "peter alert", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
         }
-
-        private void InitialiseCharacterCreatorWindowWrapper() 
-            => CharacterCreatorWindowWrapper =
-                new WindowWrapper(
-                    new CharacterCreatorView(DialogWindowWrapper, TextFormatterWrapper, SerializeCharacterWrapper));
-
-        private void InitialiseCharacterSheetWindowWrapper() 
-            => CharacterSheetWindowWrapper = new WindowWrapper();
 
         public bool OpenCharacter()
         {
@@ -69,36 +51,20 @@ namespace DND_Character_Sheet.ViewModels
             var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.ShowDialog();
 
             if (dialogResult == true)
-            {
-                Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
-                //CharacterSheetWindowWrapper.Window = new CharacterSheetView(Character, DialogWindowWrapper,
-                //    TextFormatterWrapper, SerializeCharacterWrapper);
-                CharacterSheetWindowWrapper = CreateCharacterSheetWindowWrapper();
-                CharacterSheetWindowWrapper.ShowDialog();
-
-
-                //new CharacterSheetView(character, DialogWindowWrapper, TextFormatterWrapper, SerializeCharacterWrapper).ShowDialog();
-            }
+                WindowServiceWrapper.OpenCharacterSheetWindow(new CharacterSheetViewModel(
+                    Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName),
+                    DialogWindowWrapper, TextFormatterWrapper, SerializeCharacterWrapper, WindowServiceWrapper));
 
             return (bool)dialogResult;
 
         }
 
-        public bool NewCharacter()
-        {
-            InitialiseCharacterCreatorWindowWrapper();
-            var dialogResult = CharacterCreatorWindowWrapper.ShowDialog();
-
-            return (bool)dialogResult;
-        }
+        public bool NewCharacter() 
+            => (bool) WindowServiceWrapper.OpenCharacterCreatorWindow(
+                new CharacterCreatorViewModel(DialogWindowWrapper, TextFormatterWrapper,
+                    SerializeCharacterWrapper, WindowServiceWrapper));
 
         private ICharacterModel Open(string filePath)
             => SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
-
-        private IWindowWrapper CreateCharacterSheetWindowWrapper()
-        {
-            return new WindowWrapper(new CharacterSheetView(Character, DialogWindowWrapper,
-                TextFormatterWrapper, SerializeCharacterWrapper));
-        }
     }
 }
