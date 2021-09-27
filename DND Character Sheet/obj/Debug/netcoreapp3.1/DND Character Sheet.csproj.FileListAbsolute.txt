@@ -51,3 +51,4 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Debug\netcoreapp3.1\DND Character Sheet.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Debug\netcoreapp3.1\DND Character Sheet.pdb
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Debug\netcoreapp3.1\DND Character Sheet.genruntimeconfig.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Debug\netcoreapp3.1\DND Character Sheet.csprojAssemblyReference.cache
