@@ -7,7 +7,6 @@
              StartupUri="Views/Home Screen View.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
             <converters:IntegerStatConverter x:Key="IntegerStatConverter" />
 
             <ControlTemplate x:Key="ValidationTemplate">

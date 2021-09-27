@@ -157,7 +157,7 @@ namespace DND_Character_Sheet.ViewModels
 
         private ObservableCollection<string> diceCollection;
 
-        public ObservableCollection<string> DiceCollection //TODO: Consider having a different viewmodel for every user control, need to see if possible. If so then would help rreduce pollution in window viewmodels
+        public ObservableCollection<string> DiceCollection //TODO: Consider having a different viewmodel for every user control, need to see if possible. If so then would help reduce pollution in window viewmodels
         {
             get
             {
@@ -215,15 +215,13 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public IWindowWrapper NewCharacterWindowWrapper { get; set; }
-
         #endregion
 
         #region Contructor
 
-        public CharacterSheetViewModel(ICharacterModel character, IDialogWindowWrapper messageBoxWrapper, ITextFormatterWrapper textFormatterWrapper, 
-            ISerializeCharacterWrapper serializeCharacterWrapper) 
-            : base(character, messageBoxWrapper, textFormatterWrapper, serializeCharacterWrapper)
+        public CharacterSheetViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, 
+            ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper) 
+            : base(character, dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper, windowServiceWrapper)
         {
             //https://pokemon-go1.p.rapidapi.com/pokemon_evolutions.json
 
@@ -253,12 +251,7 @@ namespace DND_Character_Sheet.ViewModels
             InitialiseAPISearchOptions();
             InitialiseDiceRolls();
             InitialiseWindowTitle();
-            InitialiseNewCharacterWindowWrapper();
         }
-
-        private void InitialiseNewCharacterWindowWrapper() 
-            => NewCharacterWindowWrapper = new WindowWrapper(new CharacterCreatorView(DialogWindowWrapper,
-                TextFormatterWrapper, SerializeCharacterWrapper));
 
         private void InitialiseWindowTitle() 
             => WindowTitle = Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
@@ -311,7 +304,7 @@ namespace DND_Character_Sheet.ViewModels
             return isSuccessful;
         }
 
-        public bool SearchSkills()
+        public bool SearchSkills() //TODO: Test this again
         {
             SearchedSkills = new ObservableCollection<Skill>();
 
@@ -338,23 +331,15 @@ namespace DND_Character_Sheet.ViewModels
             return false;
         }
 
-        public bool NewCharacter()
-        {
-            InitialiseNewCharacterWindowWrapper();
-            return (bool) NewCharacterWindowWrapper.ShowDialog();
-        }
+        public bool NewCharacter() 
+            => WindowServiceWrapper.OpenCharacterCreatorWindow(new CharacterCreatorViewModel(DialogWindowWrapper,
+                TextFormatterWrapper, SerializeCharacterWrapper, WindowServiceWrapper));
 
-        public bool OpenNotesWindow()
-        {
-            InitialiseNotesWindowWrapper();
-            return (bool) NotesWindowWrapper.ShowDialog();
-        }
+        public bool OpenNotesWindow() 
+            => WindowServiceWrapper.OpenNotesWindow(new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper));
 
-        public bool OpenSkillsWindow()
-        {
-            InitialiseSkillsWindowWrapper();
-            return (bool) SkillsWindowWrapper.ShowDialog();
-        }
+        public bool OpenSkillsWindow() 
+            => WindowServiceWrapper.OpenSkillsWindow(new SkillsDialogViewModel(Character.AllSkills, true));
 
         private IAPICommunicator APICommunicator
             => new APICommunicator(SelectedSearchType, SearchTextbox);

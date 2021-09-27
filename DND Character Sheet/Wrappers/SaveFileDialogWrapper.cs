@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
+// ReSharper disable PossibleInvalidOperationException
 
 namespace DND_Character_Sheet.Wrappers
 {
@@ -18,7 +19,7 @@ namespace DND_Character_Sheet.Wrappers
 
         public SaveFileDialog SaveFileDialog { get; set; }
 
-        public bool? ShowDialog() 
-            => SaveFileDialog.ShowDialog();
+        public bool ShowDialog() 
+            => (bool)SaveFileDialog.ShowDialog();
     }
 }

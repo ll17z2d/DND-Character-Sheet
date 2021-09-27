@@ -24,6 +24,8 @@ namespace DND_Character_Sheet.ViewModels
 
         public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
 
+        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
+
         public bool SaveCharacterAs();
 
         public bool SaveCharacter();
@@ -60,37 +62,21 @@ namespace DND_Character_Sheet.ViewModels
 
         public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
 
-        public IWindowWrapper NotesWindowWrapper { get; set; }
+        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
 
-        public IWindowWrapper SkillsWindowWrapper { get; set; }
-
-        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
+        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper)
         {
             InitialiseCharacter(character);
             InitialiseDialogWindowWrapper(dialogWindowWrapper);
             InitialiseTextFormatterWrapper(textFormatterWrapper);
             InitialiseSerializeCharacterWrapper(serializeCharacterWrapper);
-            InitialiseWindowWrappers();
-            //System.Windows.Threading.Dispatcher.CurrentDispatcher.Invoke(InitialiseWindowWrappers);
+            InitialiseWindowWrapper(windowServiceWrapper);
         }
 
         #region Initialise
 
-        [STAThread]
-        private void InitialiseWindowWrappers()
-        {
-            InitialiseNotesWindowWrapper();
-            InitialiseSkillsWindowWrapper();
-        }
-
-        public void InitialiseSkillsWindowWrapper() 
-            => SkillsWindowWrapper =
-                new WindowWrapper(new SkillsDialogView(new SkillsDialogViewModel(Character.AllSkills, true)));
-
-        public void InitialiseNotesWindowWrapper() 
-            => NotesWindowWrapper =
-                new WindowWrapper(new NotesDialogView(new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath,
-                    DialogWindowWrapper)));
+        private void InitialiseWindowWrapper(IWindowServiceWrapper windowServiceWrapper) 
+            => WindowServiceWrapper = windowServiceWrapper;
 
         public void InitialiseCharacter(ICharacterModel character)
             => Character = character;
