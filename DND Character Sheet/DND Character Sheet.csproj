@@ -20,14 +20,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Testing Raxer Chroma SDK">
-      <HintPath>..\..\Testing Raxer Chroma SDK\Testing Raxer Chroma SDK\bin\Debug\netcoreapp3.1\Testing Raxer Chroma SDK.dll</HintPath>
-    </Reference>
+    <Resource Include="Images\Invalid Character Appearance.png" />
+    <Resource Include="Images\Placeholder Character Appearance.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Invalid Character Appearance.png" />
-    <Resource Include="Images\Placeholder Character Appearance.png" />
+    <Folder Include="Assemblies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Testing Raxer Chroma SDK">
+      <HintPath>Assemblies\Testing Raxer Chroma SDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

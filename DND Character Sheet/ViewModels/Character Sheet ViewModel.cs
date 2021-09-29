@@ -293,6 +293,11 @@ namespace DND_Character_Sheet.ViewModels
                 return false;
             }
 
+            if (OutTextbox != "Press Go!")
+            {
+                return true;
+            }
+
             OutTextbox = "Press Go!";
             return true;
         }
