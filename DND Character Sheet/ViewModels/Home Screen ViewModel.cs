@@ -17,11 +17,9 @@ namespace DND_Character_Sheet.ViewModels
     {
         public IDialogWindowWrapper DialogWindowWrapper { get; set; }
 
-        public ITextFormatterWrapper TextFormatterWrapper { get; set; }
+        public IStaticClassWrapper StaticClassWrapper { get; set; }
 
-        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
-
-        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
+        public IOpenNewViewWrapper WindowServiceWrapper { get; set; }
 
         public ICharacterModel Character { get; set; }
 
@@ -31,13 +29,12 @@ namespace DND_Character_Sheet.ViewModels
 
         //public ICommand EditCharacterCommand { get; set; }
 
-        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper)
+        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper)
         {
             NewCharacterCommand = new MethodCommands(NewCharacter);
             OpenCharacterCommand = new MethodCommands(OpenCharacter);
             DialogWindowWrapper = dialogWindowWrapper;
-            TextFormatterWrapper = textFormatterWrapper;
-            SerializeCharacterWrapper = serializeCharacterWrapper;
+            StaticClassWrapper = staticClassWrapper;
             WindowServiceWrapper = windowServiceWrapper;
 
             //MessageBoxWrapper.Show("peta griffin", "peter alert", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
@@ -53,7 +50,7 @@ namespace DND_Character_Sheet.ViewModels
             if (dialogResult == true)
                 WindowServiceWrapper.OpenCharacterSheetWindow(new CharacterSheetViewModel(
                     Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName),
-                    DialogWindowWrapper, TextFormatterWrapper, SerializeCharacterWrapper, WindowServiceWrapper));
+                    DialogWindowWrapper, StaticClassWrapper, WindowServiceWrapper));
 
             return (bool)dialogResult;
 
@@ -61,10 +58,9 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool NewCharacter() 
             => (bool) WindowServiceWrapper.OpenCharacterCreatorWindow(
-                new CharacterCreatorViewModel(DialogWindowWrapper, TextFormatterWrapper,
-                    SerializeCharacterWrapper, WindowServiceWrapper));
+                new CharacterCreatorViewModel(DialogWindowWrapper, StaticClassWrapper, WindowServiceWrapper));
 
         private ICharacterModel Open(string filePath)
-            => SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
     }
 }

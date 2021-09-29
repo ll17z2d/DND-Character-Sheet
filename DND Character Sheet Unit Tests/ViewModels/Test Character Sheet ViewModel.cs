@@ -22,7 +22,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public CharacterSheetViewModel CharacterSheetViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
         public Mock<ITextFormatterWrapper> MockTextFormatterWrapper { get; set; }
-        public Mock<IWindowServiceWrapper> MockWindowServiceWrapper { get; set; }
+        public Mock<IOpenNewViewWrapper> MockWindowServiceWrapper { get; set; }
 
         [TestMethod]
         public void CanAPISearch_EmptyTextBox()
@@ -288,13 +288,12 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockTextFormatterWrapper.Setup(x => x.ListToString(It.IsAny<List<string>>(), It.IsAny<bool>()))
                 .Returns("Oops! That wasn't a valid search option, please try again");
 
-            MockWindowServiceWrapper = new Mock<IWindowServiceWrapper>();
+            MockWindowServiceWrapper = new Mock<IOpenNewViewWrapper>();
 
             CharacterSheetViewModel = new CharacterSheetViewModel(
                 character,
-                MockDialogWindowWrapper.Object, 
-                MockTextFormatterWrapper.Object, 
-                new SerializeCharacterWrapper(),
+                MockDialogWindowWrapper.Object,
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()),
                 MockWindowServiceWrapper.Object);
         }
     }

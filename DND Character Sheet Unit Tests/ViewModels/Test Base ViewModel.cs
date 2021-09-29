@@ -117,7 +117,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFile(It.IsAny<ICharacterModel>()));
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object, 
-                new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object, new WindowServiceWrapper());
+                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper());
         }
 
         private void GetUnderTestOpenCharacter(bool dialogWindowResult)
@@ -130,7 +130,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFile(It.IsAny<string>()));
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object, new WindowServiceWrapper());
+                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper());
         }
     }
 }

@@ -11,6 +11,7 @@ namespace DND_Character_Sheet.Wrappers
         public ISaveFileDialogWrapper SaveFileDialogWrapper { get; set; }
         public IMessageBoxWrapper MessageBoxWrapper { get; set; }
     }
+
     public class DialogWindowWrapper : IDialogWindowWrapper
     {
         public DialogWindowWrapper(IOpenFileDialogWrapper openFileDialog, ISaveFileDialogWrapper saveFileDialog, IMessageBoxWrapper messageBoxWrapper)
