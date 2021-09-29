@@ -7,7 +7,7 @@ using DND_Character_Sheet.Views;
 
 namespace DND_Character_Sheet.Wrappers
 {
-    public interface IWindowServiceWrapper
+    public interface IOpenNewViewWrapper
     {
         public bool OpenNotesWindow(NotesDialogViewModel notesDialogViewModel);
 
@@ -18,7 +18,7 @@ namespace DND_Character_Sheet.Wrappers
         public bool OpenCharacterSheetWindow(CharacterSheetViewModel characterSheetViewModel);
     }
 
-    public class WindowServiceWrapper : IWindowServiceWrapper
+    public class OpenNewViewWrapper : IOpenNewViewWrapper
     {
         public bool OpenNotesWindow(NotesDialogViewModel notesDialogViewModel) 
             => (bool)new NotesDialogView(notesDialogViewModel).ShowDialog();

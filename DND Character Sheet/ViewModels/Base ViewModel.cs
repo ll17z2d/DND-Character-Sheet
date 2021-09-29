@@ -19,12 +19,10 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand SaveCharacterCommand { get; set; }
 
         public IDialogWindowWrapper DialogWindowWrapper { get; set; }
+        
+        public IStaticClassWrapper StaticClassWrapper { get; set; }
 
-        public ITextFormatterWrapper TextFormatterWrapper { get; set; }
-
-        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
-
-        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
+        public IOpenNewViewWrapper WindowServiceWrapper { get; set; }
 
         public bool SaveCharacterAs();
 
@@ -58,24 +56,24 @@ namespace DND_Character_Sheet.ViewModels
 
         public virtual IDialogWindowWrapper DialogWindowWrapper { get; set; }
 
-        public ITextFormatterWrapper TextFormatterWrapper { get; set; }
+        public IStaticClassWrapper StaticClassWrapper { get; set; }
 
-        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
+        public IOpenNewViewWrapper WindowServiceWrapper { get; set; }
 
-        public IWindowServiceWrapper WindowServiceWrapper { get; set; }
-
-        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper)
+        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper)
         {
             InitialiseCharacter(character);
             InitialiseDialogWindowWrapper(dialogWindowWrapper);
-            InitialiseTextFormatterWrapper(textFormatterWrapper);
-            InitialiseSerializeCharacterWrapper(serializeCharacterWrapper);
+            InitialiseStaticClassWrapper(staticClassWrapper);
             InitialiseWindowWrapper(windowServiceWrapper);
         }
 
         #region Initialise
 
-        private void InitialiseWindowWrapper(IWindowServiceWrapper windowServiceWrapper) 
+        private void InitialiseStaticClassWrapper(IStaticClassWrapper staticClassWrapper) 
+            => StaticClassWrapper = staticClassWrapper;
+
+        private void InitialiseWindowWrapper(IOpenNewViewWrapper windowServiceWrapper) 
             => WindowServiceWrapper = windowServiceWrapper;
 
         public void InitialiseCharacter(ICharacterModel character)
@@ -83,12 +81,6 @@ namespace DND_Character_Sheet.ViewModels
 
         public void InitialiseDialogWindowWrapper(IDialogWindowWrapper dialogWindowWrapper) 
             => DialogWindowWrapper = dialogWindowWrapper;
-
-        public void InitialiseTextFormatterWrapper(ITextFormatterWrapper textFormatterWrapper)
-            => TextFormatterWrapper = textFormatterWrapper;
-
-        public void InitialiseSerializeCharacterWrapper(ISerializeCharacterWrapper serializeCharacterWrapper)
-            => SerializeCharacterWrapper = serializeCharacterWrapper;
 
         #endregion
 
@@ -98,13 +90,13 @@ namespace DND_Character_Sheet.ViewModels
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
             var dialogResult = DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog();
 
-            if (dialogResult == true)
+            if (dialogResult)
             {
                 Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
                 Save();
             }
 
-            return (bool)dialogResult;
+            return dialogResult;
         }
 
         public bool SaveCharacter()
@@ -125,12 +117,12 @@ namespace DND_Character_Sheet.ViewModels
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
             var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog();
 
-            if (dialogResult == true)
+            if (dialogResult)
             {
                 Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
             }
 
-            return (bool)dialogResult;
+            return dialogResult;
         }
 
         public void ExitWindow(object sender, CancelEventArgs e)
@@ -174,10 +166,10 @@ namespace DND_Character_Sheet.ViewModels
             => DialogWindowWrapper.MessageBoxWrapper.Show("Would you like to save your changes before closing?", "Close Character", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.Yes);
 
         private void Save()
-            => SerializeCharacterWrapper.SaveCharacterToFile(Character);
+            => StaticClassWrapper.SerializeCharacterWrapper.SaveCharacterToFile(Character);
 
         private ICharacterModel Open(string filePath)
-            => SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
 
         private bool HasCharacterBeenCreated() 
             => Character.FilePath != Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

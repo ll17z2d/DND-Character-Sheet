@@ -43,8 +43,8 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand ResetCharacterCommand { get; set; }
         public ICommand AutoGenerateSkillModsCommand { get; set; }
 
-        public CharacterCreatorViewModel(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper) 
-            : base(new CharacterModel(), dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper, windowServiceWrapper)
+        public CharacterCreatorViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper) 
+            : base(new CharacterModel(), dialogWindowWrapper, staticClassWrapper, windowServiceWrapper)
         {
             Initialise();
         }
@@ -94,7 +94,7 @@ namespace DND_Character_Sheet.ViewModels
                     return true;
                 }
 
-                DialogWindowWrapper.MessageBoxWrapper.Show($"Error - Ensure you've set all your main stats and you've set a proficiency bonus. There seems to be issues with the following stat values: {TextFormatterWrapper.ListToString(skillErrorList)}", "Cannot Generate Skill Modifiers", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                DialogWindowWrapper.MessageBoxWrapper.Show($"Error - Ensure you've set all your main stats and you've set a proficiency bonus. There seems to be issues with the following stat values: {StaticClassWrapper.TextFormatterWrapper.ListToString(skillErrorList)}", "Cannot Generate Skill Modifiers", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 return false;
             }
 

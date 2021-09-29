@@ -219,9 +219,9 @@ namespace DND_Character_Sheet.ViewModels
 
         #region Contructor
 
-        public CharacterSheetViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, 
-            ISerializeCharacterWrapper serializeCharacterWrapper, IWindowServiceWrapper windowServiceWrapper) 
-            : base(character, dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper, windowServiceWrapper)
+        public CharacterSheetViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, 
+            IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper) 
+            : base(character, dialogWindowWrapper, staticClassWrapper, windowServiceWrapper)
         {
             //https://pokemon-go1.p.rapidapi.com/pokemon_evolutions.json
 
@@ -256,7 +256,7 @@ namespace DND_Character_Sheet.ViewModels
         private void InitialiseWindowTitle() 
             => WindowTitle = Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
                 ? "Test"
-                : TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
+                : StaticClassWrapper.TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
 
         private void InitialiseDiceRolls() 
             => DiceCollection = new ObservableCollection<string>(DiceStrings.AllDice);
@@ -300,7 +300,7 @@ namespace DND_Character_Sheet.ViewModels
         public bool APISearch()
         {
             (var outputText, var isSuccessful) = APICommunicator.GetJson();
-            OutTextbox = TextFormatterWrapper.ListToString(outputText);
+            OutTextbox = StaticClassWrapper.TextFormatterWrapper.ListToString(outputText);
             return isSuccessful;
         }
 
@@ -333,7 +333,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool NewCharacter() 
             => WindowServiceWrapper.OpenCharacterCreatorWindow(new CharacterCreatorViewModel(DialogWindowWrapper,
-                TextFormatterWrapper, SerializeCharacterWrapper, WindowServiceWrapper));
+                StaticClassWrapper, WindowServiceWrapper));
 
         public bool OpenNotesWindow() 
             => WindowServiceWrapper.OpenNotesWindow(new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper));

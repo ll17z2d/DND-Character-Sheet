@@ -9,7 +9,6 @@ namespace DND_Character_Sheet.Wrappers
     {
         MessageBoxResult Show(string message, string messageBoxTitle, MessageBoxButton messageBoxButton, MessageBoxImage messageBoxImage, MessageBoxResult defaultMessageBoxResult);
 
-        MessageBoxResult Show(string message, string messageBoxTitle, MessageBoxButton messageBoxButton, MessageBoxImage messageBoxImage);
     }
 
     public class MessageBoxWrapper : IMessageBoxWrapper
@@ -17,9 +16,5 @@ namespace DND_Character_Sheet.Wrappers
         public MessageBoxResult Show(string message, string messageBoxTitle, MessageBoxButton messageBoxButton,
             MessageBoxImage messageBoxImage, MessageBoxResult defaultMessageBoxResult) =>
             MessageBox.Show(message, messageBoxTitle, messageBoxButton, messageBoxImage, defaultMessageBoxResult);
-
-        public MessageBoxResult Show(string message, string messageBoxTitle, MessageBoxButton messageBoxButton,
-            MessageBoxImage messageBoxImage) => MessageBox.Show(message, messageBoxTitle, messageBoxButton, messageBoxImage);
-
     }
 }
