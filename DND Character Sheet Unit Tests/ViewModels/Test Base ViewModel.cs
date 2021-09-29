@@ -21,7 +21,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void OpenCharacter_TestSuccessOnDialogWindow()
         {
             //arrange
-            var expected1 = 3;
+            var expected1 = 2;
             var expected2 = true;
             var expected3 = 1;
             GetUnderTestOpenCharacter(expected2);
