@@ -24,14 +24,13 @@ namespace DND_Character_Sheet.Views
         public HomeScreenView()
         {
             InitializeComponent();
-            var dialogWindowWrapper = 
 
             this.DataContext = new HomeScreenViewModel(new DialogWindowWrapper(
                 new OpenFileDialogWrapper(new OpenFileDialog()),
                 new SaveFileDialogWrapper(new SaveFileDialog()),
                 new MessageBoxWrapper()), 
                 new StaticClassWrapper(new TextFormatterWrapper(),
-                new SerializeCharacterWrapper()),
+                new FileOperationsWrapper()),
                 new OpenNewViewWrapper());
         }
     }

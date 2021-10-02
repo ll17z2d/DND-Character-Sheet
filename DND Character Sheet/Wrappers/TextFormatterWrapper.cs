@@ -12,8 +12,6 @@ namespace DND_Character_Sheet.Wrappers
         public string FormatList<T>(List<T> list, string property);
 
         public string ExtractFileNameFromPath(string filePath);
-
-        public string GetSkillPropertyNameFromSkillName(string skillName);
     }
 
     public class TextFormatterWrapper : ITextFormatterWrapper
@@ -26,8 +24,5 @@ namespace DND_Character_Sheet.Wrappers
 
         public string ExtractFileNameFromPath(string filePath) 
             => TextFormatter.ExtractFileNameFromPath(filePath);
-
-        public string GetSkillPropertyNameFromSkillName(string skillName) 
-            => TextFormatter.GetSkillPropertyNameFromSkillName(skillName);
     }
 }

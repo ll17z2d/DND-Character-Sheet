@@ -26,13 +26,5 @@ namespace DND_Character_Sheet.Views
             this.DataContext = characterCreatorViewModel;
             Closing += characterCreatorViewModel.ExitWindow;
         }
-
-        //public CharacterCreatorView(IDialogWindowWrapper dialogWindowWrapper, ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
-        //{
-        //    InitializeComponent();
-        //    var vm = new CharacterCreatorViewModel(new CharacterModel(), dialogWindowWrapper, textFormatterWrapper, serializeCharacterWrapper);
-        //    this.DataContext = vm;
-        //    Closing += vm.ExitWindow;
-        //}
     }
 }

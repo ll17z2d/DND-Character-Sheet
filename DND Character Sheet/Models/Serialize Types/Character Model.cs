@@ -68,8 +68,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         public MiscStats MiscStats { get; set; }
         public CharacterNotes CharacterNotes { get; set; }
 
-        public ObservableCollection<Weapons_Inventory> WeaponsInventory { get; set; } =
-            new ObservableCollection<Weapons_Inventory>();
+        public ObservableCollection<Weapons_Inventory> WeaponsInventory { get; set; } = new();
 
         public string FilePath { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 

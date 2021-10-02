@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
 using System.Windows.Input;
 using DND_Character_Sheet.Commands;
 using DND_Character_Sheet.Models.Serialize_Types;
-using DND_Character_Sheet.Serialization;
-using DND_Character_Sheet.Views;
 using DND_Character_Sheet.Wrappers;
-using GalaSoft.MvvmLight.Command;
-using Microsoft.Win32;
 
 namespace DND_Character_Sheet.ViewModels
 {
@@ -19,7 +12,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public IStaticClassWrapper StaticClassWrapper { get; set; }
 
-        public IOpenNewViewWrapper WindowServiceWrapper { get; set; }
+        public IOpenNewViewWrapper OpenNewViewWrapper { get; set; }
 
         public ICharacterModel Character { get; set; }
 
@@ -29,13 +22,13 @@ namespace DND_Character_Sheet.ViewModels
 
         //public ICommand EditCharacterCommand { get; set; }
 
-        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper)
+        public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper)
         {
             NewCharacterCommand = new MethodCommands(NewCharacter);
             OpenCharacterCommand = new MethodCommands(OpenCharacter);
             DialogWindowWrapper = dialogWindowWrapper;
             StaticClassWrapper = staticClassWrapper;
-            WindowServiceWrapper = windowServiceWrapper;
+            OpenNewViewWrapper = openNewViewWrapper;
 
             //MessageBoxWrapper.Show("peta griffin", "peter alert", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.None);
         }
@@ -44,21 +37,21 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
-            var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.ShowDialog();
+            var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog();
 
             if (dialogResult == true)
-                WindowServiceWrapper.OpenCharacterSheetWindow(new CharacterSheetViewModel(
+                OpenNewViewWrapper.OpenCharacterSheetWindow(
                     Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName),
-                    DialogWindowWrapper, StaticClassWrapper, WindowServiceWrapper));
+                    DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
 
-            return (bool)dialogResult;
-
+            return dialogResult;
         }
 
         public bool NewCharacter() 
-            => (bool) WindowServiceWrapper.OpenCharacterCreatorWindow(
-                new CharacterCreatorViewModel(DialogWindowWrapper, StaticClassWrapper, WindowServiceWrapper));
+            => OpenNewViewWrapper.OpenCharacterCreatorWindow(
+                DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
 
         private ICharacterModel Open(string filePath)
             => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);

@@ -15,7 +15,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
     {
         public CharacterCreatorViewModel CharacterCreatorViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
-        public Mock<ISerializeCharacterWrapper> MockSerializeCharacterWrapper { get; set; }
+        public Mock<IFileOperationsWrapper> MockSerializeCharacterWrapper { get; set; }
 
         [TestMethod]
         public void OpenCharacter_TestSuccessOnDialogWindow()
@@ -113,11 +113,12 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.SaveFileDialog).Returns(new SaveFileDialog());
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog()).Returns(dialogWindowResult);
 
-            MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
+            MockSerializeCharacterWrapper = new Mock<IFileOperationsWrapper>();
             MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFile(It.IsAny<ICharacterModel>()));
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object, 
-                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper());
+                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
+                new OpenNewViewWrapper());
         }
 
         private void GetUnderTestOpenCharacter(bool dialogWindowResult)
@@ -126,11 +127,12 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.OpenFileDialog).Returns(new OpenFileDialog());
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(dialogWindowResult);
 
-            MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
+            MockSerializeCharacterWrapper = new Mock<IFileOperationsWrapper>();
             MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFile(It.IsAny<string>()));
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper());
+                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
+                new OpenNewViewWrapper());
         }
     }
 }

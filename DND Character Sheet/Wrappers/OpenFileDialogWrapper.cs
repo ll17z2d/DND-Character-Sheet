@@ -6,7 +6,7 @@ using Microsoft.Win32;
 
 namespace DND_Character_Sheet.Wrappers
 {
-    public interface IOpenFileDialogWrapper : IFileDialogWrapper
+    public interface IOpenFileDialogWrapper : IFileDialogWindowWrapper
     {
         public OpenFileDialog OpenFileDialog { get; set; }
     }

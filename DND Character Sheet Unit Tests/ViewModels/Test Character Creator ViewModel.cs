@@ -22,7 +22,6 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public CharacterCreatorViewModel CharacterCreatorViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
         public Mock<ITextFormatterWrapper> MockTextFormatterWrapper { get; set; }
-        public Mock<ICharacterModel> MockCharacter { get; set; }
 
         [TestMethod]
         public void ExitWindow_TestCloseWindowOnBlankCharacter()
@@ -253,7 +252,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns("Test Window Title");
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()), new OpenNewViewWrapper());
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, new FileOperationsWrapper()), new OpenNewViewWrapper());
         }
 
         private void ChangeCharacterStrValue(int str)

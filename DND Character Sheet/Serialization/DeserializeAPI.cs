@@ -85,7 +85,7 @@ namespace DND_Character_Sheet.Serialization
                     $"The {backgrounds.name} background lets you pick {backgrounds.flaws.choose} from the list of tools below:\n" +
                     $"{TextFormatterWrapper.ListToString(backgrounds.flaws.from)}\n");
                 OutputText.Add(
-                    $"The {backgrounds.name} background starts with {TextFormatter.FormatList(backgrounds.starting_proficiencies, "name")}");
+                    $"The {backgrounds.name} background starts with {TextFormatterWrapper.FormatList(backgrounds.starting_proficiencies, "name")}");
             }
 
             return backgrounds != null;
@@ -97,24 +97,24 @@ namespace DND_Character_Sheet.Serialization
             if (classes != null)
             {
                 OutputText.Add($"Name:  {classes.name}\n");
-                OutputText.Add($"{classes.name}s are proficient in {TextFormatter.FormatList(classes.proficiencies, "name")}\n" +
-                               $"as well as saving throw proficiencies in {TextFormatter.FormatList(classes.saving_throws, "name")}\n");
+                OutputText.Add($"{classes.name}s are proficient in {TextFormatterWrapper.FormatList(classes.proficiencies, "name")}\n" +
+                               $"as well as saving throw proficiencies in {TextFormatterWrapper.FormatList(classes.saving_throws, "name")}\n");
                 OutputText.Add($"{classes.name}s also have a hit die of 1d{classes.hit_die}\n");
                 OutputText.Add(
                     $"{classes.name}s can pick {classes.proficiency_choices[0].choose} from the list of proficiencies below:\n" +
-                    $"{TextFormatter.FormatList(classes.proficiency_choices[0].from, "name")}");
+                    $"{TextFormatterWrapper.FormatList(classes.proficiency_choices[0].from, "name")}");
                 if (classes.proficiency_choices.Count > 1)
                 {
                     OutputText.Add(
                         $"\nas well as pick {classes.proficiency_choices[1].choose} from the list of proficiencies below:\n" +
-                        $"{TextFormatter.FormatList(classes.proficiency_choices[1].from, "name")}");
+                        $"{TextFormatterWrapper.FormatList(classes.proficiency_choices[1].from, "name")}");
                 }
 
                 if (classes.proficiency_choices.Count > 2)
                 {
                     OutputText.Add(
                         $"\nand finally pick {classes.proficiency_choices[2].choose} from the list of proficiencies below:\n" +
-                        $"{TextFormatter.FormatList(classes.proficiency_choices[2].from, "name")}\n");
+                        $"{TextFormatterWrapper.FormatList(classes.proficiency_choices[2].from, "name")}\n");
                 }
 
                 //OutputText.Add($"{classes.name}s can pick {classes.proficiency_choices[0].choose} from the list of tools below:\n" +

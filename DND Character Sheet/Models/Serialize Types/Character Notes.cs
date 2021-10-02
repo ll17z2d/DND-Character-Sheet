@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using DND_Character_Sheet.Annotations;
+using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet.Models.Serialize_Types
 {
@@ -39,24 +35,18 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         {
             get
             {
-                if (!File.Exists(characterAppearanceFilePath) 
-                    && characterAppearanceFilePath != PlaceholderCharacterAppearance
-                    && characterAppearanceFilePath != InvalidCharacterAppearance)
-                {
+                if (characterAppearanceFilePath != PlaceholderCharacterAppearance
+                    && characterAppearanceFilePath != InvalidCharacterAppearance
+                    && !FileOperationsWrapper.FileExists(characterAppearanceFilePath))
                     characterAppearanceFilePath = InvalidCharacterAppearance;
-                }
                 return characterAppearanceFilePath;
             }
             set
             {
-                if (!File.Exists(value)) // && characterAppearanceFilePath != PlaceholderCharacterAppearance
-                {
+                if (value != PlaceholderCharacterAppearance && !FileOperationsWrapper.FileExists(value))
                     characterAppearanceFilePath = InvalidCharacterAppearance;
-                }
                 else
-                {
                     characterAppearanceFilePath = value;
-                }
                 OnPropertyChanged("CharacterAppearanceFilePath");
             }
         }
@@ -126,10 +116,15 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
-        public CharacterNotes() : this(PlaceholderCharacterAppearance, "", "", "", "", "", new Money()) { }
+        public IFileOperationsWrapper FileOperationsWrapper { get; set; }
 
-        public CharacterNotes(string characterAppearanceFilePath, string quickNotes, string equipment, string sessionNotes, string abilityDesc, string proficiencies, Money money)
+        public CharacterNotes() : this(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(), 
+            new FileOperationsWrapper()) { }
+
+        public CharacterNotes(string characterAppearanceFilePath, string quickNotes, string equipment, string sessionNotes, 
+            string abilityDesc, string proficiencies, Money money, IFileOperationsWrapper fileOperationsWrapper)
         {
+            FileOperationsWrapper = fileOperationsWrapper;
             CharacterAppearanceFilePath = characterAppearanceFilePath;
             QuickNotes = quickNotes;
             Equipment = equipment;
