@@ -39,6 +39,9 @@
             <TabItem Header="Weapons">
                 <DataGrid ItemsSource="{Binding Character.WeaponsInventory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGrid>
             </TabItem>
+            <TabItem Header="Spells">
+                <uc:All_Spells_Control DataContext="{Binding SpellsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </TabItem>
             <TabItem Header="Notes">
                 <uc:All_Notes_Control DataContext="{Binding NotesDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </TabItem>

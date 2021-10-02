@@ -54,7 +54,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public ICommand SaveCharacterCommand { get; set; }
 
-        public virtual IDialogWindowWrapper DialogWindowWrapper { get; set; }
+        public IDialogWindowWrapper DialogWindowWrapper { get; set; }
 
         public IStaticClassWrapper StaticClassWrapper { get; set; }
 
@@ -88,23 +88,22 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "DND Characters|*.json|All files|*.*";
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
-            var dialogResult = DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog();
+            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName = "";
 
-            if (dialogResult)
+            if (DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog())
             {
                 Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
                 Save();
+                return true;
             }
 
-            return dialogResult;
+            return false;
         }
 
         public bool SaveCharacter()
         {
             if (Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-            {
                 return SaveCharacterAs();
-            }
 
             Save();
 
@@ -115,14 +114,15 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
-            var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog();
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
-            if (dialogResult)
+            if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
                 Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                return true;
             }
 
-            return dialogResult;
+            return false;
         }
 
         public void ExitWindow(object sender, CancelEventArgs e)
@@ -177,9 +177,7 @@ namespace DND_Character_Sheet.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

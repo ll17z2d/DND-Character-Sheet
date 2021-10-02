@@ -54,8 +54,6 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        //public string WindowTitle => TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
-
         private string outTextbox;
 
         public string OutTextbox
@@ -192,7 +190,7 @@ namespace DND_Character_Sheet.ViewModels
 
         private ObservableCollection<MenuItem> menuCollection;
 
-        public ObservableCollection<MenuItem> MenuCollection
+        public ObservableCollection<MenuItem> MenuCollection //TODO: Investigate how this could be used + whether this is even needed
         {
             get
             {
@@ -284,9 +282,7 @@ namespace DND_Character_Sheet.ViewModels
             }
 
             if (OutTextbox != "Press Go!")
-            {
                 return true;
-            }
 
             OutTextbox = "Press Go!";
             return true;
@@ -294,12 +290,12 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool APISearch()
         {
-            (var outputText, var isSuccessful) = APICommunicator.GetJson();
+            var (outputText, isSuccessful) = APICommunicator.GetJson();
             OutTextbox = StaticClassWrapper.TextFormatterWrapper.ListToString(outputText);
             return isSuccessful;
         }
 
-        public bool SearchSkills() //TODO: Test this again
+        public bool SearchSkills()
         {
             SearchedSkills = new ObservableCollection<Skill>();
 

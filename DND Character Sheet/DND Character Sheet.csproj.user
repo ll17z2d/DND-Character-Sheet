@@ -13,6 +13,9 @@
     <Compile Update="User Controls\All Skills Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User Controls\All Spells Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\HP + Misc Stats Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\Quick Spells Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="User Controls\Spell List Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\StatModifierTextBox.xaml.cs">
@@ -40,6 +46,9 @@
     <Compile Update="Views\Skills Dialog View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Spells Dialog View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Styles\StatInfo.xaml">
@@ -49,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\All Skills Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\All Spells Control.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\HP + Misc Stats Control.xaml">
@@ -61,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Quick Spells Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Spell List Control.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\StatModifierTextBox.xaml">
@@ -79,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Skills Dialog View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Spells Dialog View.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -14,6 +14,8 @@ namespace DND_Character_Sheet.Wrappers
 
         public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly);
 
+        public bool OpenSpellsWindow();
+
         public bool OpenCharacterCreatorWindow(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, 
             IOpenNewViewWrapper openNewViewWrapper);
 
@@ -29,6 +31,9 @@ namespace DND_Character_Sheet.Wrappers
 
         public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly) 
             => (bool)new SkillsDialogView(new SkillsDialogViewModel(allSkills, isReadOnly)).ShowDialog();
+
+        public bool OpenSpellsWindow() 
+            => (bool)new SpellsDialogView(new SpellsDialogViewModel()).ShowDialog();
 
         public bool OpenCharacterCreatorWindow(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper,
             IOpenNewViewWrapper openNewViewWrapper) 
