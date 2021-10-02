@@ -39,6 +39,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 str = value;
+                OnPropertyChanged("Str");
                 StrMod = StatToModifier(value);
             }
         }
@@ -54,6 +55,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 dex = value;
+                OnPropertyChanged("Dex");
                 DexMod = StatToModifier(value);
             }
         }
@@ -69,6 +71,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 con = value;
+                OnPropertyChanged("Con");
                 ConMod = StatToModifier(value);
             }
         }
@@ -84,6 +87,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 intl = value;
+                OnPropertyChanged("Intl");
                 IntlMod = StatToModifier(value);
             }
         }
@@ -99,6 +103,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 wis = value;
+                OnPropertyChanged("Wis");
                 WisMod = StatToModifier(value);
             }
         }
@@ -114,6 +119,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             set
             {
                 cha = value;
+                OnPropertyChanged("Cha");
                 ChaMod = StatToModifier(value);
             }
         }

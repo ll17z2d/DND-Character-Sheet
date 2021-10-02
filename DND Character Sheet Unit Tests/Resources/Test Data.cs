@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using DND_Character_Sheet.Models.API_Models;
 using DND_Character_Sheet.Models.Serialize_Types;
+using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet_Unit_Tests.Resources
 {
@@ -20,7 +21,8 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
                 new HPStats(20, 16, 2),
                 new MiscStats("+4", 18, "+1", "+35"),
                 new CharacterNotes("", "QN", "EQ", "SN", "AD", "PR",
-                    new Money("2", "50", "200", "500")))
+                    new Money("2", "50", "200", "500"),
+                    new FileOperationsWrapper()))
             {
                 FilePath = "Temp",
                 WeaponsInventory = new ObservableCollection<Weapons_Inventory>()

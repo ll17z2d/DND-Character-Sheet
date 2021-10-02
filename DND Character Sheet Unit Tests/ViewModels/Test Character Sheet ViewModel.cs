@@ -84,7 +84,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             Assert.IsFalse(actual);
         }
 
-        [TestMethod, STAThread]
+        [TestMethod]
         public void APISearch_TestEmptyTextBox()
         {
             //arrange
@@ -190,14 +190,17 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             var expected1 = true;
             var expected2 = 1;
             GetUnderTest();
-            MockWindowServiceWrapper.Setup(x => x.OpenNotesWindow(It.IsAny<NotesDialogViewModel>())).Returns(true);
+            MockWindowServiceWrapper.Setup(x => x.OpenNotesWindow(It.IsAny<CharacterNotes>(),
+                It.IsAny<string>(), It.IsAny<IDialogWindowWrapper>()))
+                .Returns(true);
 
             //act
             var actual = CharacterSheetViewModel.OpenNotesWindow();
 
             //assert
             Assert.AreEqual(expected1, true);
-            MockWindowServiceWrapper.Verify(x => x.OpenNotesWindow(It.IsAny<NotesDialogViewModel>()), Times.Exactly(expected2));
+            MockWindowServiceWrapper.Verify(x => x.OpenNotesWindow(It.IsAny<CharacterNotes>(),
+                It.IsAny<string>(), It.IsAny<IDialogWindowWrapper>()), Times.Exactly(expected2));
         }
 
         [TestMethod]
@@ -207,14 +210,14 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             var expected1 = true;
             var expected2 = 1;
             GetUnderTest();
-            MockWindowServiceWrapper.Setup(x => x.OpenSkillsWindow(It.IsAny<SkillsDialogViewModel>())).Returns(true);
+            MockWindowServiceWrapper.Setup(x => x.OpenSkillsWindow(It.IsAny<AllSkills>(), It.IsAny<bool>())).Returns(true);
 
             //act
             var actual = CharacterSheetViewModel.OpenSkillsWindow();
 
             //assert
             Assert.AreEqual(expected1, true);
-            MockWindowServiceWrapper.Verify(x => x.OpenSkillsWindow(It.IsAny<SkillsDialogViewModel>()), Times.Exactly(expected2));
+            MockWindowServiceWrapper.Verify(x => x.OpenSkillsWindow(It.IsAny<AllSkills>(), It.IsAny<bool>()), Times.Exactly(expected2));
         }
 
         [TestMethod]
@@ -293,7 +296,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             CharacterSheetViewModel = new CharacterSheetViewModel(
                 character,
                 MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()),
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, new FileOperationsWrapper()),
                 MockWindowServiceWrapper.Object);
         }
     }

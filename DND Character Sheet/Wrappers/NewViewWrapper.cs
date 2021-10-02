@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.ViewModels;
 using DND_Character_Sheet.Views;
 // ReSharper disable PossibleInvalidOperationException
@@ -9,27 +10,34 @@ namespace DND_Character_Sheet.Wrappers
 {
     public interface IOpenNewViewWrapper
     {
-        public bool OpenNotesWindow(NotesDialogViewModel notesDialogViewModel);
+        public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper);
 
-        public bool OpenSkillsWindow(SkillsDialogViewModel skillsDialogViewModel);
+        public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly);
 
-        public bool OpenCharacterCreatorWindow(CharacterCreatorViewModel characterCreatorViewModel);
+        public bool OpenCharacterCreatorWindow(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, 
+            IOpenNewViewWrapper openNewViewWrapper);
 
-        public bool OpenCharacterSheetWindow(CharacterSheetViewModel characterSheetViewModel);
+        public bool OpenCharacterSheetWindow(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper,
+            IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper);
     }
 
     public class OpenNewViewWrapper : IOpenNewViewWrapper
     {
-        public bool OpenNotesWindow(NotesDialogViewModel notesDialogViewModel) 
-            => (bool)new NotesDialogView(notesDialogViewModel).ShowDialog();
+        public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper) 
+            => (bool)new NotesDialogView(new NotesDialogViewModel(characterNotes, characterFilePath, 
+                dialogWindowWrapper)).ShowDialog();
 
-        public bool OpenSkillsWindow(SkillsDialogViewModel skillsDialogViewModel) 
-            => (bool)new SkillsDialogView(skillsDialogViewModel).ShowDialog();
+        public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly) 
+            => (bool)new SkillsDialogView(new SkillsDialogViewModel(allSkills, isReadOnly)).ShowDialog();
 
-        public bool OpenCharacterCreatorWindow(CharacterCreatorViewModel characterCreatorViewModel) 
-            => (bool)new CharacterCreatorView(characterCreatorViewModel).ShowDialog();
+        public bool OpenCharacterCreatorWindow(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper,
+            IOpenNewViewWrapper openNewViewWrapper) 
+            => (bool)new CharacterCreatorView(new CharacterCreatorViewModel(dialogWindowWrapper, staticClassWrapper,
+                openNewViewWrapper)).ShowDialog();
 
-        public bool OpenCharacterSheetWindow(CharacterSheetViewModel characterSheetViewModel) 
-            => (bool)new CharacterSheetView(characterSheetViewModel).ShowDialog();
+        public bool OpenCharacterSheetWindow(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, 
+            IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper) 
+            => (bool)new CharacterSheetView(new CharacterSheetViewModel(character, dialogWindowWrapper, 
+                staticClassWrapper, openNewViewWrapper)).ShowDialog();
     }
 }

@@ -52,9 +52,6 @@ namespace DND_Character_Sheet.Useful_Methods
         public static string ExtractFileNameFromPath(string filePath) 
             => filePath.Substring(filePath.LastIndexOf('\\') + 1, (filePath.LastIndexOf('.') - 1) - filePath.LastIndexOf("\\", StringComparison.Ordinal));
 
-        public static string GetSkillPropertyNameFromSkillName(string skillName) 
-            => skillName.Substring(0, skillName.IndexOf('(') - 1).Replace(" ", string.Empty);
-
         private static string GetListItemFromStringProperty<T>(List<T> list, int index, string property)
             => (string)list[index].GetType().GetProperty(property)?.GetValue(list[index]);
     }

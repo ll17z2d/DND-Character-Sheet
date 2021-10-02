@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using DND_Character_Sheet.APICommunication;
 using DND_Character_Sheet.Commands;
 using DND_Character_Sheet.Constants;
-using Testing_Raxer_Chroma_SDK.Annotations;
 using DND_Character_Sheet.Enums;
 using DND_Character_Sheet.Models.Serialize_Types;
-using DND_Character_Sheet.Serialization;
-using DND_Character_Sheet.Useful_Methods;
-using DND_Character_Sheet.Views;
 using DND_Character_Sheet.Wrappers;
-using GalaSoft.MvvmLight.Command;
-using Microsoft.Win32;
-using ObjectsComparer;
 
 namespace DND_Character_Sheet.ViewModels
 {
@@ -337,14 +327,14 @@ namespace DND_Character_Sheet.ViewModels
         }
 
         public bool NewCharacter() 
-            => WindowServiceWrapper.OpenCharacterCreatorWindow(new CharacterCreatorViewModel(DialogWindowWrapper,
-                StaticClassWrapper, WindowServiceWrapper));
+            => WindowServiceWrapper.OpenCharacterCreatorWindow(DialogWindowWrapper,
+                StaticClassWrapper, WindowServiceWrapper);
 
         public bool OpenNotesWindow() 
-            => WindowServiceWrapper.OpenNotesWindow(new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper));
+            => WindowServiceWrapper.OpenNotesWindow(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
 
         public bool OpenSkillsWindow() 
-            => WindowServiceWrapper.OpenSkillsWindow(new SkillsDialogViewModel(Character.AllSkills, true));
+            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
 
         private IAPICommunicator APICommunicator
             => new APICommunicator(SelectedSearchType, SearchTextbox);
