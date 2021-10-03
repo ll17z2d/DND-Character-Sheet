@@ -35,82 +35,61 @@
         <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="4">
-            <uc:Spell_List_Control DataContext="{Binding CantripSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.CantripSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="5" Grid.Column="1" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="4">
-            <uc:Spell_List_Control DataContext="{Binding FirstLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FirstLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="9" Grid.Column="1" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="4">
-            <uc:Spell_List_Control DataContext="{Binding SecondLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SecondLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="1" Grid.Column="2" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="5">
-            <uc:Spell_List_Control DataContext="{Binding ThirdLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.ThirdLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="6" Grid.Column="2" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="4">
-            <uc:Spell_List_Control DataContext="{Binding FourthLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FourthLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="10" Grid.Column="2" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="3">
-            <uc:Spell_List_Control DataContext="{Binding FifthLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FifthLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="1" Grid.Column="3" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="3">
-            <uc:Spell_List_Control DataContext="{Binding SixthLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SixthLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="4" Grid.Column="3" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="3">
-            <uc:Spell_List_Control DataContext="{Binding SeventhLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SeventhLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="7" Grid.Column="3" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="3">
-            <uc:Spell_List_Control DataContext="{Binding EighthLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.EighthLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
 
         <Border Grid.Row="10" Grid.Column="3" BorderThickness="2" 
                 BorderBrush="NavajoWhite" Margin="5"
                 Grid.RowSpan="3">
-            <uc:Spell_List_Control DataContext="{Binding NinthLevelSpellViewModel, Mode=TwoWay}"/>
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.NinthLevelSpellViewModel, Mode=TwoWay}"/>
         </Border>
-
-        <!--<ItemsControl Grid.Row="3" Grid.Column="3"
-                      ItemsSource="{Binding FirstLevelSpellViewModel.Spells, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="5"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBox Grid.Row="2"
-                                 Grid.Column="2"
-                                 VerticalAlignment="Center" 
-                                 Text="{Binding Name}"/>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>-->
     </Grid>
 </UserControl>

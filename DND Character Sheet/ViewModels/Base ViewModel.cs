@@ -110,6 +110,9 @@ namespace DND_Character_Sheet.ViewModels
             return true;
         }
 
+        //TODO: Fix spell button in character sheet
+        //TODO: Fix issue with CanExitWindow when already saved character who edited the spells 
+
         public bool OpenCharacter()
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
@@ -151,7 +154,7 @@ namespace DND_Character_Sheet.ViewModels
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
             if (HasCharacterBeenCreated()) 
             {
-                if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character)))
+                if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character, out var dif)))
                     return SaveChangesMessageBox;
                 return MessageBoxResult.No;
             }

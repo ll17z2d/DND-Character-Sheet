@@ -20,9 +20,10 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand SaveCharacterAsCommand { get; set; }
         public ICommand APISearchCommand { get; set; }
         public ICommand SearchSkillsCommand { get; set; }
-        public ICommand OpenSkillsWindowCommand { get; set; }
         public ICommand DiceRollCommand { get; set; }
+        public ICommand OpenSkillsWindowCommand { get; set; }
         public ICommand OpenNotesWindowCommand { get; set; }
+        public ICommand OpenSpellsWindowCommand { get; set; }
 
         private SkillsDialogViewModel skillsDialogViewModel;
 
@@ -229,9 +230,10 @@ namespace DND_Character_Sheet.ViewModels
             SaveCharacterAsCommand = new MethodCommands(SaveCharacterAs);
             APISearchCommand = new MethodCommands(APISearch, CanAPISearch);
             SearchSkillsCommand = new MethodCommands(SearchSkills);
-            OpenSkillsWindowCommand = new MethodCommands(OpenSkillsWindow);
             DiceRollCommand = new MethodCommands(DiceRoll);
+            OpenSkillsWindowCommand = new MethodCommands(OpenSkillsWindow);
             OpenNotesWindowCommand = new MethodCommands(OpenNotesWindow);
+            OpenSpellsWindowCommand = new MethodCommands(OpenSpellsWindow);
         }
 
         private void InitialiseProperties()
@@ -326,11 +328,14 @@ namespace DND_Character_Sheet.ViewModels
             => WindowServiceWrapper.OpenCharacterCreatorWindow(DialogWindowWrapper,
                 StaticClassWrapper, WindowServiceWrapper);
 
+        public bool OpenSkillsWindow()
+            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
+
         public bool OpenNotesWindow() 
             => WindowServiceWrapper.OpenNotesWindow(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
 
-        public bool OpenSkillsWindow() 
-            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
+        public bool OpenSpellsWindow() 
+            => WindowServiceWrapper.OpenSpellsWindow(Character.AllSpells);
 
         private IAPICommunicator APICommunicator
             => new APICommunicator(SelectedSearchType, SearchTextbox);

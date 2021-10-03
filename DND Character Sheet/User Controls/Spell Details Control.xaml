@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.Quick_Spells_Control"
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.Spell_Details_Control"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,8 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -20,15 +20,22 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="1" FontSize="20" Content="Spells"
-               HorizontalAlignment="Center" Grid.Column="1"
-               Grid.ColumnSpan="2"/>
 
-        <Button Grid.Row="3" Grid.Column="1"
-                Grid.ColumnSpan="2" Margin="5"
-                Command="{Binding }">
-            <TextBlock Text="See All Spells" TextAlignment="Center"
-                       TextWrapping="Wrap" Height="Auto"></TextBlock>
-        </Button>
+        <Label Grid.Row="1" Grid.Column="1"
+               Grid.ColumnSpan="2" Content="Spell Details"
+               HorizontalAlignment="Center"/>
+
+        <Label Grid.Row="2" Grid.Column="1"
+               Content="Spell Name"/>
+        <TextBox Grid.Row="2" Grid.Column="2"
+                 FontSize="26"
+                 Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Row="3" Grid.Column="1"
+               Content="Spell Details"/>
+        <TextBox Grid.Row="3" Grid.Column="2"
+                 FontSize="20" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

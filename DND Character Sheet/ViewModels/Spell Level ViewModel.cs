@@ -1,17 +1,75 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using DND_Character_Sheet.Annotations;
 using DND_Character_Sheet.Models.Serialize_Types;
+using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet.ViewModels
 {
-    public class SpellLevelViewModel
+    public class SpellLevelViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Spell> Spells { get; set; }
+        private ObservableCollection<Spell> spells;
+        private int spellLevel;
+        private int slotsTotal;
+        private int slotsExpended;
 
-        public int SpellLevel { get; set; }
+        public ObservableCollection<Spell> Spells
+        {
+            get
+            {
+                return spells;
+            }
+            set
+            {
+                spells = value;
+                OnPropertyChanged("Spells");
+            }
+        }
 
-        public int SlotsTotal { get; set; }
+        public int SpellLevel
+        {
+            get
+            {
+                return spellLevel;
+            }
+            set
+            {
+                spellLevel = value;
+                OnPropertyChanged("SpellLevel");
+            }
+        }
 
-        public int SlotsExpended { get; set; }
+        public int SlotsTotal
+        {
+            get
+            {
+                return slotsTotal;
+            }
+            set
+            {
+                slotsTotal = value;
+                OnPropertyChanged("SlotsTotal");
+            }
+        }
+
+        public int SlotsExpended
+        {
+            get
+            {
+                return slotsExpended;
+            }
+            set
+            {
+                slotsExpended = value;
+                OnPropertyChanged("SlotsExpended");
+            }
+        }
+
+        public IOpenNewViewWrapper OpenNewViewWrapper { get; set; }
+
+        public SpellLevelViewModel(int numOfSpells, int spellLevel) : this(numOfSpells, spellLevel, 0, 0) { }
 
         public SpellLevelViewModel(int numOfSpells, int spellLevel, int slotsTotal, int slotsExpended)
         {
@@ -24,12 +82,14 @@ namespace DND_Character_Sheet.ViewModels
             {
                 Spells.Add(new Spell());
             }
+        }
 
-            foreach (var spell in Spells)
-            {
-                spell.Name = "Test";
-                spell.Description = "";
-            }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

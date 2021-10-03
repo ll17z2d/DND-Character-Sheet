@@ -22,7 +22,8 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
                 new MiscStats("+4", 18, "+1", "+35"),
                 new CharacterNotes("", "QN", "EQ", "SN", "AD", "PR",
                     new Money("2", "50", "200", "500"),
-                    new FileOperationsWrapper()))
+                    new FileOperationsWrapper()),
+                new AllSpells())
             {
                 FilePath = "Temp",
                 WeaponsInventory = new ObservableCollection<Weapons_Inventory>()

@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="5"/>
@@ -19,24 +19,26 @@
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Content="Spell Level" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="False" FontSize="10"
-                 Text="{Binding SpellLevel, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="2" Grid.Column="1" FontSize="22" Grid.RowSpan="2"
+               FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center"
+               Foreground="Azure"
+               Content="{Binding SpellLevel, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="2" Content="Slots Total" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="10"
+        <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="15"
                  Text="{Binding SlotsTotal, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="1" Grid.Column="3" Content="Slots Expended" HorizontalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="10"
+        <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="15"
                  Text="{Binding SlotsExpended, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="1" Content="IsPrepared"/>
-        <Label Grid.Row="3" Grid.Column="2" Content="Spell"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="Prepared"/>
+        <Label Grid.Row="3" Grid.Column="2" Content="Spell Name"/>
 
         <ScrollViewer Grid.Row="4" Grid.Column="1" 
                       Grid.ColumnSpan="3" 
@@ -50,6 +52,7 @@
                                 <ColumnDefinition Width="5"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="50"/>
                                 <ColumnDefinition Width="5"/>
                             </Grid.ColumnDefinitions>
 
@@ -57,9 +60,11 @@
                                   VerticalAlignment="Center"
                                   IsChecked="{Binding IsPrepared, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBox Grid.Column="2"
-                                 VerticalAlignment="Center" 
+                                 VerticalAlignment="Center" Grid.ColumnSpan="2"
                                  Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  ToolTip="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Grid.Column="3" Content="..." Margin="5"
+                                    Command="{Binding OpenSpellDetailsCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

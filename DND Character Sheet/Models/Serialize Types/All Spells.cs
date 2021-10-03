@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DND_Character_Sheet.Annotations;
 using DND_Character_Sheet.ViewModels;
+using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet.Models.Serialize_Types
 {
@@ -153,16 +154,16 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
-        public AllSpells() : this(new SpellLevelViewModel(8, 0, 0, 0),
-            new SpellLevelViewModel(12, 1, 0, 0),
-            new SpellLevelViewModel(13, 2, 0, 0),
-            new SpellLevelViewModel(13, 3, 0, 0),
-            new SpellLevelViewModel(13, 4, 0, 0),
-            new SpellLevelViewModel(9, 5, 0, 0),
-            new SpellLevelViewModel(9, 6, 0, 0),
-            new SpellLevelViewModel(9, 7, 0, 0),
-            new SpellLevelViewModel(7, 8, 0, 0),
-            new SpellLevelViewModel(7, 9, 0, 0)) { }
+        public AllSpells() : this(new SpellLevelViewModel(8, 0),
+            new SpellLevelViewModel(12, 1),
+            new SpellLevelViewModel(13, 2),
+            new SpellLevelViewModel(13, 3),
+            new SpellLevelViewModel(13, 4),
+            new SpellLevelViewModel(9, 5),
+            new SpellLevelViewModel(9, 6),
+            new SpellLevelViewModel(9, 7),
+            new SpellLevelViewModel(7, 8),
+            new SpellLevelViewModel(7, 9)) { }
 
         private AllSpells(SpellLevelViewModel cantripSpellViewModel, SpellLevelViewModel firstLevelSpellViewModel,
             SpellLevelViewModel secondLevelSpellViewModel, SpellLevelViewModel thirdLevelSpellViewModel,
@@ -182,7 +183,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             NinthLevelSpellViewModel = ninthLevelSpellViewModel;
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
