@@ -7,23 +7,19 @@ using DND_Character_Sheet.Serialization;
 
 namespace DND_Character_Sheet.Wrappers
 {
-    public interface IFileOperationsWrapper
+    public interface ISerializeCharacterWrapper
     {
         public void SaveCharacterToFile(ICharacterModel character);
 
         public ICharacterModel OpenCharacterFromFile(string filePath);
-
-        public bool FileExists(string filePath);
     }
 
-    public class FileOperationsWrapper : IFileOperationsWrapper
+    public class SerializeCharacterWrapper : ISerializeCharacterWrapper
     {
         public void SaveCharacterToFile(ICharacterModel character) 
-            => SerializeCharacter.SaveCharacterToFile(character);
+            => SerializeCharacter.SaveCharacterToFile(character, new JsonConvertWrapper(), new FileOperationsWrapper());
 
         public ICharacterModel OpenCharacterFromFile(string filePath) 
-            => SerializeCharacter.OpenCharacterFromFile(filePath);
-
-        public bool FileExists(string filePath) => File.Exists(filePath);
+            => SerializeCharacter.OpenCharacterFromFile(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
     }
 }

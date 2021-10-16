@@ -16,7 +16,7 @@ namespace DND_Character_Sheet.Wrappers
         public OpenFileDialogWrapper(OpenFileDialog openFileDialog) 
             => OpenFileDialog = openFileDialog;
 
-        public virtual OpenFileDialog OpenFileDialog { get; set; }
+        public OpenFileDialog OpenFileDialog { get; set; }
 
         public bool ShowDialog() 
             => (bool)OpenFileDialog.ShowDialog();

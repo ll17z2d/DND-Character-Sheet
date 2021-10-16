@@ -9,7 +9,6 @@ namespace DND_Character_Sheet.Wrappers
     public interface ISaveFileDialogWrapper : IFileDialogWindowWrapper
     {
         public SaveFileDialog SaveFileDialog { get; set; }
-
     }
 
     public class SaveFileDialogWrapper : ISaveFileDialogWrapper

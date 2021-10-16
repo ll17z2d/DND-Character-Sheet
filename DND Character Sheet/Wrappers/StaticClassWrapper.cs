@@ -8,12 +8,12 @@ namespace DND_Character_Sheet.Wrappers
     {
         public ITextFormatterWrapper TextFormatterWrapper { get; set; }
 
-        public IFileOperationsWrapper SerializeCharacterWrapper { get; set; }
+        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
     }
 
     public class StaticClassWrapper : IStaticClassWrapper
     {
-        public StaticClassWrapper(ITextFormatterWrapper textFormatterWrapper, IFileOperationsWrapper serializeCharacterWrapper)
+        public StaticClassWrapper(ITextFormatterWrapper textFormatterWrapper, ISerializeCharacterWrapper serializeCharacterWrapper)
         {
             TextFormatterWrapper = textFormatterWrapper;
             SerializeCharacterWrapper = serializeCharacterWrapper;
@@ -21,6 +21,6 @@ namespace DND_Character_Sheet.Wrappers
 
         public ITextFormatterWrapper TextFormatterWrapper { get; set; }
 
-        public IFileOperationsWrapper SerializeCharacterWrapper { get; set; }
+        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
     }
 }

@@ -11,18 +11,18 @@ namespace DND_Character_Sheet_Unit_Tests.Models
         private const string PlaceholderCharacterAppearance = "/Images/Placeholder Character Appearance.png";
         private const string InvalidCharacterAppearance = "/Images/Invalid Character Appearance.png";
 
-        public Mock<IFileOperationsWrapper> FileOperationsWrapper { get; set; }
+        public Mock<IFileOperationsWrapper> MockFileOperationsWrapper { get; set; }
 
         [TestMethod]
         public void TestInitialiseCharacterAppearanceFilePath()
         {
             //arrange
             var expected = PlaceholderCharacterAppearance;
-            FileOperationsWrapper = new Mock<IFileOperationsWrapper>();
+            MockFileOperationsWrapper = new Mock<IFileOperationsWrapper>();
 
             //act
             var actual = new CharacterNotes(PlaceholderCharacterAppearance, "", "", "", 
-                "", "", new Money(), new FileOperationsWrapper()).CharacterAppearanceFilePath;
+                "", "", new Money(), new SerializeCharacterWrapper(), MockFileOperationsWrapper.Object).CharacterAppearanceFilePath;
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -33,10 +33,10 @@ namespace DND_Character_Sheet_Unit_Tests.Models
         {
             //arrange
             var expected = "SaveLocation";
-            FileOperationsWrapper = new Mock<IFileOperationsWrapper>();
-            FileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(true);
+            MockFileOperationsWrapper = new Mock<IFileOperationsWrapper>();
+            MockFileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(true);
             var model = new CharacterNotes(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(),
-                FileOperationsWrapper.Object);
+                new SerializeCharacterWrapper(), MockFileOperationsWrapper.Object);
 
             //act
             model.CharacterAppearanceFilePath = "SaveLocation";
@@ -52,10 +52,10 @@ namespace DND_Character_Sheet_Unit_Tests.Models
         {
             //arrange
             var expected = InvalidCharacterAppearance;
-            FileOperationsWrapper = new Mock<IFileOperationsWrapper>();
-            FileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
+            MockFileOperationsWrapper = new Mock<IFileOperationsWrapper>();
+            MockFileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
             var model = new CharacterNotes(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(),
-                FileOperationsWrapper.Object);
+                new SerializeCharacterWrapper(), MockFileOperationsWrapper.Object);
 
             //act
             model.CharacterAppearanceFilePath = "SaveLocation";
@@ -71,10 +71,10 @@ namespace DND_Character_Sheet_Unit_Tests.Models
         {
             //arrange
             var expected = "DifferentSaveLocation";
-            FileOperationsWrapper = new Mock<IFileOperationsWrapper>();
-            FileOperationsWrapper.Setup(x => x.FileExists(It.IsAny<string>())).Returns(true);
+            MockFileOperationsWrapper = new Mock<IFileOperationsWrapper>();
+            MockFileOperationsWrapper.Setup(x => x.FileExists(It.IsAny<string>())).Returns(true);
             var model = new CharacterNotes(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(),
-                FileOperationsWrapper.Object);
+                new SerializeCharacterWrapper(), MockFileOperationsWrapper.Object);
 
             //act
             model.CharacterAppearanceFilePath = "SaveLocation";
@@ -90,14 +90,14 @@ namespace DND_Character_Sheet_Unit_Tests.Models
         {
             //arrange
             var expected = InvalidCharacterAppearance;
-            FileOperationsWrapper = new Mock<IFileOperationsWrapper>();
-            FileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
+            MockFileOperationsWrapper = new Mock<IFileOperationsWrapper>();
+            MockFileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
             var model = new CharacterNotes(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(),
-                FileOperationsWrapper.Object);
+                new SerializeCharacterWrapper(), MockFileOperationsWrapper.Object);
 
             //act
             model.CharacterAppearanceFilePath = "SaveLocation";
-            FileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
+            MockFileOperationsWrapper.Setup(x => x.FileExists("SaveLocation")).Returns(false);
             var actual = model.CharacterAppearanceFilePath;
 
             //assert
