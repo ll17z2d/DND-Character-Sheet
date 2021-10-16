@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.All_Spells_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
+             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="4">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.CantripSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="5" Grid.Column="1" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="4">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FirstLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="9" Grid.Column="1" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="4">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SecondLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="5">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.ThirdLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="6" Grid.Column="2" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="4">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FourthLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="10" Grid.Column="2" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="3">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.FifthLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="3" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="3">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SixthLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="4" Grid.Column="3" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="3">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.SeventhLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="7" Grid.Column="3" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="3">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.EighthLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+
+        <Border Grid.Row="10" Grid.Column="3" BorderThickness="2" 
+                BorderBrush="NavajoWhite" Margin="5"
+                Grid.RowSpan="3">
+            <uc:Spell_List_Control DataContext="{Binding AllSpells.NinthLevelSpellViewModel, Mode=TwoWay}"/>
+        </Border>
+    </Grid>
+</UserControl>

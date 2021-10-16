@@ -39,14 +39,15 @@ namespace DND_Character_Sheet.ViewModels
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
-            var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog();
-
-            if (dialogResult == true)
+            if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
+            {
                 OpenNewViewWrapper.OpenCharacterSheetWindow(
                     Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName),
                     DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
+                return true;
+            }
 
-            return dialogResult;
+            return false;
         }
 
         public bool NewCharacter() 

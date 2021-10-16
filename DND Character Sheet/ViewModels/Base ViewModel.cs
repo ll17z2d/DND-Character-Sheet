@@ -54,7 +54,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public ICommand SaveCharacterCommand { get; set; }
 
-        public virtual IDialogWindowWrapper DialogWindowWrapper { get; set; }
+        public IDialogWindowWrapper DialogWindowWrapper { get; set; }
 
         public IStaticClassWrapper StaticClassWrapper { get; set; }
 
@@ -88,41 +88,44 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "DND Characters|*.json|All files|*.*";
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
-            var dialogResult = DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog();
+            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName = "";
 
-            if (dialogResult)
+            if (DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog())
             {
                 Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
                 Save();
+                return true;
             }
 
-            return dialogResult;
+            return false;
         }
 
         public bool SaveCharacter()
         {
             if (Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-            {
                 return SaveCharacterAs();
-            }
 
             Save();
 
             return true;
         }
 
+        //TODO: Fix spell button in character sheet
+        //TODO: Fix issue with CanExitWindow when already saved character who edited the spells 
+
         public bool OpenCharacter()
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
-            var dialogResult = DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog();
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
-            if (dialogResult)
+            if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
                 Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                return true;
             }
 
-            return dialogResult;
+            return false;
         }
 
         public void ExitWindow(object sender, CancelEventArgs e)
@@ -149,9 +152,9 @@ namespace DND_Character_Sheet.ViewModels
         public MessageBoxResult CanExitWindow()
         {
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
-            if (HasCharacterBeenCreated()) 
+            if (HasCharacterBeenCreated())
             {
-                if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character)))
+                if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character, out var dif)))
                     return SaveChangesMessageBox;
                 return MessageBoxResult.No;
             }
@@ -177,9 +180,7 @@ namespace DND_Character_Sheet.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

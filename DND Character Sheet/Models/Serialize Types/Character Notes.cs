@@ -116,14 +116,17 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
+        public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
+
         public IFileOperationsWrapper FileOperationsWrapper { get; set; }
 
         public CharacterNotes() : this(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(), 
-            new FileOperationsWrapper()) { }
+            new SerializeCharacterWrapper(), new FileOperationsWrapper()) { }
 
-        public CharacterNotes(string characterAppearanceFilePath, string quickNotes, string equipment, string sessionNotes, 
-            string abilityDesc, string proficiencies, Money money, IFileOperationsWrapper fileOperationsWrapper)
+        public CharacterNotes(string characterAppearanceFilePath, string quickNotes, string equipment, string sessionNotes, string abilityDesc, 
+            string proficiencies, Money money, ISerializeCharacterWrapper serializeCharacterWrapper, IFileOperationsWrapper fileOperationsWrapper)
         {
+            SerializeCharacterWrapper = serializeCharacterWrapper;
             FileOperationsWrapper = fileOperationsWrapper;
             CharacterAppearanceFilePath = characterAppearanceFilePath;
             QuickNotes = quickNotes;

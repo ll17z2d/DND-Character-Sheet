@@ -40,14 +40,27 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
+        private SpellsDialogViewModel spellsDialogViewModel;
+
+        public SpellsDialogViewModel SpellsDialogViewModel
+        {
+            get
+            {
+                return spellsDialogViewModel;
+            }
+            set
+            {
+                spellsDialogViewModel = value;
+                OnPropertyChanged("SpellsDialogViewModel");
+            }
+        }
+
         public ICommand ResetCharacterCommand { get; set; }
         public ICommand AutoGenerateSkillModsCommand { get; set; }
 
         public CharacterCreatorViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper) 
-            : base(new CharacterModel(), dialogWindowWrapper, staticClassWrapper, windowServiceWrapper)
-        {
-            Initialise();
-        }
+            : base(new CharacterModel(), dialogWindowWrapper, staticClassWrapper, windowServiceWrapper) 
+            => Initialise();
 
         private void Initialise()
         {
@@ -66,6 +79,7 @@ namespace DND_Character_Sheet.ViewModels
         {
             SkillsDialogViewModel = new SkillsDialogViewModel(Character.AllSkills, false);
             NotesDialogViewModel = new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
+            SpellsDialogViewModel = new SpellsDialogViewModel(Character.AllSpells);
         }
 
         public bool ResetCharacter()

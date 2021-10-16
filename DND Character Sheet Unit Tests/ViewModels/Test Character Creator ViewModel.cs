@@ -252,7 +252,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns("Test Window Title");
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(MockTextFormatterWrapper.Object, new FileOperationsWrapper()), new OpenNewViewWrapper());
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()), new OpenNewViewWrapper());
         }
 
         private void ChangeCharacterStrValue(int str)

@@ -20,9 +20,10 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand SaveCharacterAsCommand { get; set; }
         public ICommand APISearchCommand { get; set; }
         public ICommand SearchSkillsCommand { get; set; }
-        public ICommand OpenSkillsWindowCommand { get; set; }
         public ICommand DiceRollCommand { get; set; }
+        public ICommand OpenSkillsWindowCommand { get; set; }
         public ICommand OpenNotesWindowCommand { get; set; }
+        public ICommand OpenSpellsWindowCommand { get; set; }
 
         private SkillsDialogViewModel skillsDialogViewModel;
 
@@ -53,8 +54,6 @@ namespace DND_Character_Sheet.ViewModels
                 OnPropertyChanged("WindowTitle");
             }
         }
-
-        //public string WindowTitle => TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
 
         private string outTextbox;
 
@@ -192,7 +191,7 @@ namespace DND_Character_Sheet.ViewModels
 
         private ObservableCollection<MenuItem> menuCollection;
 
-        public ObservableCollection<MenuItem> MenuCollection
+        public ObservableCollection<MenuItem> MenuCollection //TODO: Investigate how this could be used + whether this is even needed
         {
             get
             {
@@ -231,9 +230,10 @@ namespace DND_Character_Sheet.ViewModels
             SaveCharacterAsCommand = new MethodCommands(SaveCharacterAs);
             APISearchCommand = new MethodCommands(APISearch, CanAPISearch);
             SearchSkillsCommand = new MethodCommands(SearchSkills);
-            OpenSkillsWindowCommand = new MethodCommands(OpenSkillsWindow);
             DiceRollCommand = new MethodCommands(DiceRoll);
+            OpenSkillsWindowCommand = new MethodCommands(OpenSkillsWindow);
             OpenNotesWindowCommand = new MethodCommands(OpenNotesWindow);
+            OpenSpellsWindowCommand = new MethodCommands(OpenSpellsWindow);
         }
 
         private void InitialiseProperties()
@@ -284,9 +284,7 @@ namespace DND_Character_Sheet.ViewModels
             }
 
             if (OutTextbox != "Press Go!")
-            {
                 return true;
-            }
 
             OutTextbox = "Press Go!";
             return true;
@@ -294,12 +292,12 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool APISearch()
         {
-            (var outputText, var isSuccessful) = APICommunicator.GetJson();
+            var (outputText, isSuccessful) = APICommunicator.GetJson();
             OutTextbox = StaticClassWrapper.TextFormatterWrapper.ListToString(outputText);
             return isSuccessful;
         }
 
-        public bool SearchSkills() //TODO: Test this again
+        public bool SearchSkills()
         {
             SearchedSkills = new ObservableCollection<Skill>();
 
@@ -330,11 +328,14 @@ namespace DND_Character_Sheet.ViewModels
             => WindowServiceWrapper.OpenCharacterCreatorWindow(DialogWindowWrapper,
                 StaticClassWrapper, WindowServiceWrapper);
 
+        public bool OpenSkillsWindow()
+            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
+
         public bool OpenNotesWindow() 
             => WindowServiceWrapper.OpenNotesWindow(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
 
-        public bool OpenSkillsWindow() 
-            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
+        public bool OpenSpellsWindow() 
+            => WindowServiceWrapper.OpenSpellsWindow(Character.AllSpells);
 
         private IAPICommunicator APICommunicator
             => new APICommunicator(SelectedSearchType, SearchTextbox);

@@ -296,7 +296,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             CharacterSheetViewModel = new CharacterSheetViewModel(
                 character,
                 MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(MockTextFormatterWrapper.Object, new FileOperationsWrapper()),
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()),
                 MockWindowServiceWrapper.Object);
         }
     }
