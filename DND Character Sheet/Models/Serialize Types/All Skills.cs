@@ -357,7 +357,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
         public IEnumerator<Skill> GetEnumerator()
         {
-            foreach (var skill in new List<Skill>()
+            foreach (var skill in new List<Skill>
             {
                 Acrobatics,
                 AnimalHandling,

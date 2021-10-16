@@ -27,7 +27,7 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
             {
                 FilePath = "Temp",
                 WeaponsInventory = new ObservableCollection<Weapons_Inventory>()
-                    {new Weapons_Inventory("Crossbow", "+6", "1d4")}
+                    {new("Crossbow", "+6", "1d4")}
 
             };
 

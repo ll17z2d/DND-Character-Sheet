@@ -152,7 +152,7 @@ namespace DND_Character_Sheet.ViewModels
         public MessageBoxResult CanExitWindow()
         {
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
-            if (HasCharacterBeenCreated()) 
+            if (HasCharacterBeenCreated())
             {
                 if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character, out var dif)))
                     return SaveChangesMessageBox;

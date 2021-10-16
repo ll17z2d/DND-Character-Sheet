@@ -10,6 +10,13 @@ namespace DND_Character_Sheet.Serialization
             => File.WriteAllText(character.FilePath, JsonConvert.SerializeObject(character));
 
         public static ICharacterModel OpenCharacterFromFile(string filePath)
-            => JsonConvert.DeserializeObject<CharacterModel>(File.ReadAllText(filePath));
+        {
+            var character = JsonConvert.DeserializeObject<CharacterModel>(File.ReadAllText(filePath));
+
+            foreach (var spellLevelViewModel in character.AllSpells)
+                spellLevelViewModel.RemoveExtraDeserialisedSpells();
+
+            return character;
+        }
     }
 }

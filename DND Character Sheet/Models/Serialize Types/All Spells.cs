@@ -1,17 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using DND_Character_Sheet.Annotations;
 using DND_Character_Sheet.ViewModels;
-using DND_Character_Sheet.Wrappers;
+using Newtonsoft.Json;
 
 namespace DND_Character_Sheet.Models.Serialize_Types
 {
-    public class AllSpells : INotifyPropertyChanged
+    [JsonObject]
+    public class AllSpells : INotifyPropertyChanged, IEnumerable<SpellLevelViewModel>
     {
         private SpellLevelViewModel cantripSpellViewModel;
         private SpellLevelViewModel firstLevelSpellViewModel;
@@ -165,7 +164,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             new SpellLevelViewModel(7, 8),
             new SpellLevelViewModel(7, 9)) { }
 
-        private AllSpells(SpellLevelViewModel cantripSpellViewModel, SpellLevelViewModel firstLevelSpellViewModel,
+        public AllSpells(SpellLevelViewModel cantripSpellViewModel, SpellLevelViewModel firstLevelSpellViewModel,
             SpellLevelViewModel secondLevelSpellViewModel, SpellLevelViewModel thirdLevelSpellViewModel,
             SpellLevelViewModel fourthLevelSpellViewModel, SpellLevelViewModel fifthLevelSpellViewModel,
             SpellLevelViewModel sixthLevelSpellViewModel, SpellLevelViewModel seventhLevelSpellViewModel,
@@ -189,6 +188,31 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public IEnumerator<SpellLevelViewModel> GetEnumerator()
+        {
+            foreach (var spellLevelViewModel in new List<SpellLevelViewModel>
+            {
+                CantripSpellViewModel,
+                FirstLevelSpellViewModel,
+                SecondLevelSpellViewModel,
+                ThirdLevelSpellViewModel,
+                FourthLevelSpellViewModel,
+                FifthLevelSpellViewModel,
+                SixthLevelSpellViewModel,
+                SeventhLevelSpellViewModel,
+                EighthLevelSpellViewModel,
+                NinthLevelSpellViewModel
+            })
+            {
+                yield return spellLevelViewModel;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

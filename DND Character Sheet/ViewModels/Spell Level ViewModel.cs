@@ -1,10 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 using DND_Character_Sheet.Annotations;
 using DND_Character_Sheet.Models.Serialize_Types;
-using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet.ViewModels
 {
@@ -67,11 +66,9 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public IOpenNewViewWrapper OpenNewViewWrapper { get; set; }
-
         public SpellLevelViewModel(int numOfSpells, int spellLevel) : this(numOfSpells, spellLevel, 0, 0) { }
 
-        public SpellLevelViewModel(int numOfSpells, int spellLevel, int slotsTotal, int slotsExpended)
+        private SpellLevelViewModel(int numOfSpells, int spellLevel, int slotsTotal, int slotsExpended)
         {
             SpellLevel = spellLevel;
             SlotsTotal = slotsTotal;
@@ -83,6 +80,9 @@ namespace DND_Character_Sheet.ViewModels
                 Spells.Add(new Spell());
             }
         }
+
+        public void RemoveExtraDeserialisedSpells() 
+            => Spells = new ObservableCollection<Spell>(Spells.Where(spell => Spells.IndexOf(spell) >= Spells.Count / 2).ToList());
 
         public event PropertyChangedEventHandler PropertyChanged;
 

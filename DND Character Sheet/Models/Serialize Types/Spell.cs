@@ -1,21 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using DND_Character_Sheet.Annotations;
 using DND_Character_Sheet.Commands;
 using DND_Character_Sheet.Wrappers;
 
 namespace DND_Character_Sheet.Models.Serialize_Types
 {
-    public class Spell
+    public class Spell : INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        private string name;
+        private string description;
+        private bool isPrepared;
 
-        public string Description { get; set; }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
 
-        public bool IsPrepared { get; set; }
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                description = value;
+                OnPropertyChanged("Description");
+            }
+        }
+
+        public bool IsPrepared
+        {
+            get
+            {
+                return isPrepared;
+            }
+            set
+            {
+                isPrepared = value;
+                OnPropertyChanged("IsPrepared");
+            }
+        }
 
         public IOpenNewViewWrapper OpenNewViewWrapper { get; set; }
 
@@ -34,5 +69,13 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
         public bool OpenSpellDetails() 
             => OpenNewViewWrapper.OpenSpellDetailsWindow(this);
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

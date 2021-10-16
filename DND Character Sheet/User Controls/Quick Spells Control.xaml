@@ -26,7 +26,7 @@
 
         <Button Grid.Row="3" Grid.Column="1"
                 Grid.ColumnSpan="2" Margin="5"
-                Command="{Binding }">
+                Command="{Binding OpenSpellsWindowCommand}">
             <TextBlock Text="See All Spells" TextAlignment="Center"
                        TextWrapping="Wrap" Height="Auto"></TextBlock>
         </Button>
