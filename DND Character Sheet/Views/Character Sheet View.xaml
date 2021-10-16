@@ -7,7 +7,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="{Binding WindowTitle}" MinHeight="550" Width="850" FontSize="12" Background="Black">
+        Title="{Binding WindowTitle}" MinHeight="650" MinWidth="700" FontSize="12" Background="Black">
     <!--xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"-->
 
     <!--<i:Interaction.Triggers>
@@ -28,14 +28,14 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
-        <!--<ToolBar Grid.Row="0" Grid.Column="0"
-                 Grid.ColumnSpan="3"></ToolBar>-->
 
         <Menu Grid.Row="0" Grid.Column="0"
               Grid.ColumnSpan="5" ItemsSource="{Binding MenuCollection}">
@@ -50,261 +50,26 @@
             <MenuItem Header="Options"/>
         </Menu>
 
-        <!--<Ribbon Grid.Row="0" Grid.Column="0"
-                Grid.ColumnSpan="5"></Ribbon>-->
+        <uc:Main_Stats_Control Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Grid Grid.Row="1" Grid.Column="1">
-            <uc:Main_Stats_Control/>
-        </Grid>
+        <uc:Search_Skills_Control Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Grid Grid.Row="1" Grid.Column="2">
-            <uc:HP___Misc_Stats_Control/>
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="20"
-                   HorizontalAlignment="Center">Search</Label>
-
-            <Label Grid.Row="2" Grid.Column="1">Search Type:</Label>
-            <ComboBox Grid.Row="2" Grid.Column="2" Margin="2"
-                      Grid.ColumnSpan="2" ItemsSource="{Binding SearchTypesCollection, Mode=TwoWay}"
-                      SelectedItem="{Binding SelectedSearchType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      ></ComboBox>
-
-            <Label Grid.Row="3" Grid.Column="1">Search Term:</Label>
-            <TextBox Grid.Row="3" Grid.Column="2" Margin="2"
-                     Text="{Binding SearchTextbox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <Button Grid.Row="3" Grid.Column="3" Command="{Binding APISearchCommand}">Go</Button>
-
-            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
-                     Margin="2" IsReadOnly="True" Text="{Binding OutTextbox, Mode=TwoWay}"
-                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"></TextBox>
-
-        </Grid>
-
-        <Grid Grid.Row="3" Grid.Column="1">
-            <uc:QuickNotesControl/>
-        </Grid>
-
-        <DataGrid Grid.Row="2" Grid.Column="2" ItemsSource="{Binding Character.WeaponsInventory, Mode=TwoWay}"
-                  ColumnWidth="*"/>
-
-        <Grid Grid.Row="2" Grid.Column="3" Grid.RowSpan="2">
-            <uc:Quick_Spells_Control/>
-        </Grid>
-
-        <Grid Grid.Row="2" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="1" Grid.Column="2"
-                   Content="Skills" FontSize="20"/>
-
-            <Label Grid.Row="2" Grid.Column="1"
-                   Content="Search for skill here: "></Label>
-            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding SkillTextbox, Mode=TwoWay}"/>
-            <Button Grid.Row="2" Grid.Column="3" Command="{Binding SearchSkillsCommand}">Go</Button>
-            <Border Grid.Row="3" Grid.Column="1"  BorderThickness="2" 
-                    BorderBrush="NavajoWhite"
-                    Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="5">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding SearchedSkills, Mode=TwoWay}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="5"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="5*"/>
-                                        <ColumnDefinition Width="3*"/>
-                                        <ColumnDefinition Width="5"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="5"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="5"/>
-                                    </Grid.RowDefinitions>
-
-                                    <!--<Label Grid.Column="1" Grid.Row="0">IsProficient</Label>
-                                    <Label Grid.Column="2" Grid.Row="0">Skill Name</Label>
-                                    <Label Grid.Column="3" Grid.Row="0">Modifier</Label>-->
-                                    <CheckBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding IsProficient}" IsHitTestVisible="False" Focusable="False"></CheckBox>
-                                    <Label Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Content="{Binding Name}"/>
-                                    <TextBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Text="{Binding SkillScore}"/>
-
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </Border>
-
-            <Button Grid.Row="3" Grid.Column="3" Command="{Binding OpenSkillsWindowCommand}"
-                    Grid.RowSpan="2">
-                <TextBlock Text="See All Skills" TextAlignment="Center"
-                           TextWrapping="Wrap" Height="Auto"></TextBlock>
-            </Button>
-        </Grid>
-
-        <!--<Label Grid.Row="3" Grid.Column="2">Could have a dice roller in this section where you pick the die size and then use it</Label>-->
-
-        <Grid Grid.Row="3" Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="1" Grid.Column="1" Content="Dice Roller"
-                   Grid.ColumnSpan="3" HorizontalAlignment="Center"
-                   FontSize="20"/>
-
-            <ComboBox Grid.Row="2" Grid.Column="2" Margin="5"
-                      ItemsSource="{Binding DiceCollection}"
-                      SelectedItem="{Binding SelectedDice}"/>
-            <Button Grid.Row="2" Grid.Column="3" Content="Roll" Margin="5"
-                    Command="{Binding DiceRollCommand}"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="Dice Size"/>
-
-            <Border Grid.Row="3" Grid.Column="2" BorderBrush="NavajoWhite"
-                    Margin="5" BorderThickness="2">
-                <Label Content="{Binding DiceResult}"
-                       Foreground="NavajoWhite"
-                       FontSize="20"
-                       HorizontalAlignment="Center"/>
-            </Border>
-
-        </Grid>
+        <uc:QuickNotesControl Grid.Row="5" Grid.Column="1" Grid.RowSpan="2"/>
 
 
 
+        <uc:HP___Misc_Stats_Control Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"/>
 
-        <!--The below section will be displayed in a new window when the user presses the appropriate button-->
+        <uc:WeaponsControl Grid.Row="3" Grid.Column="2" Grid.RowSpan="2"/>
 
-        <!--<Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2"/>
-            </Grid.ColumnDefinitions>
-            --><!--<TextBox Grid.Row="0" Style="{StaticResource StatInfo}"
-                     Grid.ColumnSpan="3"/>
-            <TextBox Grid.Row="1" Style="{StaticResource StatInfo}"/>--><!--
-
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
-                   FontSize="20" HorizontalAlignment="Center">Main Stats</Label>
-            <Label Grid.Row="2" Grid.Column="1">Acrobatics (Dex)</Label>
-            <Label Grid.Row="3" Grid.Column="1">Animal Handling (Wis)</Label>
-            <Label Grid.Row="4" Grid.Column="1">Athletics (Str)</Label>
-            <Label Grid.Row="5" Grid.Column="1">Deception (Cha)</Label>
-            <Label Grid.Row="6" Grid.Column="1">History (Int)</Label>
-            <Label Grid.Row="7" Grid.Column="1">Insight (Wis)</Label>
-            <Label Grid.Row="8" Grid.Column="1">Intimidation (Cha)</Label>
-            <Label Grid.Row="9" Grid.Column="1">Investigation (Int)</Label>
-            <Label Grid.Row="10" Grid.Column="1">Nature (Int)</Label>
-            <Label Grid.Row="11" Grid.Column="1">Medicine (Wis)</Label>
-            <Label Grid.Row="12" Grid.Column="1">Perception (Wis)</Label>
-            <Label Grid.Row="13" Grid.Column="1">Performance (Cha)</Label>
-            <Label Grid.Row="14" Grid.Column="1">Persuasion (Cha)</Label>
-            <Label Grid.Row="15" Grid.Column="1">Religion (Int)</Label>
-            <Label Grid.Row="16" Grid.Column="1">Sleight of Hand (Dex)</Label>
-            <Label Grid.Row="17" Grid.Column="1">Stealth (Dex)</Label>
-            <Label Grid.Row="18" Grid.Column="1">Survival (Wis)</Label>
+        <uc:Dice_Roll_Control Grid.Row="5" Grid.Column="2" Grid.RowSpan="2"/>
 
 
-            <TextBox Grid.Row="2" Grid.Column="2" 
-                     Text="{Binding StrTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="3" Grid.Column="2" 
-                     Text="{Binding DexTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="4" Grid.Column="2" 
-                     Text="{Binding ConTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="5" Grid.Column="2" 
-                     Text="{Binding IntTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="6" Grid.Column="2" 
-                     Text="{Binding WisTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="7" Grid.Column="2" 
-                     Text="{Binding ChaTextbox, Mode=TwoWay}"></TextBox>
 
-            <TextBox Grid.Row="2" Grid.Column="3" IsReadOnly="True"
-                     Text="{Binding StrModTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="3" Grid.Column="3" IsReadOnly="True"
-                     Text="{Binding DexModTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="4" Grid.Column="3" 
-                     Margin="5" IsReadOnly="True"
-                     Text="{Binding ConModTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="5" Grid.Column="3" 
-                     Margin="5" IsReadOnly="True"
-                     Text="{Binding IntModTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="6" Grid.Column="3" 
-                     Margin="5" IsReadOnly="True"
-                     Text="{Binding WisModTextbox, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="7" Grid.Column="3" 
-                     Margin="5" IsReadOnly="True"
-                     Text="{Binding ChaModTextbox, Mode=TwoWay}"></TextBox>
-        </Grid>-->
+        <uc:Character_Details_Control Grid.Row="1" Grid.Column="3" Grid.RowSpan="2"/>
 
+        <uc:API_Search_Control Grid.Row="3" Grid.Column="3" Grid.RowSpan="2"/>
+
+        <uc:Quick_Spells_Control Grid.Row="5" Grid.Column="3" Grid.RowSpan="4"/>
     </Grid>
 </Window>

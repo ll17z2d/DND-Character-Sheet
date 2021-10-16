@@ -1,14 +1,14 @@
 ﻿namespace DND_Character_Sheet.Models.API_Models
 {
-    public class Weapons_Inventory
+    public class WeaponsInventory
     {
         public string WeaponName { get; set; }
         public string AttackBonus { get; set; }
         public string Damage { get; set; }
 
-        public Weapons_Inventory() : this("", "", "") { }
+        public WeaponsInventory() : this("", "", "") { }
 
-        public Weapons_Inventory(string weaponName, string attackBonus, string damage)
+        public WeaponsInventory(string weaponName, string attackBonus, string damage)
         {
             WeaponName = weaponName;
             AttackBonus = attackBonus;

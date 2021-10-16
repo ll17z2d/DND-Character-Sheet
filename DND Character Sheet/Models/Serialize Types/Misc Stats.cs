@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using DND_Character_Sheet.Annotations;
 
 namespace DND_Character_Sheet.Models.Serialize_Types
@@ -13,14 +10,15 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         private int ac;
         private string initiative;
         private string speed;
+
         public MiscStats() : this("0", 0, "0", "0") { }
 
-        public MiscStats(string Proficiency, int AC, string Initiative, string Speed)
+        public MiscStats(string proficiency, int ac, string initiative, string speed)
         {
-            this.Proficiency = Proficiency;
-            this.AC = AC;
-            this.Initiative = Initiative;
-            this.Speed = Speed;
+            Proficiency = proficiency;
+            AC = ac;
+            Initiative = initiative;
+            Speed = speed;
         }
 
         public string Proficiency
