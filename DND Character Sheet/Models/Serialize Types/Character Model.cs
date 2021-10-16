@@ -15,9 +15,10 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         public MainStats MainStats { get; set; }
         public AllSkills AllSkills { get; set; }
         public HPStats HPStats { get; set; }
+        public DetailsStats DetailsStats { get; set; }
         public MiscStats MiscStats { get; set; }
         public CharacterNotes CharacterNotes { get; set; }
-        public ObservableCollection<Weapons_Inventory> WeaponsInventory { get; set; }
+        public WeaponNotes WeaponNotes { get; set; }
         public AllSpells AllSpells { get; set; }
         public string FilePath { get; set; }
     }
@@ -29,18 +30,21 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         private HPStats hpStats;
         private MiscStats miscStats;
         private CharacterNotes characterNotes;
-        private ObservableCollection<Weapons_Inventory> weaponsInventory = new();
+        private WeaponNotes weaponNotes;
         private AllSpells allSpells;
         private string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        public CharacterModel() : this(null, null, null, null, null, null) { }
-        public CharacterModel(MainStats mainStats, AllSkills allSkills, HPStats hpStats, MiscStats miscStats, CharacterNotes characterNotes, AllSpells allSpells)
+        public CharacterModel() : this(null, null, null, null, null, null, null, null) { }
+        public CharacterModel(MainStats mainStats, AllSkills allSkills, HPStats hpStats, DetailsStats detailsStats, 
+            MiscStats miscStats, CharacterNotes characterNotes, WeaponNotes weaponNotes, AllSpells allSpells)
         {
             MainStats = mainStats ?? new MainStats();
             AllSkills = allSkills ?? new AllSkills();
             HPStats = hpStats ?? new HPStats();
+            DetailsStats = detailsStats ?? new DetailsStats();
             MiscStats = miscStats ?? new MiscStats();
             CharacterNotes = characterNotes ?? new CharacterNotes();
+            WeaponNotes = weaponNotes ?? new WeaponNotes();
             AllSpells = allSpells ?? new AllSpells();
         }
 
@@ -84,6 +88,21 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
+        private DetailsStats detailsStats;
+
+        public DetailsStats DetailsStats
+        {
+            get
+            {
+                return detailsStats;
+            }
+            set
+            {
+                detailsStats = value; 
+                OnPropertyChanged("DetailsStats");
+            }
+        }
+
         public MiscStats MiscStats
         {
             get
@@ -110,16 +129,16 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
-        public ObservableCollection<Weapons_Inventory> WeaponsInventory
+        public WeaponNotes WeaponNotes
         {
             get
             {
-                return weaponsInventory;
+                return weaponNotes;
             }
             set
             {
-                weaponsInventory = value;
-                OnPropertyChanged("WeaponsInventory");
+                weaponNotes = value;
+                OnPropertyChanged("WeaponNotes");
             }
         }
 

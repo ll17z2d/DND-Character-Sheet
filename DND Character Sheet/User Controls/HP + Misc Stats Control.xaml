@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
-                   HorizontalAlignment="Center" FontSize="30">HP And Armour</Label>
+                   HorizontalAlignment="Center" FontSize="20">HP And Armour</Label>
         
         <Label Grid.Row="2" Grid.Column="1">AC:</Label>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Character.MiscStats.AC, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"

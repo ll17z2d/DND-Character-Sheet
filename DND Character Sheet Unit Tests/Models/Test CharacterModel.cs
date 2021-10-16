@@ -22,11 +22,12 @@ namespace DND_Character_Sheet_Unit_Tests.Models
             Assert.IsNotNull(actual);
             Assert.IsNotNull(actual.AllSkills);
             Assert.IsNotNull(actual.CharacterNotes);
+            Assert.IsNotNull(actual.WeaponNotes);
             Assert.IsNotNull(actual.FilePath);
             Assert.IsNotNull(actual.HPStats);
             Assert.IsNotNull(actual.MainStats);
             Assert.IsNotNull(actual.MiscStats);
-            Assert.IsNotNull(actual.WeaponsInventory);
+            Assert.IsNotNull(actual.DetailsStats);
         }
     }
 }
