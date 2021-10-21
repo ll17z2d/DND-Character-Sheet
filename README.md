@@ -4,7 +4,11 @@ A digital DnD Character Sheet Windows application made using WPF and adhering to
 
 Current functionality includes: 
  -create new characters with extensive details (spells, notes, weapons etc.)
+ 
  -auto-generate skill modifiers 
+ 
  -load + edit previously saved characters 
+ 
  -slick (imo) design
+ 
  -and more!
