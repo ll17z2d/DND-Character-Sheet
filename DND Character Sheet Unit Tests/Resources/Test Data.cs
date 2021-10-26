@@ -20,7 +20,7 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
                 new AllSkills(),
                 new HPStats(20, 16, 2),
                 new DetailsStats("Tempus Namus", "Monk 4", "Hermit", "My Name", "Human", "Aight", "350"),
-                new MiscStats("+4", 18, "+1", "+35"),
+                new MiscStats("+4", 18, "+1", "+35", "1", "15"),
                 new CharacterNotes("", "QN", "EQ", "SN", "AD", "PR",
                     new Money("2", "50", "200", "500"),
                     new SerializeCharacterWrapper(),

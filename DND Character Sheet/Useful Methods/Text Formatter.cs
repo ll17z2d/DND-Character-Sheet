@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DND_Character_Sheet.Useful_Methods
@@ -18,6 +19,23 @@ namespace DND_Character_Sheet.Useful_Methods
 
                 }
                 output = string.Concat(output, "\n", listItemFormatted);
+            }
+
+            return output;
+        }
+
+        public static string DictionaryToString(Dictionary<string, string> dictionary, bool separateSentences = false)
+        {
+            string output = "";
+            foreach (var dictionaryItem in dictionary)
+            {
+                var dictionaryItemFormatted = $"{dictionaryItem.Key} - {dictionaryItem.Value}";
+                if (separateSentences)
+                {
+                    dictionaryItemFormatted = dictionaryItemFormatted.Insert(dictionaryItemFormatted.ToCharArray().Length, "\n");
+
+                }
+                output = string.Concat(output, "\n", dictionaryItemFormatted);
             }
 
             return output;

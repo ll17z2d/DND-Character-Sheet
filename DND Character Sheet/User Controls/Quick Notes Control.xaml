@@ -28,7 +28,8 @@
         <Label Grid.Row="2" Grid.Column="1" Content="Quick Notes"/>
         <TextBox Grid.Row="2" Grid.Column="2" Margin="5" 
                  TextWrapping="Wrap" AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Auto"/>
+                 VerticalScrollBarVisibility="Auto"
+                 Text="{Binding Character.CharacterNotes.QuickNotes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" 
                 Margin="5" Command="{Binding OpenNotesWindowCommand}">

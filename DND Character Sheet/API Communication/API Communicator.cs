@@ -18,7 +18,6 @@ namespace DND_Character_Sheet.APICommunication
         public string SelectedSearchType { get; set; }
         public string SearchTextbox { get; set; }
         public string FinalEndpoint { get; set; }
-        public TextFormatterWrapper TextFormatterWrapper { get; set; }
 
         public (List<string>, bool) GetJson();
     }
@@ -29,7 +28,6 @@ namespace DND_Character_Sheet.APICommunication
         public string SelectedSearchType { get; set; }
         public string SearchTextbox { get; set; }
         public string FinalEndpoint { get; set; }
-        public TextFormatterWrapper TextFormatterWrapper { get; set; }
 
         public APICommunicator(string selectedSearchType, string searchTextbox)
         {
@@ -61,7 +59,7 @@ namespace DND_Character_Sheet.APICommunication
                         }, false);
                 }
 
-                return DeserializeJSON(outputJson, EnumParser.ParseEnum(SelectedSearchType), TextFormatterWrapper);
+                return DeserializeJSON(outputJson, EnumParser.ParseEnum(SelectedSearchType));
             }
 
             return (
@@ -71,8 +69,8 @@ namespace DND_Character_Sheet.APICommunication
                 }, false);
         }
 
-        private (List<string>, bool) DeserializeJSON(string outputJson, DND_Search_Types searchtypeenum, ITextFormatterWrapper textFormatterWrapper) 
-            => new DeserializeAPI(searchtypeenum, outputJson, textFormatterWrapper).Deserialize();
+        private (List<string>, bool) DeserializeJSON(string outputJson, DND_Search_Types searchtypeenum) 
+            => new DeserializeAPI(searchtypeenum, outputJson, new TextFormatterWrapper()).Deserialize();
 
         private string AccessRESTAPI(string endpoint)
             => new RESTClient(endpoint, httpVerb.GET).makeRequest();

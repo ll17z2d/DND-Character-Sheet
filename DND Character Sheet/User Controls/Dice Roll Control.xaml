@@ -27,15 +27,15 @@
                FontSize="20"/>
 
         <ComboBox Grid.Row="2" Grid.Column="2" Margin="5"
-                  ItemsSource="{Binding DiceCollection}"
-                  SelectedItem="{Binding SelectedDice}"/>
+                  ItemsSource="{Binding DiceCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedDice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Row="2" Grid.Column="3" Content="Roll" Margin="5"
                 Command="{Binding DiceRollCommand}"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Dice Size"/>
 
         <Border Grid.Row="3" Grid.Column="2" BorderBrush="NavajoWhite"
                 Margin="5" BorderThickness="2">
-            <Label Content="{Binding DiceResult}"
+            <Label Content="{Binding DiceResult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    Foreground="NavajoWhite"
                    FontSize="20"
                    HorizontalAlignment="Center"/>

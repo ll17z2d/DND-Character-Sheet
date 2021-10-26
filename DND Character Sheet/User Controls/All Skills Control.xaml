@@ -2,9 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
-             xmlns:converters="clr-namespace:DND_Character_Sheet.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -35,9 +33,9 @@
                 <ColumnDefinition Width="2"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Content="Proficiency"/>
-            <Label Grid.Column="2" Content="Skill"/>
-            <Label Grid.Column="3" Content="Modifier"/>
+            <TextBlock Grid.Column="1" Text="Proficiency"  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
+            <TextBlock Grid.Column="2" Text="Skill"  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
+            <TextBlock Grid.Column="3" Text="Modifier" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="1">
@@ -85,25 +83,25 @@
             <CheckBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="{Binding InverseIsReadOnly}" 
                       Focusable="{Binding InverseIsReadOnly}" IsChecked="{Binding AllSkills.Investigation.IsProficient, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Acrobatics (Dex)</Label>
-            <Label Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">Animal Handling (Wis)</Label>
-            <Label Grid.Row="3" Grid.Column="2" VerticalAlignment="Center">Arcana (Int)</Label>
-            <Label Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Athletics (Str)</Label>
-            <Label Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Deception (Cha)</Label>
-            <Label Grid.Row="6" Grid.Column="2" VerticalAlignment="Center">History (Int)</Label>
-            <Label Grid.Row="7" Grid.Column="2" VerticalAlignment="Center">Insight (Wis)</Label>
-            <Label Grid.Row="8" Grid.Column="2" VerticalAlignment="Center">Intimidation (Cha)</Label>
-            <Label Grid.Row="9" Grid.Column="2" VerticalAlignment="Center">Investigation (Int)</Label>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Acrobatics (Dex)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">Animal Handling (Wis)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center">Arcana (Int)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Athletics (Str)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Deception (Cha)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center">History (Int)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center">Insight (Wis)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center">Intimidation (Cha)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center">Investigation (Int)</TextBlock>
 
-            <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding AllSkills.Acrobatics.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding AllSkills.AnimalHandling.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding AllSkills.Arcana.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding AllSkills.Athletics.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding AllSkills.Deception.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding AllSkills.History.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="7" Grid.Column="3" Text="{Binding AllSkills.Insight.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding AllSkills.Intimidation.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
-            <TextBox Grid.Row="9" Grid.Column="3" Text="{Binding AllSkills.Investigation.SkillScore, Mode=TwoWay}" IsReadOnly="{Binding IsReadOnly}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" Text="{Binding AllSkills.Acrobatics.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding AllSkills.AnimalHandling.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding AllSkills.Arcana.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding AllSkills.Athletics.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding AllSkills.Deception.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding AllSkills.History.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="7" Grid.Column="3" Text="{Binding AllSkills.Insight.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding AllSkills.Intimidation.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="9" Grid.Column="3" Text="{Binding AllSkills.Investigation.SkillScore, Mode=TwoWay}" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Center"></TextBox>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="2">
@@ -115,9 +113,9 @@
                 <ColumnDefinition Width="2"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="1" Content="Proficiency"/>
-            <Label Grid.Column="2" Content="Skill"/>
-            <Label Grid.Column="3" Content="Modifier"/>
+            <TextBlock Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Column="1" Text="Proficiency"/>
+            <TextBlock Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Column="2" Text="Skill"/>
+            <TextBlock Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Column="3" Text="Modifier"/>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="2">
@@ -161,25 +159,25 @@
             <CheckBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="{Binding InverseIsReadOnly}" 
                       Focusable="{Binding InverseIsReadOnly}" IsChecked="{Binding AllSkills.Survival.IsProficient, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Medicine (Wis)</Label>
-            <Label Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">Nature (Int)</Label>
-            <Label Grid.Row="3" Grid.Column="2" VerticalAlignment="Center">Perception (Wis)</Label>
-            <Label Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Performance (Cha)</Label>
-            <Label Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Persuasion (Cha)</Label>
-            <Label Grid.Row="6" Grid.Column="2" VerticalAlignment="Center">Religion (Int)</Label>
-            <Label Grid.Row="7" Grid.Column="2" VerticalAlignment="Center">Sleight of Hand (Dex)</Label>
-            <Label Grid.Row="8" Grid.Column="2" VerticalAlignment="Center">Stealth (Dex)</Label>
-            <Label Grid.Row="9" Grid.Column="2" VerticalAlignment="Center">Survival (Wis)</Label>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">Medicine (Wis)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">Nature (Int)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center">Perception (Wis)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Performance (Cha)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Persuasion (Cha)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center">Religion (Int)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center">Sleight of Hand (Dex)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center">Stealth (Dex)</TextBlock>
+            <TextBlock  Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center">Survival (Wis)</TextBlock>
 
-            <TextBox Grid.Row="1" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Medicine.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <TextBox Grid.Row="2" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Nature.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="3" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Perception.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="4" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Performance.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="5" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Persuasion.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="6" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Religion.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="7" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.SleightOfHand.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="8" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Stealth.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="9" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Survival.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="1" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Medicine.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Nature.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Perception.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="4" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Performance.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="5" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Persuasion.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="6" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Religion.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="7" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.SleightOfHand.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="8" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Stealth.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="9" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}" Text="{Binding AllSkills.Survival.SkillScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
 
         </Grid>
     </Grid>

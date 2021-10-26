@@ -38,7 +38,7 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
         private List<string> GetDeserializedClass()
             => new List<string>()
             {
-                "Name:  Monk\n",
+                "Class:  Monk\n",
                 "Monks are proficient in simple weapons and shortswords\nas well as saving throw proficiencies in str and dex\n",
                 "Monks also have a hit die of 1d8\n",
                 "Monks can pick 1 from the list of proficiencies below:\nalchemist's supplies, brewer's supplies, calligrapher's supplies, carpenter's tools, cartographer's tools, cobbler's tools, cook's utensils, glassblower's tools, jeweler's tools, leatherworker's tools, mason's tools, painter's supplies, potter's tools, smith's tools, tinker's tools, weaver's tools, woodcarver's tools, disguise kit and forgery kit",
