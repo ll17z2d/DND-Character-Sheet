@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DND_Character_Sheet.Views"
-        mc:Ignorable="d"
-        Title="Home Screen" Height="450" Width="800" Background="Black">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Home Screen" Height="450" Width="800" Background="Black"
+        MinHeight="420" MinWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
@@ -25,14 +26,39 @@
 
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="DnD Character Sheet" FontSize="40"/>
 
-        <Button Grid.Row="2" Grid.Column="1" Margin="15" FontSize="24" Content="New Character" Command="{Binding NewCharacterCommand}"/>
-        <Button Grid.Row="3" Grid.Column="1" Margin="15" FontSize="24" Content="Open Character" Command="{Binding OpenCharacterCommand}"/>
-        <Button Grid.Row="4" Grid.Column="1" Margin="15" FontSize="24" Content="Edit Character"/>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Margin="15" FontSize="24" Command="{Binding NewCharacterCommand}">
+                <TextBlock Text="New Character" TextAlignment="Center" TextWrapping="Wrap" Height="Auto"/>
+            </Button>
+            <Button Grid.Row="1" Margin="15" FontSize="24" Command="{Binding OpenCharacterCommand}">
+                <TextBlock Text="Open Character" TextAlignment="Center" TextWrapping="Wrap" Height="Auto"/>
+            </Button>
+        </Grid>
 
-        <Border Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Cornsilk" Margin="20, 20, 20, 50">
-            <TextBlock FontSize="28" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Hi, this is my program, feel free to contact me at X for any messages"/>
-        </Border>
+        <!--<Button Grid.Row="4" Grid.Column="1" Margin="15" FontSize="24">
+            <TextBlock Text="Edit Character" TextAlignment="Center" TextWrapping="Wrap" Height="Auto"/>
+        </Button>-->
 
-        <Button Grid.Row="4" Grid.Column="3" Margin="50, 50, 10, 10" Content="Donate" FontSize="24"></Button>
+        <!--<Border Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Cornsilk" 
+                Margin="20, 20, 20, 50">-->
+        <!--<Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>-->
+            <!--</Grid.RowDefinitions>-->
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                 FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" IsReadOnly="True"
+                 IsHitTestVisible="False"
+                 Background="Cornsilk" VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Center"
+                 Text="Hi, this is my program, feel free to contact me at zakaria.dahir1@outlook.com for any messages, discovered bugs, feature requests, or anything else :)"/>
+        <!--</Border>-->
+        <!--</Grid>-->
+
+
+        <Button Grid.Row="4" Grid.Column="3" Margin="0, 50, 10, 10" 
+                Content="Donate" FontSize="24" Command="{Binding DonateCommand}"></Button>
     </Grid>
 </Window>

@@ -24,22 +24,26 @@
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="20"
-               HorizontalAlignment="Center">Search</Label>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="20"
+               HorizontalAlignment="Center"
+               Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}">Search</TextBlock>
 
-        <Label Grid.Row="2" Grid.Column="1">Search Type:</Label>
+        <TextBlock Grid.Row="2" Grid.Column="1"
+                   Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}">Search Type:</TextBlock>
         <ComboBox Grid.Row="2" Grid.Column="2" Margin="2"
-                  Grid.ColumnSpan="2" ItemsSource="{Binding SearchTypesCollection, Mode=TwoWay}"
-                  SelectedItem="{Binding SelectedSearchType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-        ></ComboBox>
+                  Grid.ColumnSpan="2" ItemsSource="{Binding SearchTypesCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedSearchType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="1">Search Term:</Label>
+        <TextBlock Grid.Row="3" Grid.Column="1"
+                   Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}">Search Term:</TextBlock>
         <TextBox Grid.Row="3" Grid.Column="2" Margin="2"
                  Text="{Binding SearchTextbox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Grid.Row="3" Grid.Column="3" Command="{Binding APISearchCommand}">Go</Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="2" Command="{Binding APISearchCommand}">
+            <TextBlock Text="Go" TextWrapping="Wrap"></TextBlock>
+        </Button>
 
-        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
-                 Margin="2" IsReadOnly="True" Text="{Binding OutTextbox, Mode=TwoWay}"
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap"
+                 Margin="2" IsReadOnly="True" Text="{Binding OutTextbox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"></TextBox>
     </Grid>
 </UserControl>

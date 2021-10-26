@@ -17,7 +17,7 @@ namespace DND_Character_Sheet.Models.API_Models
         public List<Proficiency> languages { get; set; }
         public string language_desc { get; set; }
         public List<Traits> traits { get; set; }
-        public Subraces subraces { get; set; }
+        public List<Subraces> subraces { get; set; }
         public string url { get; set; }
     }
 }

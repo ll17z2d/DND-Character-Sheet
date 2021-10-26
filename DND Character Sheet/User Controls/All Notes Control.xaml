@@ -23,8 +23,8 @@
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Inventory"
-               HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Inventory"
+               HorizontalAlignment="Center" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <Grid Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
@@ -43,42 +43,48 @@
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             
-            <Label Grid.Row="1" Grid.Column="1" Content="Platinum" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Platinum" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="False" FontSize="30"
-                     Text="{Binding CharacterNotes.Money.Platinum}"/>
+                     Text="{Binding CharacterNotes.Money.Platinum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="1" Grid.Column="2" Content="Gold" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Gold" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="30"
-                     Text="{Binding CharacterNotes.Money.Gold}"/>
+                     Text="{Binding CharacterNotes.Money.Gold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="1" Grid.Column="3" Content="Silver" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="Silver" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="30"
-                     Text="{Binding CharacterNotes.Money.Silver}"/>
+                     Text="{Binding CharacterNotes.Money.Silver, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="1" Grid.Column="4" Content="Bronze" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="4" Text="Bronze" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <TextBox Grid.Row="2" Grid.Column="4" AcceptsReturn="False" FontSize="30"
-                     Text="{Binding CharacterNotes.Money.Bronze}"/>
+                     Text="{Binding CharacterNotes.Money.Bronze, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
-                   HorizontalAlignment="Center" Content="Equipment"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
+                   HorizontalAlignment="Center" Text="Equipment" Margin="0, 5, 0, 0"
+                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" 
-                     VerticalScrollBarVisibility="Auto" Text="{Binding CharacterNotes.Equipment}"/>
+                     VerticalScrollBarVisibility="Auto" Text="{Binding CharacterNotes.Equipment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
-        <Label Grid.Row="3" Grid.Column="2" Content="Session Notes"
-               HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="Session Notes"
+               HorizontalAlignment="Center" Margin="0, 5, 0, 0"
+               TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="4" Grid.Column="2" VerticalScrollBarVisibility="Auto"
-                 Text="{Binding CharacterNotes.SessionNotes}"/>
+                 Text="{Binding CharacterNotes.SessionNotes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="1" Grid.Column="3" Content="Ability Descriptions"
-               HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Ability Descriptions"
+               HorizontalAlignment="Center" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="2" Grid.Column="3" VerticalScrollBarVisibility="Auto"
-                 Text="{Binding CharacterNotes.AbilityDesc}"/>
+                 Text="{Binding CharacterNotes.AbilityDesc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="3" Content="Proficiencies"
-               HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Text="Proficiencies"
+               HorizontalAlignment="Center" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="4" Grid.Column="3" VerticalScrollBarVisibility="Auto"
-                 Text="{Binding CharacterNotes.Proficiencies}"/>
+                 Text="{Binding CharacterNotes.Proficiencies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
             <Grid.RowDefinitions>
@@ -90,11 +96,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Character Appearance"
-                   HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Character Appearance"
+                   HorizontalAlignment="Center" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
             <Image Grid.Row="1" Grid.Column="0" 
                    Source="{Binding CharacterNotes.CharacterAppearanceFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Grid.Row="2" Grid.Column="0" Content="Browse images"
+            <Button Grid.Row="2" Grid.Column="0" Content="Browse images" Margin="0"
                     Command="{Binding BrowseCharacterAppearanceCommand}"/>
         </Grid>
 

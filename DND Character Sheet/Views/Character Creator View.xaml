@@ -6,9 +6,9 @@
         xmlns:views="clr-namespace:DND_Character_Sheet.Views"
         xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
         xmlns:viewmodels="clr-namespace:DND_Character_Sheet.ViewModels"
-        mc:Ignorable="d"
-        Title="Character Creator" Height="650" Width="900" 
-        MinHeight="550" MinWidth="700" Background="Black">
+        mc:Ignorable="d" 
+        Title="Character Creator" Height="650" Width="900" WindowStartupLocation="CenterScreen"
+        MinHeight="625" MinWidth="725" Background="Black">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -28,16 +28,21 @@
                 <uc:Main_Stats_Control/>
             </TabItem>
             <TabItem Header="Skills">
-                <StackPanel>
-                    <uc:All_Skills_Control DataContext="{Binding SkillsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button Content="Auto-Generate Skill Modifiers" Command="{Binding AutoGenerateSkillModsCommand}"/> 
-                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <uc:All_Skills_Control Grid.Row="0" Grid.RowSpan="2" DataContext="{Binding SkillsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="2" Margin="5" Content="Auto-Generate Skill Modifiers" Command="{Binding AutoGenerateSkillModsCommand}"/> 
+                </Grid>
             </TabItem>
-            <TabItem Header="Misc">
+            <TabItem Header="HP &amp; Armour">
                 <uc:HP___Misc_Stats_Control/>
             </TabItem>
             <TabItem Header="Weapons">
-                <DataGrid ItemsSource="{Binding Character.WeaponsInventory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DataGrid>
+                <uc:WeaponsControl/>
             </TabItem>
             <TabItem Header="Spells">
                 <uc:All_Spells_Control DataContext="{Binding SpellsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

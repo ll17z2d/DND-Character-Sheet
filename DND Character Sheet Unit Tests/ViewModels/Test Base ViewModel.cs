@@ -133,7 +133,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(dialogWindowResult);
 
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
-            MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFile(It.IsAny<string>()));
+            MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFile(It.IsAny<string>())).Returns(new CharacterModel());
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
                 new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 

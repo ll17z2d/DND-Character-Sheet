@@ -6,7 +6,7 @@ namespace DND_Character_Sheet.Models.Common_Models
 {
     public class Traits
     {
-        public int index { get; set; }
+        public string index { get; set; }
         public List<Proficiency> races { get; set; }
         public List<Proficiency> subraces { get; set; }
         public string name { get; set; }

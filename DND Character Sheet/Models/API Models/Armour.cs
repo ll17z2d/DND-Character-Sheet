@@ -1,4 +1,5 @@
-﻿using DND_Character_Sheet.Models.Common_Models;
+﻿using DND_Character_Sheet.Models.Common_API_Models;
+using DND_Character_Sheet.Models.Common_Models;
 
 namespace DND_Character_Sheet.Models.API_Models
 {
@@ -8,7 +9,7 @@ namespace DND_Character_Sheet.Models.API_Models
         public string name { get; set; }
         public Equipment_Categories equipment_category { get; set; }
         public string armor_category { get; set; }
-        public object armor_class { get; set; }
+        public Armour_Class armor_class { get; set; }
         public int str_minimum { get; set; }
         public bool stealth_disadvantage { get; set; }
         public int weight { get; set; }

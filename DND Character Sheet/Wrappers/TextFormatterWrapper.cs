@@ -9,6 +9,8 @@ namespace DND_Character_Sheet.Wrappers
     {
         public string ListToString(List<string> list, bool separateSentences = false);
 
+        public string DictionaryToString(Dictionary<string, string> list, bool separateSentences = false);
+
         public string FormatList<T>(List<T> list, string property);
 
         public string ExtractFileNameFromPath(string filePath);
@@ -18,6 +20,9 @@ namespace DND_Character_Sheet.Wrappers
     {
         public string ListToString(List<string> list, bool separateSentences = false) 
             => TextFormatter.ListToString(list, separateSentences);
+
+        public string DictionaryToString(Dictionary<string, string> dictionary, bool separateSentences = false) 
+            => TextFormatter.DictionaryToString(dictionary, separateSentences);
 
         public string FormatList<T>(List<T> list, string property) 
             => TextFormatter.FormatList(list, property);

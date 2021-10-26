@@ -52,6 +52,21 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
+        private string windowTitle;
+
+        public string WindowTitle
+        {
+            get
+            {
+                return windowTitle;
+            }
+            set
+            {
+                windowTitle = value;
+                OnPropertyChanged("WindowTitle");
+            }
+        }
+
         public ICommand SaveCharacterCommand { get; set; }
 
         public IDialogWindowWrapper DialogWindowWrapper { get; set; }
@@ -76,11 +91,16 @@ namespace DND_Character_Sheet.ViewModels
         private void InitialiseWindowWrapper(IOpenNewViewWrapper windowServiceWrapper) 
             => WindowServiceWrapper = windowServiceWrapper;
 
-        public void InitialiseCharacter(ICharacterModel character)
+        protected void InitialiseCharacter(ICharacterModel character)
             => Character = character;
 
-        public void InitialiseDialogWindowWrapper(IDialogWindowWrapper dialogWindowWrapper) 
+        protected void InitialiseDialogWindowWrapper(IDialogWindowWrapper dialogWindowWrapper) 
             => DialogWindowWrapper = dialogWindowWrapper;
+
+        protected void InitialiseWindowTitle()
+            => WindowTitle = Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                ? "Test"
+                : StaticClassWrapper.TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
 
         #endregion
 
@@ -110,9 +130,6 @@ namespace DND_Character_Sheet.ViewModels
             return true;
         }
 
-        //TODO: Fix spell button in character sheet
-        //TODO: Fix issue with CanExitWindow when already saved character who edited the spells 
-
         public bool OpenCharacter()
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
@@ -122,6 +139,7 @@ namespace DND_Character_Sheet.ViewModels
             if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
                 Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                InitialiseWindowTitle();
                 return true;
             }
 

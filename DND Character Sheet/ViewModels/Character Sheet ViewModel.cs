@@ -40,21 +40,6 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        private string windowTitle;
-
-        public string WindowTitle
-        {
-            get
-            {
-                return windowTitle;
-            }
-            set
-            {
-                windowTitle = value;
-                OnPropertyChanged("WindowTitle");
-            }
-        }
-
         private string outTextbox;
 
         public string OutTextbox
@@ -204,6 +189,8 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
+        public bool? HasSuccessfullyAPISearched { get; set; }
+
         #endregion
 
         #region Contructor
@@ -243,11 +230,6 @@ namespace DND_Character_Sheet.ViewModels
             InitialiseWindowTitle();
         }
 
-        private void InitialiseWindowTitle() 
-            => WindowTitle = Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                ? "Test"
-                : StaticClassWrapper.TextFormatterWrapper.ExtractFileNameFromPath(Character.FilePath);
-
         private void InitialiseDiceRolls() 
             => DiceCollection = new ObservableCollection<string>(DiceStrings.AllDice);
 
@@ -256,7 +238,7 @@ namespace DND_Character_Sheet.ViewModels
             {
                 DND_Search_Types.Backgrounds.ToString(),
                 DND_Search_Types.Classes.ToString(),
-                DND_Search_Types.Subclasses.ToString(),
+                //DND_Search_Types.Subclasses.ToString(),
                 DND_Search_Types.Features.ToString(),
                 DND_Search_Types.Races.ToString(),
                 DND_Search_Types.Subraces.ToString(),
@@ -274,16 +256,17 @@ namespace DND_Character_Sheet.ViewModels
         {
             if (SearchTextbox == null || SearchTextbox.Trim() == "")
             {
-                OutTextbox = "Type Something In To The Searchbar First!";
+                OutTextbox = "This search ability allows you to search the 5e SRD Document (this functionality requires an internet connection)\nType Something In To The Searchbar First";
                 return false;
             }
             if (SelectedSearchType == null)
             {
-                OutTextbox = "Select A Search Type First!";
+                OutTextbox = "Select A Search Type From The Dropdown";
                 return false;
             }
-
-            if (OutTextbox != "Press Go!")
+            if (HasSuccessfullyAPISearched == true)
+                return true;
+            if (HasSuccessfullyAPISearched == false)
                 return true;
 
             OutTextbox = "Press Go!";
@@ -294,6 +277,7 @@ namespace DND_Character_Sheet.ViewModels
         {
             var (outputText, isSuccessful) = APICommunicator.GetJson();
             OutTextbox = StaticClassWrapper.TextFormatterWrapper.ListToString(outputText);
+            HasSuccessfullyAPISearched = isSuccessful;
             return isSuccessful;
         }
 
@@ -329,7 +313,7 @@ namespace DND_Character_Sheet.ViewModels
                 StaticClassWrapper, WindowServiceWrapper);
 
         public bool OpenSkillsWindow()
-            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, true);
+            => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, false);
 
         public bool OpenNotesWindow() 
             => WindowServiceWrapper.OpenNotesWindow(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);

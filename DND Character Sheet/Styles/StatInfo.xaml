@@ -48,6 +48,11 @@
         <Setter Property="FontSize" Value="11"></Setter>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="HeaderTextBlock">
+        <Setter Property="Foreground" Value="Wheat"></Setter>
+        <Setter Property="FontSize" Value="11"></Setter>
+    </Style>
+
     <ControlTemplate x:Key="OK">
 
     </ControlTemplate>

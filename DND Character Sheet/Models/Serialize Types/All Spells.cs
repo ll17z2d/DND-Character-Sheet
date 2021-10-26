@@ -153,6 +153,53 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
+        private string spellcastingAbility;
+
+        public string SpellcastingAbility
+        {
+            get
+            {
+                return spellcastingAbility;
+            }
+            set
+            {
+                spellcastingAbility = value;
+                OnPropertyChanged("SpellcastingAbility");
+            }
+        }
+
+        private string spellSaveDC;
+
+        public string SpellSaveDC
+        {
+            get
+            {
+                return spellSaveDC;
+            }
+            set
+            {
+                spellSaveDC = value; 
+                OnPropertyChanged("SpellSaveDC");
+            }
+        }
+
+        private string spellAttackBonus;
+
+        public string SpellAttackBonus
+        {
+            get
+            {
+                return spellAttackBonus;
+            }
+            set
+            {
+                spellAttackBonus = value;
+                OnPropertyChanged("SpellAttackBonus");
+            }
+        }
+
+
+
         public AllSpells() : this(new SpellLevelViewModel(8, 0),
             new SpellLevelViewModel(12, 1),
             new SpellLevelViewModel(13, 2),

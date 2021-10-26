@@ -23,4 +23,5 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::AB6D2D31-CF52-46D0-A5D7-55726D8237D8::.NETCoreApp,Version=v3.1::DND_Character_Sheet_Unit_Tests.ViewModels.TestCharacterSheetViewModel&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=subrace/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

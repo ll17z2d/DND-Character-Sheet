@@ -7,7 +7,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="{Binding WindowTitle}" MinHeight="650" MinWidth="700" FontSize="12" Background="Black">
+        Title="{Binding WindowTitle}" MinHeight="800" MinWidth="660" FontSize="12" Background="Black">
     <!--xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"-->
 
     <!--<i:Interaction.Triggers>
@@ -46,8 +46,8 @@
                 <MenuItem Header="Save As" Command="{Binding SaveCharacterAsCommand}"/>
                 <!--<MenuItem Header="Exit" Command="{Binding ExitCommand}"/>-->
             </MenuItem>
-            <MenuItem Header="View"/>
-            <MenuItem Header="Options"/>
+            <!--<MenuItem Header="View"/>
+            <MenuItem Header="Options"/>-->
         </Menu>
 
         <uc:Main_Stats_Control Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
@@ -70,6 +70,6 @@
 
         <uc:API_Search_Control Grid.Row="3" Grid.Column="3" Grid.RowSpan="2"/>
 
-        <uc:Quick_Spells_Control Grid.Row="5" Grid.Column="3" Grid.RowSpan="4"/>
+        <uc:Quick_Spells_Control Grid.Row="5" Grid.Column="3" Grid.RowSpan="2"/>
     </Grid>
 </Window>

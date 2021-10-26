@@ -19,11 +19,11 @@
                HorizontalContentAlignment="Center"/>
 
         <DataGrid Grid.Row="2" Margin="5" ColumnWidth="*" FontSize="12"
-                  ItemsSource="{Binding Character.WeaponNotes.WeaponsInventory, Mode=TwoWay}"/>
+                  ItemsSource="{Binding Character.WeaponNotes.WeaponsInventory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBox Grid.Row="3" TextWrapping="Wrap" 
                  VerticalScrollBarVisibility="Auto"
                  AcceptsReturn="True"
-                 Text="{Binding Character.WeaponNotes.WeaponDetails, Mode=TwoWay}"/>
+                 Text="{Binding Character.WeaponNotes.WeaponDetails, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

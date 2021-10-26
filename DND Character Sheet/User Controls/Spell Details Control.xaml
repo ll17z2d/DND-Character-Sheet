@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" MinWidth="300" MinHeight="300"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -21,20 +21,23 @@
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1"
-               Grid.ColumnSpan="2" Content="Spell Details"
-               HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1"
+               Grid.ColumnSpan="2" Text="Spell Details"
+               HorizontalAlignment="Center"
+               Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
 
-        <Label Grid.Row="2" Grid.Column="1"
-               Content="Spell Name"/>
+        <TextBlock Grid.Row="2" Grid.Column="1"
+               Text="Spell Name"
+               Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="2" Grid.Column="2"
                  FontSize="26"
                  Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="1"
-               Content="Spell Details"/>
+        <TextBlock Grid.Row="3" Grid.Column="1"
+               Text="Spell Details"
+               Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="3" Grid.Column="2"
-                 FontSize="20" TextWrapping="Wrap"
+                 FontSize="26" TextWrapping="Wrap" AcceptsReturn="True"
                  VerticalScrollBarVisibility="Auto"
                  Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>

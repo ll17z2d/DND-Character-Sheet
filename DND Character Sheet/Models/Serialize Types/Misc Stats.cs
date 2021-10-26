@@ -11,14 +11,16 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         private string initiative;
         private string speed;
 
-        public MiscStats() : this("0", 0, "0", "0") { }
+        public MiscStats() : this("0", 0, "0", "0", "0", "0") { }
 
-        public MiscStats(string proficiency, int ac, string initiative, string speed)
+        public MiscStats(string proficiency, int ac, string initiative, string speed, string inspiration, string passivePerception)
         {
             Proficiency = proficiency;
             AC = ac;
             Initiative = initiative;
             Speed = speed;
+            Inspiration = inspiration;
+            PassivePerception = passivePerception;
         }
 
         public string Proficiency
@@ -70,6 +72,36 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             {
                 speed = value;
                 OnPropertyChanged("Speed");
+            }
+        }
+
+        private string inspiration;
+
+        public string Inspiration
+        {
+            get
+            {
+                return inspiration;
+            }
+            set
+            {
+                inspiration = value; 
+                OnPropertyChanged("Inspiration");
+            }
+        }
+
+        private string passivePerception;
+
+        public string PassivePerception
+        {
+            get
+            {
+                return passivePerception;
+            }
+            set
+            {
+                passivePerception = value; 
+                OnPropertyChanged("PassivePerception");
             }
         }
 

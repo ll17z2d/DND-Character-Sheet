@@ -23,22 +23,25 @@
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Spell Level" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Spell Level" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <Label Grid.Row="2" Grid.Column="1" FontSize="22" Grid.RowSpan="2"
                FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center"
                Foreground="Azure"
                Content="{Binding SpellLevel, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="1" Grid.Column="2" Content="Slots Total" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Slots Total" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="15"
                  Text="{Binding SlotsTotal, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="1" Grid.Column="3" Content="Slots Expended" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Slots Expended" HorizontalAlignment="Center"
+                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
         <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="15"
                  Text="{Binding SlotsExpended, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Row="3" Grid.Column="1" Content="Prepared"/>
-        <Label Grid.Row="3" Grid.Column="2" Content="Spell Name"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Prepared" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="Spell Name" Style="{StaticResource HeaderTextBlock}"/>
 
         <ScrollViewer Grid.Row="4" Grid.Column="1" 
                       Grid.ColumnSpan="3" 

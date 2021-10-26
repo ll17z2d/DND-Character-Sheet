@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using DND_Character_Sheet.Commands;
 using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.Wrappers;
+using Microsoft.Xaml.Behaviors.Core;
 
 namespace DND_Character_Sheet.ViewModels
 {
@@ -20,12 +22,15 @@ namespace DND_Character_Sheet.ViewModels
 
         public ICommand OpenCharacterCommand { get; set; }
 
+        public ICommand DonateCommand { get; set; }
+
         //public ICommand EditCharacterCommand { get; set; }
 
         public HomeScreenViewModel(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper)
         {
             NewCharacterCommand = new MethodCommands(NewCharacter);
             OpenCharacterCommand = new MethodCommands(OpenCharacter);
+            DonateCommand = new ActionCommand(DonateToMe);
             DialogWindowWrapper = dialogWindowWrapper;
             StaticClassWrapper = staticClassWrapper;
             OpenNewViewWrapper = openNewViewWrapper;
@@ -53,6 +58,13 @@ namespace DND_Character_Sheet.ViewModels
         public bool NewCharacter() 
             => OpenNewViewWrapper.OpenCharacterCreatorWindow(
                 DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
+
+        public void DonateToMe()
+            => Process.Start(new ProcessStartInfo()
+            {
+                FileName = "https://www.paypal.com/donate?hosted_button_id=9DCVKW5QALNR4",
+                UseShellExecute = true
+            }); //Process.Start(new ProcessStartInfo("cmd", $"/c start https://www.paypal.com/donate?hosted_button_id=9DCVKW5QALNR4") { CreateNoWindow = true });
 
         private ICharacterModel Open(string filePath)
             => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
