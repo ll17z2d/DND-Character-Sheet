@@ -256,7 +256,7 @@ namespace DND_Character_Sheet.ViewModels
         {
             if (SearchTextbox == null || SearchTextbox.Trim() == "")
             {
-                OutTextbox = "This search ability allows you to search the 5e SRD Document (this functionality requires an internet connection)\nType Something In To The Searchbar First";
+                OutTextbox = "This search ability allows you to search the 5e SRD Document using dnd5eapi (this functionality requires an internet connection)\nType Something In To The Searchbar First";
                 return false;
             }
             if (SelectedSearchType == null)

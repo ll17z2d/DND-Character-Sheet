@@ -11,8 +11,8 @@ namespace DND_Character_Sheet.ViewModels
     {
         private ObservableCollection<Spell> spells;
         private int spellLevel;
-        private int slotsTotal;
-        private int slotsExpended;
+        private string slotsTotal;
+        private string slotsExpended;
 
         public ObservableCollection<Spell> Spells
         {
@@ -40,7 +40,7 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public int SlotsTotal
+        public string SlotsTotal
         {
             get
             {
@@ -53,7 +53,7 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public int SlotsExpended
+        public string SlotsExpended
         {
             get
             {
@@ -66,9 +66,9 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public SpellLevelViewModel(int numOfSpells, int spellLevel) : this(numOfSpells, spellLevel, 0, 0) { }
+        public SpellLevelViewModel(int numOfSpells, int spellLevel) : this(numOfSpells, spellLevel, "0", "0") { }
 
-        private SpellLevelViewModel(int numOfSpells, int spellLevel, int slotsTotal, int slotsExpended)
+        private SpellLevelViewModel(int numOfSpells, int spellLevel, string slotsTotal, string slotsExpended)
         {
             SpellLevel = spellLevel;
             SlotsTotal = slotsTotal;

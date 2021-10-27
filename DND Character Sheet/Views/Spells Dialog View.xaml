@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DND_Character_Sheet.Views"
         xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
         mc:Ignorable="d" Background="Black" MinHeight="475" MinWidth="720"
-        Title="Character Spells" Height="450" Width="800">
+        Title="Character Spells" Height="450" Width="800" Icon="../Images/Logo.png">
     <Grid>
         <uc:All_Spells_Control/>
     </Grid>

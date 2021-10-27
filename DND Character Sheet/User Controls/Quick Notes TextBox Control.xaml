@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="DND_Character_Sheet.User_Controls.Quick_Notes_TextBox_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Quick Notes"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Margin="5" 
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Text="{Binding Character.CharacterNotes.QuickNotes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</UserControl>
