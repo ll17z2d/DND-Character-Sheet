@@ -34,6 +34,9 @@
     <Compile Update="User Controls\Quick Notes Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User Controls\Quick Notes TextBox Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\Quick Spells Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\Spell List Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="User Controls\Spellcasting Stats Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\StatModifierTextBox.xaml.cs">
@@ -102,6 +108,9 @@
     <Page Update="User Controls\Quick Notes Control.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="User Controls\Quick Notes TextBox Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="User Controls\Quick Spells Control.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -112,6 +121,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Spell List Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Spellcasting Stats Control.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\StatModifierTextBox.xaml">

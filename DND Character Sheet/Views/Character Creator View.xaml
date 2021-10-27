@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:DND_Character_Sheet.ViewModels"
         mc:Ignorable="d" 
         Title="Character Creator" Height="650" Width="900" WindowStartupLocation="CenterScreen"
-        MinHeight="625" MinWidth="725" Background="Black">
+        MinHeight="625" MinWidth="725" Background="Black" Icon="../Images/Logo.png">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,8 +24,14 @@
         </Grid.ColumnDefinitions>
 
         <TabControl x:Name="TabControl" Grid.Row="1" Grid.Column="1" Background="Black">
+            <TabItem Header="Character Details">
+                <uc:Character_Details_Control/>
+            </TabItem>
             <TabItem Header="Main Stats">
                 <uc:Main_Stats_Control/>
+            </TabItem>
+            <TabItem Header="HP &amp; Armour">
+                <uc:HP___Misc_Stats_Control/>
             </TabItem>
             <TabItem Header="Skills">
                 <Grid>
@@ -38,17 +44,26 @@
                     <Button Grid.Row="2" Margin="5" Content="Auto-Generate Skill Modifiers" Command="{Binding AutoGenerateSkillModsCommand}"/> 
                 </Grid>
             </TabItem>
-            <TabItem Header="HP &amp; Armour">
-                <uc:HP___Misc_Stats_Control/>
-            </TabItem>
             <TabItem Header="Weapons">
                 <uc:WeaponsControl/>
+            </TabItem>
+            <TabItem Header="Notes">
+                <uc:All_Notes_Control DataContext="{Binding NotesDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </TabItem>
             <TabItem Header="Spells">
                 <uc:All_Spells_Control DataContext="{Binding SpellsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </TabItem>
-            <TabItem Header="Notes">
-                <uc:All_Notes_Control DataContext="{Binding NotesDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TabItem Header="Misc">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <uc:Quick_Notes_TextBox_Control Grid.Row="1"/>
+                    <uc:Spellcasting_Stats_Control Grid.Row="2"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

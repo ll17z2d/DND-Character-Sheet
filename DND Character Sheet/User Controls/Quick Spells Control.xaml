@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DND_Character_Sheet.User_Controls"
+             xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -11,7 +11,6 @@
             <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
@@ -26,22 +25,9 @@
                HorizontalAlignment="Center" Grid.Column="1"
                Grid.ColumnSpan="3"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Spellcasting Ability" HorizontalAlignment="Center"
-                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Margin="0, 0, 0, 10"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="20" FontSize="30" HorizontalContentAlignment="Center"
-                 Text="{Binding Character.AllSpells.SpellcastingAbility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <uc:Spellcasting_Stats_Control Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"></uc:Spellcasting_Stats_Control>
 
-        <TextBlock Grid.Row="3" Grid.Column="2" Text="Spell Save DC" HorizontalAlignment="Center"
-                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Margin="0, 0, 0, 10"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Margin="20" FontSize="30" HorizontalContentAlignment="Center"
-                 Text="{Binding Character.AllSpells.SpellSaveDC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock Grid.Row="3" Grid.Column="3" Text="Spell Attack Bonus" HorizontalAlignment="Center"
-                   TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}" Margin="0, 0, 0, 10"/>
-        <TextBox Grid.Row="2" Grid.Column="3" Margin="20" FontSize="30" HorizontalContentAlignment="Center"
-                 Text="{Binding Character.AllSpells.SpellAttackBonus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Button Grid.Row="4" Grid.Column="1"
+        <Button Grid.Row="3" Grid.Column="1"
                 Grid.ColumnSpan="3" Margin="5"
                 Command="{Binding OpenSpellsWindowCommand}">
             <TextBlock Text="See All Spells" TextAlignment="Center"

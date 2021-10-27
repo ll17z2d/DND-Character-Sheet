@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DND_Character_Sheet.Views"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" Icon="../Images/Logo.png"
         Title="Home Screen" Height="450" Width="800" Background="Black"
         MinHeight="420" MinWidth="400">
     <Grid>
@@ -51,9 +51,9 @@
             <!--</Grid.RowDefinitions>-->
         <TextBox Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
                  FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" IsReadOnly="True"
-                 IsHitTestVisible="False"
+                 IsReadOnlyCaretVisible="False"
                  Background="Cornsilk" VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Center"
-                 Text="Hi, this is my program, feel free to contact me at zakaria.dahir1@outlook.com for any messages, discovered bugs, feature requests, or anything else :)"/>
+                 Text="Hi, this is a free of charge digital 5e character sheet. Feel free to contact me at zakaria.dahir1@outlook.com for any messages, discovered bugs, feature requests, or anything else :)"/>
         <!--</Border>-->
         <!--</Grid>-->
 

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Images\Invalid Character Appearance.png" />
+    <None Remove="Images\Logo.png" />
     <None Remove="Images\Placeholder Character Appearance.png" />
   </ItemGroup>
 
@@ -20,6 +21,9 @@
 
   <ItemGroup>
     <Resource Include="Images\Invalid Character Appearance.png" />
+    <Resource Include="Images\Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Placeholder Character Appearance.png" />
   </ItemGroup>
 

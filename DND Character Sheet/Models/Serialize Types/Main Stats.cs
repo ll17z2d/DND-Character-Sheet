@@ -314,7 +314,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
         private static string StatToModifier(int stat)
         {
-            int modifier = (int)Math.Truncate((double)(stat - 10) / 2);
+            int modifier = (int)Math.Floor((double)(stat - 10) / 2);
 
             if (modifier >= 0)
             {
