@@ -12,7 +12,7 @@ Current functionality includes:
  
  -load + edit previously saved characters 
  
- -API search of 5th Edition SRD (using the dnd5eapi service)
+ -REST API search of 5th Edition SRD (using the dnd5eapi service)
  
  -slick (imo) design
  
