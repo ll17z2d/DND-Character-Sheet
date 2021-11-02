@@ -18,7 +18,7 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
             var character = new CharacterModel(
                 new MainStats(10, 10, 10, 10, 10, 10, "+3", "+3", "+3", "+3", "+3", "+3"),
                 new AllSkills(),
-                new HPStats(20, 16, 2),
+                new HPStats(20, 16, 2, "2d6"),
                 new DetailsStats("Tempus Namus", "Monk 4", "Hermit", "My Name", "Human", "Aight", "350"),
                 new MiscStats("+4", 18, "+1", "+35", "1", "15"),
                 new CharacterNotes("", "QN", "EQ", "SN", "AD", "PR",

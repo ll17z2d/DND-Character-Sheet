@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Source>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</Source>
+    <SmallTileSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</MediumTileSource>
+    <WideTileSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</WideTileSource>
+    <LargeTileSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</LargeTileSource>
+    <AppIconSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</AppIconSource>
+    <SplashScreenSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Images\Logo.png</PackageLogoSource>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <UapAppxPackageBuildMode>StoreAndSideload</UapAppxPackageBuildMode>
+    <AppxBuildConfigurationSelection>x86|x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+</Project>

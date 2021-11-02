@@ -12,12 +12,15 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         private int maxHp;
         private int currentHp;
         private int tempHp;
-        public HPStats() : this(0, 0, 0) { }
-        public HPStats(int MaxHP, int CurrentHP, int TempHP)
+        private string hitDie;
+
+        public HPStats() : this(0, 0, 0, "") { }
+        public HPStats(int MaxHP, int CurrentHP, int TempHP, string HitDie)
         {
             this.MaxHP = MaxHP;
             this.CurrentHP = CurrentHP;
             this.TempHP = TempHP;
+            this.HitDie = HitDie;
         }
 
         public int MaxHP
@@ -58,6 +61,20 @@ namespace DND_Character_Sheet.Models.Serialize_Types
                 OnPropertyChanged("TempHP");
             }
         }
+
+        public string HitDie
+        {
+            get
+            {
+                return hitDie;
+            }
+            set
+            {
+                hitDie = value; 
+                OnPropertyChanged("HitDie");
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

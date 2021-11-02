@@ -1,0 +1,6 @@
+MainPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0_x64.appx
+SymbolPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0\Packaging Project_1.0.10.0_x64.appxsym
+ResourcePack=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0_scale-100.appx
+ResourcePack=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0_scale-125.appx
+ResourcePack=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0_scale-150.appx
+ResourcePack=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Release\Upload\Packaging Project_1.0.10.0_scale-400.appx

@@ -66,24 +66,24 @@
             <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
                    HorizontalAlignment="Center" Text="Equipment" Margin="0, 5, 0, 0"
                    TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" 
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"
                      VerticalScrollBarVisibility="Auto" Text="{Binding CharacterNotes.Equipment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
         <TextBlock Grid.Row="3" Grid.Column="2" Text="Session Notes"
                HorizontalAlignment="Center" Margin="0, 5, 0, 0"
                TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-        <TextBox Grid.Row="4" Grid.Column="2" VerticalScrollBarVisibility="Auto"
+        <TextBox Grid.Row="4" Grid.Column="2" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"
                  Text="{Binding CharacterNotes.SessionNotes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="1" Grid.Column="3" Text="Ability Descriptions"
                HorizontalAlignment="Center" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-        <TextBox Grid.Row="2" Grid.Column="3" VerticalScrollBarVisibility="Auto"
+        <TextBox Grid.Row="2" Grid.Column="3" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"
                  Text="{Binding CharacterNotes.AbilityDesc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="3" Grid.Column="3" Text="Proficiencies"
                HorizontalAlignment="Center" Margin="0, 5, 0, 0" TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-        <TextBox Grid.Row="4" Grid.Column="3" VerticalScrollBarVisibility="Auto"
+        <TextBox Grid.Row="4" Grid.Column="3" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto"
                  Text="{Binding CharacterNotes.Proficiencies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">

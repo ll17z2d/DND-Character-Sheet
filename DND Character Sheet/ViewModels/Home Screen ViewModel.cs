@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
+//using Windows.ApplicationModel.Resources.Core;
 using DND_Character_Sheet.Commands;
 using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.Wrappers;
 using Microsoft.Xaml.Behaviors.Core;
+//using Windows.Services.Store;
+//using Windows.UI.Notifications;
+//using ABI.Windows.Data.Xml.Dom;
+//using GalaSoft.MvvmLight.Command;
+//using XmlNodeList = Windows.Data.Xml.Dom.XmlNodeList;
 
 namespace DND_Character_Sheet.ViewModels
 {
@@ -30,7 +37,7 @@ namespace DND_Character_Sheet.ViewModels
         {
             NewCharacterCommand = new MethodCommands(NewCharacter);
             OpenCharacterCommand = new MethodCommands(OpenCharacter);
-            DonateCommand = new ActionCommand(DonateToMe);
+            DonateCommand = new MethodCommands(DonateToMe);
             DialogWindowWrapper = dialogWindowWrapper;
             StaticClassWrapper = staticClassWrapper;
             OpenNewViewWrapper = openNewViewWrapper;
@@ -59,12 +66,42 @@ namespace DND_Character_Sheet.ViewModels
             => OpenNewViewWrapper.OpenCharacterCreatorWindow(
                 DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
 
-        public void DonateToMe()
-            => Process.Start(new ProcessStartInfo()
+        public bool DonateToMe()
+        {
+            //var storeContext = StoreContext.GetDefault();
+            //var x = await storeContext.GetAssociatedStoreProductsAsync(new[] {"Durable"});
+            //var result = await storeContext.RequestPurchaseAsync("DonationToZakID");
+
+            //if (result.Status == StorePurchaseStatus.Succeeded)
+            //{
+                //var tileDocument = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150Text03);
+                //XmlNodeList textNodes = tileDocument.GetElementsByTagName("text");
+                //textNodes[0].InnerText = "Donation To Zak";
+                //textNodes[1].InnerText = "Thanks so much for the donation";
+
+                //TileNotification tileNotification = new TileNotification(tileDocument);
+                //TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
+            //}
+
+            Process.Start(new ProcessStartInfo()
             {
                 FileName = "https://www.paypal.com/donate?hosted_button_id=9DCVKW5QALNR4",
                 UseShellExecute = true
-            }); //Process.Start(new ProcessStartInfo("cmd", $"/c start https://www.paypal.com/donate?hosted_button_id=9DCVKW5QALNR4") { CreateNoWindow = true });
+            });
+            //return result;
+            return true;
+        }
+
+        //private async StorePurchaseResult temp(StoreContext storeContext)
+        //{
+        //    return await StorePurchaseResult(storeContext);
+        //}
+
+        //private static async Task<StorePurchaseResult> StorePurchaseResult(StoreContext storeContext)
+        //{
+        //    var result = await storeContext.RequestPurchaseAsync("DonationToZakID");
+        //    return result;
+        //}
 
         private ICharacterModel Open(string filePath)
             => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
