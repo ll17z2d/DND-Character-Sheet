@@ -1,0 +1,63 @@
+C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LargeTile.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LargeTile.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LargeTile.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LargeTile.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LargeTile.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SmallTile.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SmallTile.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SmallTile.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SmallTile.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SmallTile.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SplashScreen.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SplashScreen.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SplashScreen.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SplashScreen.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\LockScreenLogo.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\SplashScreen.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square150x150Logo.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square150x150Logo.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square150x150Logo.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square150x150Logo.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square150x150Logo.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-lightunplated_targetsize-16.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-lightunplated_targetsize-24.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-lightunplated_targetsize-256.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-lightunplated_targetsize-32.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-lightunplated_targetsize-48.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-unplated_targetsize-16.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-unplated_targetsize-256.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-unplated_targetsize-32.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.altform-unplated_targetsize-48.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-16.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-24.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-24_altform-unplated.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-256.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-32.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Square44x44Logo.targetsize-48.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\StoreLogo.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\StoreLogo.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\StoreLogo.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\StoreLogo.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\StoreLogo.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Wide310x150Logo.scale-100.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Wide310x150Logo.scale-125.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Wide310x150Logo.scale-150.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Wide310x150Logo.scale-200.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\Images\Wide310x150Logo.scale-400.png
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\resources.pri
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Release\net5.0-windows\Msix\DND Character Sheet.deps.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Release\net5.0-windows\apphost.exe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Release\net5.0-windows\DND Character Sheet.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\bin\Release\net5.0-windows\DND Character Sheet.runtimeconfig.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Release\net5.0-windows\DND Character Sheet.pdb
+C:\Users\zakar\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.37\lib\net5.0-windows7.0\Microsoft.Xaml.Behaviors.dll
+C:\Users\zakar\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll
+C:\Users\zakar\.nuget\packages\objectscomparer\1.4.1\lib\netstandard2.1\ObjectsComparer.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Assemblies\Testing Raxer Chroma SDK.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\Assemblies\Testing Raxer Chroma SDK.pdb

@@ -1,0 +1,37 @@
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.deps.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.exe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.runtimeconfig.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.pdb
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\Microsoft.Xaml.Behaviors.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\Newtonsoft.Json.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\ObjectsComparer.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\Testing Raxer Chroma SDK.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\Testing Raxer Chroma SDK.pdb
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\resources.pri
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\AppxManifest.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Upload\AppxManifest.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Packaging Project.build.appxrecipe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Upload\Packaging Project.build.appxrecipe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\System.Core.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\System.Core.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapprojAssemblyReference.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.CoreCompileInputs.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.CopyComplete
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\priconfig.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\priconfig.xml.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\unfiltered.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\unfiltered.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\filtered.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\filtered.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\excluded.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\excluded.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\resources.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\resources.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\pri.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\pri.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\qualifiers.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\qualifiers.txt.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\ProjectArchitectures.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.LastBuild.txt
