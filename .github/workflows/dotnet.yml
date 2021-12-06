@@ -22,6 +22,9 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build
-      run: msbuild
+      run: msbuild $env:Solution_Path /t:Restore /p:Configuration=$env:Configuration /p:RuntimeIdentifier=$env:RuntimeIdentifier 
+      env: 
+        Configuration: Debug 
+        RuntimeIdentifier: win-x64
     - name: Test
       run: dotnet test --no-build --verbosity normal
