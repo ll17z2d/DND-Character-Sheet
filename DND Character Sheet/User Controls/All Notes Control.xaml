@@ -29,7 +29,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="5"/>
@@ -45,22 +45,22 @@
             
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Platinum" HorizontalAlignment="Center"
                        TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center"
+            <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"
                      Text="{Binding CharacterNotes.Money.Platinum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="2" Text="Gold" HorizontalAlignment="Center"
                        TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-            <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center"
+            <TextBox Grid.Row="2" Grid.Column="2" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"
                      Text="{Binding CharacterNotes.Money.Gold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="3" Text="Silver" HorizontalAlignment="Center"
                        TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-            <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center"
+            <TextBox Grid.Row="2" Grid.Column="3" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"
                      Text="{Binding CharacterNotes.Money.Silver, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="4" Text="Bronze" HorizontalAlignment="Center"
                        TextWrapping="Wrap" Style="{StaticResource HeaderTextBlock}"/>
-            <TextBox Grid.Row="2" Grid.Column="4" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center"
+            <TextBox Grid.Row="2" Grid.Column="4" AcceptsReturn="False" FontSize="30" HorizontalContentAlignment="Center" HorizontalScrollBarVisibility="Auto"
                      Text="{Binding CharacterNotes.Money.Bronze, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"

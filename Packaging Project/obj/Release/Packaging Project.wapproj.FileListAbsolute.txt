@@ -13,11 +13,7 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Upload\AppxManifest.xml
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Packaging Project.build.appxrecipe
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\Upload\Packaging Project.build.appxrecipe
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\System.Core.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\System.Core.xml
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapprojAssemblyReference.cache
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.CoreCompileInputs.cache
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.CopyComplete
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\priconfig.xml
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\priconfig.xml.intermediate
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\unfiltered.layout.resfiles
@@ -35,3 +31,5 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\ob
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\MultipleQualifiersPerDimensionFound.txt
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\ProjectArchitectures.txt
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.LastBuild.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Release\Packaging Project.wapproj.AssemblyReference.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Release\DND Character Sheet\DND Character Sheet.runtimeconfig.dev.json

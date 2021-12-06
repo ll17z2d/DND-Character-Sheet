@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:DND_Character_Sheet.Views"
         xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
         mc:Ignorable="d" Background="Black" MinHeight="400" MinWidth="600"
-        Title="Character Notes" Height="500" Width="800" Icon="../Images/Logo.png">
+        Title="Character Notes" Height="500" Width="800" Icon="../Images/Logo.png"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <uc:All_Notes_Control/>
     </Grid>

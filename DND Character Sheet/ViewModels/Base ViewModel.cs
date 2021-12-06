@@ -138,12 +138,25 @@ namespace DND_Character_Sheet.ViewModels
 
             if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
-                Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
-                InitialiseWindowTitle();
-                return true;
+                if (!CheckSubMenus())
+                {
+                    WindowServiceWrapper.CloseAllSubWindows();
+                    Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                    InitialiseWindowTitle();
+                    return true;
+                }
+
+                return false;
             }
 
             return false;
+        }
+
+        private bool CheckSubMenus()
+        {
+            var cancelEventArgs = new CancelEventArgs();
+            ExitWindow(new object(), cancelEventArgs);
+            return cancelEventArgs.Cancel;
         }
 
         public void ExitWindow(object sender, CancelEventArgs e)
@@ -152,13 +165,17 @@ namespace DND_Character_Sheet.ViewModels
             switch (result)
             {
                 case MessageBoxResult.Yes:
+                    WindowServiceWrapper.CloseAllSubWindows();
                     if (HasCharacterBeenCreated())
+                    {
                         Save();
+                        e.Cancel = false;
+                    }
                     else
-                        SaveCharacterAs();
-                    e.Cancel = false;
+                        e.Cancel = !SaveCharacterAs();
                     return;
                 case MessageBoxResult.No:
+                    WindowServiceWrapper.CloseAllSubWindows();
                     e.Cancel = false;
                     break;
                 case MessageBoxResult.Cancel:

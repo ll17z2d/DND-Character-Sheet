@@ -23,7 +23,7 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
             var expected1 = GetDeserializedClass();
             var expected2 = true;
             var searchTypeEnum = DND_Search_Types.Classes;
-            var outputJson = TestData.GetTestDNDClass();
+            var outputJson = TestData.GetTestDNDAPIClass();
             var textFormatterWrapper = new TextFormatterWrapper();
 
             //act

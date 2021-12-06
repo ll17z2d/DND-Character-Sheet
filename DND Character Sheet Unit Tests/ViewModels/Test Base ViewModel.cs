@@ -123,7 +123,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object, 
                 new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
-                new OpenNewViewWrapper());
+                new OpenNewViewWrapper(new WindowWrapper()));
         }
 
         private void GetUnderTestOpenCharacter(bool dialogWindowResult)
@@ -137,7 +137,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
                 new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
-                new OpenNewViewWrapper());
+                new OpenNewViewWrapper(new WindowWrapper()));
         }
     }
 }

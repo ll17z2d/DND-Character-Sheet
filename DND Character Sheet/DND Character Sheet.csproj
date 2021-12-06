@@ -9,6 +9,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <XamlDebuggingInformation>True</XamlDebuggingInformation>
   </PropertyGroup>
 
   <ItemGroup>

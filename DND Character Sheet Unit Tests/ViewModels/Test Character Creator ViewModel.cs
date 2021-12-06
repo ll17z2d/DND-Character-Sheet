@@ -22,6 +22,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public CharacterCreatorViewModel CharacterCreatorViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
         public Mock<ITextFormatterWrapper> MockTextFormatterWrapper { get; set; }
+        public Mock<ISerializeCharacterWrapper> MockSerializeCharacterWrapper { get; set; }
 
         [TestMethod]
         public void ExitWindow_TestCloseWindowOnBlankCharacter()
@@ -66,7 +67,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             //arrange
             var expected1 = false;
             var expected2 = 1;
-            GetUnderTest(MessageBoxResult.Yes);
+            GetUnderTest(MessageBoxResult.Yes, true);
             var cancelEventArgs = new CancelEventArgs();
             ChangeCharacterStrValue(2);
 
@@ -86,6 +87,25 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             var expected1 = true;
             var expected2 = 1;
             GetUnderTest(MessageBoxResult.Cancel);
+            var cancelEventArgs = new CancelEventArgs();
+            ChangeCharacterStrValue(2);
+
+            //act
+            CharacterCreatorViewModel.ExitWindow(new object(), cancelEventArgs);
+
+            //assert
+            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            Assert.AreEqual(cancelEventArgs.Cancel, expected1);
+        }
+
+        [TestMethod]
+        public void ExitWindow_TestCancelOnSaveDialogOnCloseWindow()
+        {
+            //arrange
+            var expected1 = true;
+            var expected2 = 1;
+            GetUnderTest(MessageBoxResult.Yes);
             var cancelEventArgs = new CancelEventArgs();
             ChangeCharacterStrValue(2);
 
@@ -236,23 +256,26 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             Assert.AreEqual(expected2, actual);
         }
 
-        private void GetUnderTest(MessageBoxResult messageBoxResult = MessageBoxResult.None)
+        private void GetUnderTest(MessageBoxResult messageBoxResult = MessageBoxResult.None, bool saveDialogResult = false)
         {
             MockDialogWindowWrapper = new Mock<IDialogWindowWrapper>();
             MockDialogWindowWrapper.Setup(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()))
                 .Returns(messageBoxResult);
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.SaveFileDialog)
-                .Returns(new SaveFileDialog());
+                .Returns(new SaveFileDialog() { FileName = String.Empty });
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog())
-                .Returns(false);
+                .Returns(saveDialogResult);
 
             MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
             MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()))
                 .Returns("Test Window Title");
 
+            MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
+            MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFile(It.IsAny<ICharacterModel>()));
+
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(MockTextFormatterWrapper.Object, new SerializeCharacterWrapper()), new OpenNewViewWrapper());
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper(new WindowWrapper()));
         }
 
         private void ChangeCharacterStrValue(int str)

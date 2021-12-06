@@ -18,7 +18,7 @@ namespace DND_Character_Sheet.Views
     /// <summary>
     /// Interaction logic for Spell_Details_View.xaml
     /// </summary>
-    public partial class SpellDetailsView : Window
+    public partial class SpellDetailsView : Window, IView
     {
         public SpellDetailsView(Spell spell)
         {

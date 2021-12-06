@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DND_Character_Sheet.Views"
         xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
-        mc:Ignorable="d" Background="Black" WindowStartupLocation="CenterScreen" Icon="../Images/Logo.png"
-        Title="Spell Details" Height="450" Width="800" MinHeight="300" MinWidth="400">
+        mc:Ignorable="d" Background="Black" Icon="../Images/Logo.png"
+        Title="Spell Details" Height="450" Width="800" MinHeight="300" MinWidth="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <uc:Spell_Details_Control/>
     </Grid>
