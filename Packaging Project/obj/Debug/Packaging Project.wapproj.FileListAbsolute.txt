@@ -1,0 +1,35 @@
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\DND Character Sheet.deps.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\DND Character Sheet.exe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\DND Character Sheet.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\DND Character Sheet.runtimeconfig.json
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\DND Character Sheet.pdb
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\Microsoft.Xaml.Behaviors.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\Newtonsoft.Json.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\ObjectsComparer.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\Testing Raxer Chroma SDK.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\DND Character Sheet\Testing Raxer Chroma SDK.pdb
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\resources.pri
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\AppxManifest.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\Packaging Project.build.appxrecipe
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\System.Core.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\AnyCPU\Debug\System.Core.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\Packaging Project.wapprojAssemblyReference.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\Packaging Project.wapproj.CoreCompileInputs.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\Packaging Project.wapproj.CopyComplete
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\priconfig.xml
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\priconfig.xml.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\unfiltered.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\unfiltered.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\filtered.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\filtered.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\excluded.layout.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\excluded.layout.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\resources.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\resources.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\pri.resfiles
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\pri.resfiles.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\qualifiers.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\qualifiers.txt.intermediate
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\ProjectArchitectures.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\Debug\Packaging Project.wapproj.LastBuild.txt

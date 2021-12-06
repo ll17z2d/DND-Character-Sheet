@@ -312,10 +312,10 @@ namespace DND_Character_Sheet.ViewModels
             => WindowServiceWrapper.OpenCharacterCreatorWindow(DialogWindowWrapper,
                 StaticClassWrapper, WindowServiceWrapper);
 
-        public bool OpenSkillsWindow()
+        public bool OpenSkillsWindow() 
             => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, false);
 
-        public bool OpenNotesWindow() 
+        public bool OpenNotesWindow()
             => WindowServiceWrapper.OpenNotesWindow(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
 
         public bool OpenSpellsWindow() 

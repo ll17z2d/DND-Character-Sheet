@@ -31,7 +31,7 @@ namespace DND_Character_Sheet.Views
                 new MessageBoxWrapper()), 
                 new StaticClassWrapper(new TextFormatterWrapper(),
                 new SerializeCharacterWrapper()),
-                new OpenNewViewWrapper());
+                new OpenNewViewWrapper(new WindowWrapper()));
         }
     }
 }

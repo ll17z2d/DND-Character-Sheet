@@ -56,7 +56,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
         public ICommand OpenSpellDetailsCommand { get; set; }
 
-        public Spell() : this("Enter Spell Here", "Press '...' to edit spell details", false, new OpenNewViewWrapper()) { }
+        public Spell() : this("Enter Spell Here", "Press '...' to edit spell details", false, new OpenNewViewWrapper(new WindowWrapper())) { }
 
         private Spell(string name, string description, bool isPrepared, IOpenNewViewWrapper openNewViewWrapper)
         {

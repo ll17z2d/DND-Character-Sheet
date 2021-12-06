@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using DND_Character_Sheet.Models.Serialize_Types;
-using DND_Character_Sheet.ViewModels;
 using DND_Character_Sheet.Views;
+using System.ComponentModel;
 // ReSharper disable PossibleInvalidOperationException
 
 namespace DND_Character_Sheet.Wrappers
 {
     public interface IOpenNewViewWrapper
     {
+        public List<IView> ActiveSubWindows { get; set; }
+
+        public IWindowWrapper WindowWrapper { get; set; }
+
         public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper);
 
         public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly);
@@ -23,31 +26,71 @@ namespace DND_Character_Sheet.Wrappers
 
         public bool OpenCharacterSheetWindow(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper,
             IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper);
+
+        public void CloseAllSubWindows();
     }
 
     public class OpenNewViewWrapper : IOpenNewViewWrapper
     {
+        public List<IView> ActiveSubWindows { get; set; } = new List<IView>();
+
+        public IWindowWrapper WindowWrapper { get; set; }
+
+        public OpenNewViewWrapper(IWindowWrapper windowWrapper) 
+            => WindowWrapper = windowWrapper;
+
         public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper) 
-            => (bool)new NotesDialogView(new NotesDialogViewModel(characterNotes, characterFilePath, 
-                dialogWindowWrapper)).ShowDialog();
+            => CanOpenSubWindow(WindowWrapper.GetNotesView(characterNotes, characterFilePath, dialogWindowWrapper, 
+                RemoveActiveSubWindowAction()));
 
-        public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly) 
-            => (bool)new SkillsDialogView(new SkillsDialogViewModel(allSkills, isReadOnly)).ShowDialog();
+        public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly)
+            => CanOpenSubWindow(WindowWrapper.GetSkillsView(allSkills, isReadOnly,
+                RemoveActiveSubWindowAction()));
 
-        public bool OpenSpellsWindow(AllSpells allSpells) 
-            => (bool)new SpellsDialogView(new SpellsDialogViewModel(allSpells)).ShowDialog();
+        public bool OpenSpellsWindow(AllSpells allSpells)
+            => CanOpenSubWindow(WindowWrapper.GetSpellsView(allSpells,
+                RemoveActiveSubWindowAction()));
 
         public bool OpenSpellDetailsWindow(Spell spell) 
-            => (bool)new SpellDetailsView(spell).ShowDialog();
+            => WindowWrapper.GetSpellDetailsView(spell);
 
         public bool OpenCharacterCreatorWindow(IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper,
-            IOpenNewViewWrapper openNewViewWrapper) 
-            => (bool)new CharacterCreatorView(new CharacterCreatorViewModel(dialogWindowWrapper, staticClassWrapper,
-                openNewViewWrapper)).ShowDialog();
+            IOpenNewViewWrapper openNewViewWrapper)
+            => WindowWrapper.GetCharacterCreatorView(dialogWindowWrapper, staticClassWrapper, openNewViewWrapper);
 
         public bool OpenCharacterSheetWindow(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, 
             IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper openNewViewWrapper) 
-            => (bool)new CharacterSheetView(new CharacterSheetViewModel(character, dialogWindowWrapper, 
-                staticClassWrapper, openNewViewWrapper)).ShowDialog();
+            => WindowWrapper.GetCharacterSheetView(character, dialogWindowWrapper, staticClassWrapper, openNewViewWrapper);
+
+        public void CloseAllSubWindows()
+        {
+            if (ActiveSubWindows.Count != 0)
+            {
+                foreach (var window in new List<IView>(ActiveSubWindows))
+                {
+                    WindowWrapper.Close(window);
+                    ActiveSubWindows.Remove(window);
+                }
+            }
+        }
+
+        private Action<object, CancelEventArgs> RemoveActiveSubWindowAction() 
+            => (view, cancelEventArgs) => { ActiveSubWindows.RemoveAll(x => x.GetType() == view.GetType()); };
+
+        private bool CanOpenSubWindow(IView window)
+        {
+            if (!ActiveSubWindows.Exists(x => x.DataContext?.GetType() == window.DataContext?.GetType()))
+            {
+                OpenSubWindow(window);
+                return true;
+            }
+            return false;
+        }
+
+        private void OpenSubWindow(IView window)
+        {
+            ActiveSubWindows.Add(window);
+            WindowWrapper.Show(window);
+        }
     }
 }
