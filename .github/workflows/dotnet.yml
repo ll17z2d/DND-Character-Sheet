@@ -27,4 +27,4 @@ jobs:
         Configuration: Debug 
         RuntimeIdentifier: win-x64
     - name: Test
-      run: dotnet test -t -v=q D:/a/DND-Character-Sheet/DND-Character-Sheet/DND Character Sheet Unit Tests/DND Character Sheet Unit Tests.csproj
+      run: dotnet test -t -v=q D:/a/DND-Character-Sheet/DND-Character-Sheet/DND Character Sheet Unit Tests/DND Character Sheet Unit Tests
