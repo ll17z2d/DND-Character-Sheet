@@ -25,7 +25,7 @@ namespace DND_Character_Sheet_Unit_Tests.Wrappers
             var numActiveSubWindows = OpenNewViewWrapper.ActiveSubWindows.Count;
 
             //assert
-            Assert.IsTrue(numActiveSubWindows == 0);
+            Assert.IsFalse(numActiveSubWindows == 0);
         }
 
         [TestMethod]
