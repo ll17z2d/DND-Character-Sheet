@@ -13,11 +13,7 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\AppxManifest.xml
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Packaging Project.build.appxrecipe
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\Packaging Project.build.appxrecipe
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\System.Core.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\System.Core.xml
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\Packaging Project.wapprojAssemblyReference.cache
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\Packaging Project.wapproj.CoreCompileInputs.cache
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\Packaging Project.wapproj.CopyComplete
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\priconfig.xml
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\priconfig.xml.intermediate
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\unfiltered.layout.resfiles
@@ -35,6 +31,7 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\ob
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\MultipleQualifiersPerDimensionFound.txt
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\ProjectArchitectures.txt
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\Packaging Project.wapproj.LastBuild.txt
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x86\Release\Packaging Project.wapproj.AssemblyReference.cache
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.CSharp.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.VisualBasic.Core.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.Win32.Primitives.dll
@@ -195,9 +192,63 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscorlib.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\netstandard.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Private.CoreLib.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Accessibility.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\DirectWriteForwarder.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.VisualBasic.Forms.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.VisualBasic.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.Win32.Registry.AccessControl.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.Win32.SystemEvents.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationCore.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemCore.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemData.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemDrawing.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemXml.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemXmlLinq.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Aero.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Aero2.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.AeroLite.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Classic.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Luna.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Royale.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationUI.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\ReachFramework.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.CodeDom.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Configuration.ConfigurationManager.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Design.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Diagnostics.EventLog.Messages.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Diagnostics.EventLog.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Diagnostics.PerformanceCounter.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.DirectoryServices.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.Common.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.Design.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.IO.Packaging.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Printing.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Resources.Extensions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.Pkcs.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.ProtectedData.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.Xml.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Permissions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Threading.AccessControl.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Controls.Ribbon.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Extensions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Design.Editors.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Design.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Primitives.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Input.Manipulations.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Presentation.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Xaml.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationClient.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationClientSideProviders.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationProvider.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationTypes.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\WindowsBase.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\WindowsFormsIntegration.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\API-MS-Win-core-xstate-l2-1-0.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Private.CoreLib.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\api-ms-win-core-console-l1-1-0.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\api-ms-win-core-console-l1-2-0.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\api-ms-win-core-datetime-l1-1-0.dll
@@ -248,63 +299,15 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\hostfxr.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\hostpolicy.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscordaccore.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscordaccore_x86_x86_5.0.120.57516.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscordaccore_x86_x86_5.0.1221.52207.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscordbi.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\mscorrc.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\ucrtbase.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Accessibility.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\DirectWriteForwarder.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.VisualBasic.Forms.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.VisualBasic.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.Win32.Registry.AccessControl.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\Microsoft.Win32.SystemEvents.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationCore.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemCore.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemData.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemDrawing.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemXml.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework-SystemXmlLinq.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Aero.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Aero2.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.AeroLite.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Classic.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Luna.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.Royale.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationFramework.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationUI.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\ReachFramework.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.CodeDom.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Configuration.ConfigurationManager.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Design.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Diagnostics.EventLog.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Diagnostics.PerformanceCounter.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.DirectoryServices.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.Common.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.Design.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Drawing.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.IO.Packaging.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Printing.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Resources.Extensions.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.Pkcs.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.ProtectedData.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Cryptography.Xml.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Security.Permissions.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Threading.AccessControl.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Controls.Ribbon.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Extensions.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Design.Editors.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Design.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.Primitives.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Forms.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Input.Manipulations.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Windows.Presentation.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\System.Xaml.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationClient.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationClientSideProviders.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationProvider.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\UIAutomationTypes.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\WindowsBase.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\WindowsFormsIntegration.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\D3DCompiler_47_cor3.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PenImc_cor3.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationNative_cor3.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\vcruntime140_cor3.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\wpfgfx_cor3.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\cs\Microsoft.VisualBasic.Forms.resources.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\cs\PresentationCore.resources.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\cs\PresentationFramework.resources.dll
@@ -526,8 +529,3 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\zh-Hant\UIAutomationTypes.resources.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\zh-Hant\WindowsBase.resources.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\zh-Hant\WindowsFormsIntegration.resources.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\D3DCompiler_47_cor3.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PenImc_cor3.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\PresentationNative_cor3.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\vcruntime140_cor3.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\DND Character Sheet\wpfgfx_cor3.dll
