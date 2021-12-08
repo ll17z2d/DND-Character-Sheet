@@ -1,7 +1,7 @@
 ﻿using System;
 using DND_Character_Sheet.Enums;
 
-namespace DND_Character_Sheet.API_Communication
+namespace DND_Character_Sheet.APICommunication
 {
     public static class EnumParser
     {

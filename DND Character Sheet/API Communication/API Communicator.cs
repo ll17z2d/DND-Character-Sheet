@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using DND_Character_Sheet.API_Communication;
+using DND_Character_Sheet.APICommunication;
 using DND_Character_Sheet.Enums;
 using DND_Character_Sheet.Serialization;
 using DND_Character_Sheet.Wrappers;
