@@ -2,7 +2,7 @@
 
 Microsoft Store link: https://www.microsoft.com/store/productId/9P1JBB6NSD78
 
-A digital 5th Edition DnD Character Sheet Windows application made using WPF and adhering to the MVVM design pattern + includes unit tests. This is still actively being worked on when I get free time outside of uni and other commitments.
+A digital 5th Edition DnD Character Sheet Windows application made using WPF and mostly adhering to the MVVM design pattern + includes unit tests. This is still actively being worked on when I get free time outside of uni and other commitments.
 
 
 Current functionality includes: 
