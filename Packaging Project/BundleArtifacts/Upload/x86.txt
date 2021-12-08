@@ -1,2 +1,2 @@
-MainPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\Packaging Project_1.0.10.0_x86.appx
-SymbolPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\Packaging Project_1.0.10.0\Packaging Project_1.0.10.0_x86.appxsym
+MainPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\Packaging Project_1.1.0.0_x86.appx
+SymbolPackage=C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x86\Release\Upload\Packaging Project_1.1.0.0\Packaging Project_1.1.0.0_x86.appxsym

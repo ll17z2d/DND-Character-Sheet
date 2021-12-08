@@ -65,7 +65,7 @@ DND Character Sheet\Microsoft.Win32.Registry.dll
 DND Character Sheet\Microsoft.Win32.SystemEvents.dll
 DND Character Sheet\Microsoft.Xaml.Behaviors.dll
 DND Character Sheet\mscordaccore.dll
-DND Character Sheet\mscordaccore_amd64_amd64_5.0.120.57516.dll
+DND Character Sheet\mscordaccore_amd64_amd64_5.0.1221.52207.dll
 DND Character Sheet\mscordbi.dll
 DND Character Sheet\mscorlib.dll
 DND Character Sheet\mscorrc.dll
@@ -115,6 +115,7 @@ DND Character Sheet\System.Diagnostics.Contracts.dll
 DND Character Sheet\System.Diagnostics.Debug.dll
 DND Character Sheet\System.Diagnostics.DiagnosticSource.dll
 DND Character Sheet\System.Diagnostics.EventLog.dll
+DND Character Sheet\System.Diagnostics.EventLog.Messages.dll
 DND Character Sheet\System.Diagnostics.FileVersionInfo.dll
 DND Character Sheet\System.Diagnostics.PerformanceCounter.dll
 DND Character Sheet\System.Diagnostics.Process.dll
@@ -331,4 +332,3 @@ Images\Wide310x150Logo.scale-125.png
 Images\Wide310x150Logo.scale-150.png
 Images\Wide310x150Logo.scale-200.png
 Images\Wide310x150Logo.scale-400.png
-System.Core.dll

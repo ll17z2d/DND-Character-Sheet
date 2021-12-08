@@ -9,7 +9,7 @@
   <Identity
     Name="3618ZakariaDahir.UltimateDnD5eCharacterSheet"
     Publisher="CN=F08244B5-E1A7-4F5D-A06B-29EB238E442F"
-    Version="1.0.10.0" />
+    Version="1.1.0.0" />
 
   <Properties>
     <DisplayName>Ultimate DnD 5e Character Sheet</DisplayName>

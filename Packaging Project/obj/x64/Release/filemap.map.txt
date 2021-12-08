@@ -4,7 +4,6 @@
 
 [Files]
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\filemap.pri"			"resources.pri"
-"C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\System.Core.dll"			"System.Core.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\Images\Wide310x150Logo.scale-200.png"			"Images\Wide310x150Logo.scale-200.png"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\Images\StoreLogo.scale-200.png"			"Images\StoreLogo.scale-200.png"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\Images\Square44x44Logo.targetsize-48.png"			"Images\Square44x44Logo.targetsize-48.png"
@@ -193,6 +192,7 @@
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.Process.dll"			"DND Character Sheet\System.Diagnostics.Process.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.PerformanceCounter.dll"			"DND Character Sheet\System.Diagnostics.PerformanceCounter.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.FileVersionInfo.dll"			"DND Character Sheet\System.Diagnostics.FileVersionInfo.dll"
+"C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.EventLog.Messages.dll"			"DND Character Sheet\System.Diagnostics.EventLog.Messages.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.EventLog.dll"			"DND Character Sheet\System.Diagnostics.EventLog.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.DiagnosticSource.dll"			"DND Character Sheet\System.Diagnostics.DiagnosticSource.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\System.Diagnostics.Debug.dll"			"DND Character Sheet\System.Diagnostics.Debug.dll"
@@ -242,7 +242,7 @@
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscorrc.dll"			"DND Character Sheet\mscorrc.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscorlib.dll"			"DND Character Sheet\mscorlib.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscordbi.dll"			"DND Character Sheet\mscordbi.dll"
-"C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscordaccore_amd64_amd64_5.0.120.57516.dll"			"DND Character Sheet\mscordaccore_amd64_amd64_5.0.120.57516.dll"
+"C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscordaccore_amd64_amd64_5.0.1221.52207.dll"			"DND Character Sheet\mscordaccore_amd64_amd64_5.0.1221.52207.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\mscordaccore.dll"			"DND Character Sheet\mscordaccore.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\Microsoft.Xaml.Behaviors.dll"			"DND Character Sheet\Microsoft.Xaml.Behaviors.dll"
 "C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Release\PackageLayout\DND Character Sheet\Microsoft.Win32.SystemEvents.dll"			"DND Character Sheet\Microsoft.Win32.SystemEvents.dll"
