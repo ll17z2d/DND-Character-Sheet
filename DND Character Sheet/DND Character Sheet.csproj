@@ -16,6 +16,7 @@
     <None Remove="Images\Invalid Character Appearance.png" />
     <None Remove="Images\Logo.png" />
     <None Remove="Images\Placeholder Character Appearance.png" />
+    <None Remove="Images\TextBox Outline.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Placeholder Character Appearance.png" />
+    <Resource Include="Images\TextBox Outline.png" />
   </ItemGroup>
 
   <ItemGroup>

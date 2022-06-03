@@ -24,9 +24,41 @@
         <Setter Property="Background" Value="SlateGray"></Setter>
         <Setter Property="Margin" Value="5"></Setter>
         <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="CaretBrush" Value="Black"/>
     </Style>
 
 
+    <Style TargetType="Border" x:Key="TestBorder">
+    </Style>
+
+    <Style TargetType="Image" x:Key="TestImage">
+        <Setter Property="Source" Value="/Images/TextBox Outline.png"/>
+    </Style>
+    
+    <Style TargetType="TextBox" x:Key="TestTextBox">
+        <Setter Property="Background" Value="Orange"></Setter>
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="TestTextBox2">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Hi"></Label>
+                        <TextBox Grid.Column="1">Box 1</TextBox>
+                        <TextBox Grid.Column="2">Box 2</TextBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <!--<Style TargetType="TextBox" x:Key="StatModifierTextBox">
         --><!--<Setter Property="Text">

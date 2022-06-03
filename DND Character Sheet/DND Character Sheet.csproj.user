@@ -55,6 +55,9 @@
     <Compile Update="User Controls\StatModifierTextBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User Controls\Testing TextBox Outlines.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\Weapons Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,6 +130,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\StatModifierTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Testing TextBox Outlines.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Weapons Control.xaml">
