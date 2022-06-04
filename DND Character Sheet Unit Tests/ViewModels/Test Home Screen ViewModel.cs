@@ -31,7 +31,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                     It.IsAny<IDialogWindowWrapper>(), It.IsAny<IStaticClassWrapper>(), 
                     It.IsAny<IOpenNewViewWrapper>()))
                 .Returns(true);
-            MockStaticClassWrapper.Setup(x => x.SerializeCharacterWrapper.OpenCharacterFromFile(It.IsAny<string>()))
+            MockStaticClassWrapper.Setup(x => x.SerializeCharacterWrapper.OpenCharacterFromFileJSON(It.IsAny<string>()))
                 .Returns(new CharacterModel());
 
             //act

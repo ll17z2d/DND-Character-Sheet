@@ -372,8 +372,8 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns("Oops! That wasn't a valid search option, please try again");
 
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
-            MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFile(It.IsAny<ICharacterModel>()));
-            MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFile(It.IsAny<string>())).Returns(new CharacterModel());
+            MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFileJSON(It.IsAny<ICharacterModel>()));
+            MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFileJSON(It.IsAny<string>())).Returns(new CharacterModel());
 
             MockWindowWrapper = new Mock<IWindowWrapper>();
             MockWindowWrapper.Setup(x => x.Show(It.IsAny<IView>()));

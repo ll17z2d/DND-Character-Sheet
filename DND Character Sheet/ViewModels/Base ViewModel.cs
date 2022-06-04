@@ -106,15 +106,24 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool SaveCharacterAs()
         {
-            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "DND Characters|*.json|All files|*.*";
+            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName = "";
 
             if (DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog())
             {
-                Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
-                Save();
-                return true;
+                if (DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FilterIndex == 1) 
+                {
+                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
+                    SaveJSON();
+                    return true; 
+                }
+                else if (DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FilterIndex == 2)
+                {
+                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
+                    SavePDF();
+                    return true;
+                }
             }
 
             return false;
@@ -125,14 +134,14 @@ namespace DND_Character_Sheet.ViewModels
             if (Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 return SaveCharacterAs();
 
-            Save();
+            SaveJSON();
 
             return true;
         }
 
         public bool OpenCharacter()
         {
-            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
@@ -141,7 +150,14 @@ namespace DND_Character_Sheet.ViewModels
                 if (!CheckSubMenus())
                 {
                     WindowServiceWrapper.CloseAllSubWindows();
-                    Character = Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                    if (DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FilterIndex == 1)
+                    {
+                        Character = OpenJSON(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                    }
+                    else if (DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FilterIndex == 2)
+                    {
+                        Character = OpenPDF(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
+                    }
                     InitialiseWindowTitle();
                     return true;
                 }
@@ -168,7 +184,7 @@ namespace DND_Character_Sheet.ViewModels
                     WindowServiceWrapper.CloseAllSubWindows();
                     if (HasCharacterBeenCreated())
                     {
-                        Save();
+                        SaveJSON();
                         e.Cancel = false;
                     }
                     else
@@ -189,7 +205,7 @@ namespace DND_Character_Sheet.ViewModels
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
             if (HasCharacterBeenCreated())
             {
-                if (!(new Comparer<ICharacterModel>().Compare(Open(Character.FilePath), Character, out var dif)))
+                if (!(new Comparer<ICharacterModel>().Compare(OpenJSON(Character.FilePath), Character, out var dif)))
                     return SaveChangesMessageBox;
                 return MessageBoxResult.No;
             }
@@ -202,12 +218,18 @@ namespace DND_Character_Sheet.ViewModels
 
         private MessageBoxResult SaveChangesMessageBox 
             => DialogWindowWrapper.MessageBoxWrapper.Show("Would you like to save your changes before closing?", "Close Character", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning, MessageBoxResult.Yes);
+        
+        private void SaveJSON()
+            => StaticClassWrapper.SerializeCharacterWrapper.SaveCharacterToFileJSON(Character);
 
-        private void Save()
-            => StaticClassWrapper.SerializeCharacterWrapper.SaveCharacterToFile(Character);
+        private void SavePDF()
+            => StaticClassWrapper.SerializeCharacterWrapper.SaveCharacterToFilePDF(Character);
 
-        private ICharacterModel Open(string filePath)
-            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
+        private ICharacterModel OpenJSON(string filePath)
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
+
+        private ICharacterModel OpenPDF(string filePath)
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
 
         private bool HasCharacterBeenCreated() 
             => Character.FilePath != Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

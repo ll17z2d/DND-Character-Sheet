@@ -272,7 +272,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns("Test Window Title");
 
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
-            MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFile(It.IsAny<ICharacterModel>()));
+            MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFileJSON(It.IsAny<ICharacterModel>()));
 
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
                 new StaticClassWrapper(MockTextFormatterWrapper.Object, MockSerializeCharacterWrapper.Object), new OpenNewViewWrapper(new WindowWrapper()));

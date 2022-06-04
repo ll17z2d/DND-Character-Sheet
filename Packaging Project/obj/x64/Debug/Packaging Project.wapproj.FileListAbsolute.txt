@@ -31,3 +31,22 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.pdb
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Debug\Packaging Project.wapproj.AssemblyReference.cache
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.barcodes.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.forms.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.io.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.kernel.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.layout.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.pdfa.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.sign.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.styledxmlparser.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.svg.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.commons.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.DependencyModel.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Logging.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Options.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Primitives.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\BouncyCastle.Crypto.dll

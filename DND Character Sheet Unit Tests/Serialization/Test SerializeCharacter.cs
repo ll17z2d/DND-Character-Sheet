@@ -31,7 +31,7 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
             MockFileOperationsWrapper.Setup(x => x.FileReadAllText(It.IsAny<string>())).Returns(string.Empty);
 
             //act
-            var actual = SerializeCharacter.OpenCharacterFromFile(It.IsAny<string>(), 
+            var actual = SerializeCharacter.OpenCharacterFromFileJSON(It.IsAny<string>(), 
                 MockJsonConvertWrapper.Object, MockFileOperationsWrapper.Object);
 
             //assert

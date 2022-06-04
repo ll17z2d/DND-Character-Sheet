@@ -9,17 +9,25 @@ namespace DND_Character_Sheet.Wrappers
 {
     public interface ISerializeCharacterWrapper
     {
-        public void SaveCharacterToFile(ICharacterModel character);
+        public void SaveCharacterToFileJSON(ICharacterModel character);
 
-        public ICharacterModel OpenCharacterFromFile(string filePath);
+        public void SaveCharacterToFilePDF(ICharacterModel character);
+
+        public ICharacterModel OpenCharacterFromFileJSON(string filePath);
     }
 
     public class SerializeCharacterWrapper : ISerializeCharacterWrapper
     {
-        public void SaveCharacterToFile(ICharacterModel character) 
-            => SerializeCharacter.SaveCharacterToFile(character, new JsonConvertWrapper(), new FileOperationsWrapper());
+        public void SaveCharacterToFileJSON(ICharacterModel character) 
+            => SerializeCharacter.SaveCharacterToFileJSON(character, new JsonConvertWrapper(), new FileOperationsWrapper());
 
-        public ICharacterModel OpenCharacterFromFile(string filePath) 
-            => SerializeCharacter.OpenCharacterFromFile(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
+        public void SaveCharacterToFilePDF(ICharacterModel character)
+            => SerializeCharacter.SaveCharacterToFilePDF(character, new JsonConvertWrapper(), new FileOperationsWrapper());
+
+        public ICharacterModel OpenCharacterFromFileJSON(string filePath) 
+            => SerializeCharacter.OpenCharacterFromFileJSON(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
+
+        public ICharacterModel OpenCharacterFromFilePDF(string filePath)
+            => SerializeCharacter.OpenCharacterFromFilePDF(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
     }
 }

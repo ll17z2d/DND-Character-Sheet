@@ -104,6 +104,6 @@ namespace DND_Character_Sheet.ViewModels
         //}
 
         private ICharacterModel Open(string filePath)
-            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFile(filePath);
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
     }
 }
