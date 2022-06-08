@@ -1,7 +1,6 @@
 ﻿using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.Wrappers;
 //using iText.Kernel.Pdf;
-using iTextSharp.text.pdf;
 using System.IO;
 
 namespace DND_Character_Sheet.Serialization

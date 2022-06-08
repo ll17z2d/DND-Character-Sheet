@@ -227,6 +227,9 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             SeventhLevelSpellViewModel = seventhLevelSpellViewModel;
             EighthLevelSpellViewModel = eighthLevelSpellViewModel;
             NinthLevelSpellViewModel = ninthLevelSpellViewModel;
+            SpellcastingAbility = "";
+            spellSaveDC = "";
+            SpellAttackBonus = "";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

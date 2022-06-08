@@ -29,7 +29,6 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.runtimeconfig.dev.json
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.runtimeconfig.json
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.dll
-C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.pdb
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\obj\x64\Debug\Packaging Project.wapproj.AssemblyReference.cache
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.barcodes.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\itext.forms.dll
