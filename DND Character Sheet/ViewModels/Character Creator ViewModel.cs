@@ -55,6 +55,21 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
+        private DetailsDialogViewModel detailsDialogViewModel;
+
+        public DetailsDialogViewModel DetailsDialogViewModel
+        {
+            get 
+            { 
+                return detailsDialogViewModel; 
+            }
+            set 
+            { 
+                detailsDialogViewModel = value;
+                OnPropertyChanged("DetailsDialogViewModel");
+            }
+        }
+
         public ICommand ResetCharacterCommand { get; set; }
         public ICommand AutoGenerateSkillModsCommand { get; set; }
 
@@ -80,6 +95,7 @@ namespace DND_Character_Sheet.ViewModels
             SkillsDialogViewModel = new SkillsDialogViewModel(Character.AllSkills, false);
             NotesDialogViewModel = new NotesDialogViewModel(Character.CharacterNotes, Character.FilePath, DialogWindowWrapper);
             SpellsDialogViewModel = new SpellsDialogViewModel(Character.AllSpells);
+            DetailsDialogViewModel = new DetailsDialogViewModel(Character.DetailsStats);
         }
 
         public bool ResetCharacter()

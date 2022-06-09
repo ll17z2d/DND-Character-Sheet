@@ -49,3 +49,4 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bi
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Options.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\Microsoft.Extensions.Primitives.dll
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\BouncyCastle.Crypto.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\Packaging Project\bin\x64\Debug\DND Character Sheet\DND Character Sheet.pdb

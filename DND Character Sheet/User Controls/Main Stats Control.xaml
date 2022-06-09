@@ -13,6 +13,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2"/>
         </Grid.ColumnDefinitions>
 
@@ -29,7 +30,7 @@
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
                    FontSize="20" HorizontalAlignment="Center">Main Stats</Label>
         <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">Stat</Label>
         <Label Grid.Row="3" Grid.Column="1">Strength:</Label>
@@ -92,5 +93,21 @@
         <!--<uc:StatModifierTextBox Grid.Row="8" Grid.Column="4"></uc:StatModifierTextBox>-->
         <TextBox Grid.Row="8" Grid.Column="4" Margin="5" 
                  Text="{Binding Character.MainStats.ChaSvThr, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Text="Saving Throw Proficiency"
+                   TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlock}"/>
+        <CheckBox Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.StrSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.DexSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.ConSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.IntlSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Row="7" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.WisSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Row="8" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsChecked="{Binding Character.MainStats.ChaSvThrProf, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
     </Grid>
 </UserControl>

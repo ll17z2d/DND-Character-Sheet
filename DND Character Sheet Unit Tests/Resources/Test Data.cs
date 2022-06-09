@@ -16,13 +16,15 @@ namespace DND_Character_Sheet_Unit_Tests.Resources
         public static ICharacterModel GetInitialisedCharacterModel()
         {
             var character = new CharacterModel(
-                new MainStats(10, 10, 10, 10, 10, 10, "+3", "+3", "+3", "+3", "+3", "+3"),
+                new MainStats(10, 10, 10, 10, 10, 10, "+3", "+3", "+3", "+3", "+3", "+3", true, false, false, true, true, false),
                 new AllSkills(),
-                new HPStats(20, 16, 2, "2d6"),
-                new DetailsStats("Tempus Namus", "Monk 4", "Hermit", "My Name", "Human", "Aight", "350"),
+                new HPStats(20, 16, 2, "2d6", "4d6", false, false, false, true, true, false),
+                new DetailsStats("Tempus Namus", "Monk 4", "Hermit", "My Name", "Human", "Aight", "350",
+                "", "", "", "", "", "", "", "", "", ""),
                 new MiscStats("+4", 18, "+1", "+35", "1", "15"),
                 new CharacterNotes("", "QN", "EQ", "SN", "AD", "PR",
-                    new Money("2", "50", "200", "500"),
+                    new Money("2", "50", "200", "500", "4"),
+                    "Tragic Backstory :,(", "Mmm treasure", "Crazy features and traits",
                     new SerializeCharacterWrapper(),
                     new FileOperationsWrapper()),
                 new WeaponNotes(new ObservableCollection<WeaponsInventory>()

@@ -13,6 +13,8 @@ namespace DND_Character_Sheet.Wrappers
 
         public IWindowWrapper WindowWrapper { get; set; }
 
+        public bool OpenDetailsWindow(DetailsStats detailsStats);
+
         public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper);
 
         public bool OpenSkillsWindow(AllSkills allSkills, bool isReadOnly);
@@ -38,6 +40,9 @@ namespace DND_Character_Sheet.Wrappers
 
         public OpenNewViewWrapper(IWindowWrapper windowWrapper) 
             => WindowWrapper = windowWrapper;
+
+        public bool OpenDetailsWindow(DetailsStats detailsStats)
+            => CanOpenSubWindow(WindowWrapper.GetDetailsView(detailsStats, RemoveActiveSubWindowAction()));
 
         public bool OpenNotesWindow(CharacterNotes characterNotes, string characterFilePath, IDialogWindowWrapper dialogWindowWrapper) 
             => CanOpenSubWindow(WindowWrapper.GetNotesView(characterNotes, characterFilePath, dialogWindowWrapper, 

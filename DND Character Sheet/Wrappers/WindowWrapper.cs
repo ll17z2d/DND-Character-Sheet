@@ -17,6 +17,8 @@ namespace DND_Character_Sheet.Wrappers
 
         public void Close(IView window);
 
+        public IView GetDetailsView(DetailsStats detailsStats, Action<object, CancelEventArgs> removeWindowFromActiveList);
+
         public IView GetNotesView(CharacterNotes characterNotes, string characterFilePath,
             IDialogWindowWrapper dialogWindowWrapper, Action<object, CancelEventArgs> removeWindowFromActiveList);
 
@@ -40,6 +42,9 @@ namespace DND_Character_Sheet.Wrappers
 
         public void Close(IView window)
             => window.Close();
+
+        public IView GetDetailsView(DetailsStats detailsStats, Action<object, CancelEventArgs> removeWindowFromActiveList)
+            => new DetailsDialogView(new DetailsDialogViewModel(detailsStats), removeWindowFromActiveList);
 
         public IView GetNotesView(CharacterNotes characterNotes, string characterFilePath,
             IDialogWindowWrapper dialogWindowWrapper, Action<object, CancelEventArgs> removeWindowFromActiveList) 

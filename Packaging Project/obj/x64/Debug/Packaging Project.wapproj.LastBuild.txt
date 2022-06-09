@@ -79,3 +79,4 @@ C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\obj\Debug\net5.0-windows\apphost.exe
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\bin\Debug\net5.0-windows\DND Character Sheet.runtimeconfig.json
 C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\bin\Debug\net5.0-windows\DND Character Sheet.dll
+C:\Users\zakar\OneDrive\Documents\Repos\DND Character Sheet\DND Character Sheet\bin\Debug\net5.0-windows\DND Character Sheet.pdb

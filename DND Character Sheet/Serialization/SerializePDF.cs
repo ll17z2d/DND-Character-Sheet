@@ -43,7 +43,7 @@ namespace DND_Character_Sheet.Serialization
                 //var stringDict = new Dictionary<string, string>();
                 var dict = new Dictionary<string, object>()
                 {
-                    {"ClassLevel", character.DetailsStats.ClassAndLevel}, //Extract just the level from here by indexing out just the numbers
+                    {"ClassLevel", character.DetailsStats.ClassAndLevel.Where(x => char.IsDigit(x)).ToString()}, //Extract just the level from here by indexing out just the numbers
                     {"Background", character.DetailsStats.Background},
                     {"PlayerName", character.DetailsStats.PlayerName},
                     {"CharacterName", character.DetailsStats.CharacterName},
@@ -56,24 +56,24 @@ namespace DND_Character_Sheet.Serialization
                     {"AC", character.MiscStats.AC.ToString()},
                     {"Initiative", character.MiscStats.Initiative},
                     {"Speed", character.MiscStats.Speed},
-                    {"PersonalityTraits ", "temp"},
+                    {"PersonalityTraits ", character.DetailsStats.PersonalityTraits},
                     {"STRmod", character.MainStats.StrMod},
                     {"ST Strength", character.MainStats.StrSvThr},
                     {"DEX", character.MainStats.Dex.ToString()},
-                    {"Ideals", "temp"},
+                    {"Ideals", character.DetailsStats.Ideals},
                     {"DEXmod ", character.MainStats.DexMod},
-                    {"Bonds", "temp"},
+                    {"Bonds", character.DetailsStats.Bonds},
                     {"CON", character.MainStats.Con.ToString()},
                     {"HDTotal", character.HPStats.HitDie},
-                    {"Check Box 12", ""},
-                    {"Check Box 13", ""},
-                    {"Check Box 14", ""},
+                    {"Check Box 12", character.HPStats.SuccessSave1 ? "1" : ""},
+                    {"Check Box 13", character.HPStats.SuccessSave2 ? "1" : ""},
+                    {"Check Box 14", character.HPStats.SuccessSave3 ? "1" : ""},
                     {"CONmod", character.MainStats.ConMod},
-                    {"Check Box 15", ""},
-                    {"Check Box 16", ""},
-                    {"Check Box 17", ""},
+                    {"Check Box 15", character.HPStats.FailureSave1 ? "1" : ""},
+                    {"Check Box 16", character.HPStats.FailureSave2 ? "1" : ""},
+                    {"Check Box 17", character.HPStats.FailureSave3 ? "1" : ""},
                     {"HD", character.HPStats.HitDie},
-                    {"Flaws", "temp"},
+                    {"Flaws", character.DetailsStats.Flaws},
                     {"INT", character.MainStats.Intl.ToString()},
                     {"ST Dexterity", character.MainStats.DexSvThr},
                     {"ST Constitution", character.MainStats.ConSvThr},
@@ -94,12 +94,12 @@ namespace DND_Character_Sheet.Serialization
                     {"Wpn2 AtkBonus ", character.WeaponNotes.WeaponsInventory.Count >= 2 ? character.WeaponNotes.WeaponsInventory[1].AttackBonus : ""},
                     {"Wpn Name 3", character.WeaponNotes.WeaponsInventory.Count >= 3 ? character.WeaponNotes.WeaponsInventory[2].WeaponName : ""},
                     {"Wpn3 AtkBonus  ", character.WeaponNotes.WeaponsInventory.Count >= 3 ? character.WeaponNotes.WeaponsInventory[2].AttackBonus : ""},
-                    {"Check Box 11", ""},
-                    {"Check Box 18", ""},
-                    {"Check Box 19", ""},
-                    {"Check Box 20", ""},
-                    {"Check Box 21", ""},
-                    {"Check Box 22", ""},
+                    {"Check Box 11", character.MainStats.StrSvThrProf ? "1" : ""},
+                    {"Check Box 18", character.MainStats.DexSvThrProf ? "1" : ""},
+                    {"Check Box 19", character.MainStats.ConSvThrProf ? "1" : ""},
+                    {"Check Box 20", character.MainStats.IntlSvThrProf ? "1" : ""},
+                    {"Check Box 21", character.MainStats.WisSvThrProf ? "1" : ""},
+                    {"Check Box 22", character.MainStats.ChaSvThrProf ? "1" : ""},
                     {"INTmod", character.MainStats.IntlMod},
                     {"Wpn2 Damage ", character.WeaponNotes.WeaponsInventory.Count >= 2 ? character.WeaponNotes.WeaponsInventory[1].Damage : ""},
                     {"Investigation ", character.AllSkills.Investigation.SkillScore},
@@ -144,26 +144,26 @@ namespace DND_Character_Sheet.Serialization
                     {"CP", character.CharacterNotes.Money.Bronze},
                     {"ProficienciesLang", character.CharacterNotes.Proficiencies},
                     {"SP", character.CharacterNotes.Money.Silver},
-                    {"EP", "temp"},
+                    {"EP", character.CharacterNotes.Money.Electrum},
                     {"GP", character.CharacterNotes.Money.Gold},
                     {"PP", character.CharacterNotes.Money.Platinum},
                     {"Equipment", character.CharacterNotes.Equipment},
                     {"Features and Traits", character.CharacterNotes.AbilityDesc},
                     {"CharacterName 2", character.DetailsStats.CharacterName},
-                    {"Age", "temp"},
-                    {"Height", "temp"},
-                    {"Weight", "temp"},
-                    {"Eyes", "temp"},
-                    {"Skin", "temp"},
-                    {"Hair", "temp"},
-                    {"CHARACTER IMAGE", "temp"},
-                    {"Faction Symbol Image", "temp"},
+                    {"Age", character.DetailsStats.Age},
+                    {"Height", character.DetailsStats.Height},
+                    {"Weight", character.DetailsStats.Weight},
+                    {"Eyes", character.DetailsStats.Eyes},
+                    {"Skin", character.DetailsStats.Skin},
+                    {"Hair", character.DetailsStats.Hair},
+                    {"CHARACTER IMAGE", ""},
+                    {"Faction Symbol Image", ""},
                     {"Allies", character.CharacterNotes.SessionNotes},
-                    {"FactionName", "temp"},
-                    {"Backstory", "temp"},
-                    {"Feat+Traits", "temp"},
-                    {"Treasure", "temp"},
-                    {"Spellcasting Class 2", string.Join("", character.DetailsStats.ClassAndLevel.Where(x => !char.IsDigit(x) && x != ' ').ToList())},
+                    {"FactionName", ""},
+                    {"Backstory", character.CharacterNotes.Backstory},
+                    {"Feat+Traits", character.CharacterNotes.FeaturesAndTraits},
+                    {"Treasure", character.CharacterNotes.Treasure},
+                    {"Spellcasting Class 2", string.Join("", character.DetailsStats.ClassAndLevel.Where(x => !char.IsDigit(x) && x != ' ').ToString())},
                     {"SpellcastingAbility 2", character.AllSpells.SpellcastingAbility},
                     {"SpellSaveDC  2", character.AllSpells.SpellSaveDC},
                     {"SpellAtkBonus 2", character.AllSpells.SpellAttackBonus},
@@ -424,13 +424,6 @@ namespace DND_Character_Sheet.Serialization
             }
 
             //var x = string.Join("", character.DetailsStats.ClassAndLevel.Where(x => !char.IsDigit(x) && x != ' ').ToList());
-            return true;
-        }
-
-        private bool SerializePageOne()
-        {
-
-
             return true;
         }
     }

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="User Controls\Appearance + Personality Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\All Notes Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\Character Details Control.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="User Controls\Character Details With Button Control.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="User Controls\Dice Roll Control.xaml.cs">
@@ -64,6 +70,9 @@
     <Compile Update="Views\Character Creator View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Details Dialog View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Home Screen View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +93,9 @@
     <Page Update="Styles\StatInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="User Controls\Appearance + Personality Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="User Controls\All Notes Control.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -97,6 +109,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Character Details Control.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Character Details With Button Control.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Dice Roll Control.xaml">
@@ -142,6 +157,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Character Sheet View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Details Dialog View.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Home Screen View.xaml">

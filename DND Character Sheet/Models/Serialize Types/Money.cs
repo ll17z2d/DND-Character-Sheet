@@ -69,14 +69,30 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
-        public Money() : this("", "", "", "") { }
+        private string electrum = "";
 
-        public Money(string platinum, string gold, string silver, string bronze)
+        public string Electrum
+        {
+            get
+            {
+                return electrum;
+            }
+            set
+            {
+                electrum = value;
+                OnPropertyChanged("Electrum");
+            }
+        }
+
+        public Money() : this("", "", "", "", "") { }
+
+        public Money(string platinum, string gold, string silver, string bronze, string electrum)
         {
             Platinum = platinum;
             Gold = gold;
             Silver = silver;
             Bronze = bronze;
+            Electrum = electrum;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

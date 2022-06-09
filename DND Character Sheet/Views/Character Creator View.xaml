@@ -27,6 +27,9 @@
             <TabItem Header="Character Details">
                 <uc:Character_Details_Control/>
             </TabItem>
+            <TabItem Header="Appearance &amp; Personality">
+                <uc:Appearance_Personality_Control DataContext="{Binding DetailsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </TabItem>
             <TabItem Header="Main Stats">
                 <uc:Main_Stats_Control/>
             </TabItem>
@@ -41,7 +44,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <uc:All_Skills_Control Grid.Row="0" Grid.RowSpan="2" DataContext="{Binding SkillsDialogViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button Grid.Row="2" Margin="5" Content="Auto-Generate Skill Modifiers" Command="{Binding AutoGenerateSkillModsCommand}"/> 
+                    <Button Grid.Row="2" Margin="5" Content="Auto-Generate Skill Modifiers" Command="{Binding AutoGenerateSkillModsCommand}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Weapons">
@@ -55,14 +58,18 @@
             </TabItem>
             <TabItem Header="Misc">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="209*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="5"/>
                     </Grid.RowDefinitions>
-                    <uc:Quick_Notes_TextBox_Control Grid.Row="1"/>
-                    <uc:Spellcasting_Stats_Control Grid.Row="2"/>
+                    <uc:Quick_Notes_TextBox_Control Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <uc:Spellcasting_Stats_Control Grid.Row="1" Grid.ColumnSpan="2" Margin="0,243,0,0" Grid.RowSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

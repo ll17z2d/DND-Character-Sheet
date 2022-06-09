@@ -11,6 +11,10 @@
             <ColumnDefinition Width="2"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2"/>
         </Grid.ColumnDefinitions>
 
@@ -30,47 +34,86 @@
             <RowDefinition Height="2"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6"
                    HorizontalAlignment="Center" FontSize="20">HP And Armour</Label>
         
-        <Label Grid.Row="2" Grid.Column="1">AC:</Label>
+        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">AC:</Label>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Character.MiscStats.AC, Converter={StaticResource IntegerStatConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="5" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+                 Margin="5" Grid.ColumnSpan="3" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
 
-        <Label Grid.Row="2" Grid.Column="2">Initiative:</Label>
-        <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Character.MiscStats.Initiative, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="5"></TextBox>
+        <Label Grid.Row="2" Grid.Column="4">Initiative:</Label>
+        <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding Character.MiscStats.Initiative, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5" Grid.ColumnSpan="3"></TextBox>
         
-        <Label Grid.Row="4" Grid.Column="1">Proficiency Bonus:</Label>
+        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">Proficiency Bonus:</Label>
         <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Character.MiscStats.Proficiency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="5"></TextBox>
+                 Margin="5" Grid.ColumnSpan="3"></TextBox>
 
-        <Label Grid.Row="4" Grid.Column="2">Speed:</Label>
-        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Character.MiscStats.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="5"></TextBox>
+        <Label Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3">Speed:</Label>
+        <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding Character.MiscStats.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5" Grid.ColumnSpan="3"></TextBox>
 
-        <Label Grid.Row="6" Grid.Column="1">Passive Perception:</Label>
+        <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">Passive Perception:</Label>
         <TextBox Grid.Row="7" Grid.Column="1" Margin="5" Text="{Binding Character.MiscStats.PassivePerception, 
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3"></TextBox>
 
-        <Label Grid.Row="6" Grid.Column="2">Inspiration:</Label>
-        <TextBox Grid.Row="7" Grid.Column="2" Margin="5" Text="{Binding Character.MiscStats.Inspiration, 
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Label Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3">Inspiration:</Label>
+        <TextBox Grid.Row="7" Grid.Column="4" Margin="5" Text="{Binding Character.MiscStats.Inspiration, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3"></TextBox>
 
-        <Label Grid.Row="8" Grid.Column="1">Maximum HP:</Label>
+        <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">Maximum HP:</Label>
         <TextBox Grid.Row="9" Grid.Column="1" Margin="5" Text="{Binding Character.HPStats.MaxHP, Converter={StaticResource IntegerStatConverter}, 
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
 
-        <Label Grid.Row="8" Grid.Column="2">Temporary HP:</Label>
-        <TextBox Grid.Row="9" Grid.Column="2" Margin="5" Text="{Binding Character.HPStats.TempHP, Converter={StaticResource IntegerStatConverter}, 
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+        <Label Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2">Current HP:</Label>
+        <TextBox Grid.Row="9" Grid.Column="3" Margin="5" Text="{Binding Character.HPStats.CurrentHP, Converter={StaticResource IntegerStatConverter}, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+        
+        <Label Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2">Temporary HP:</Label>
+        <TextBox Grid.Row="9" Grid.Column="5" Margin="5" Text="{Binding Character.HPStats.TempHP, Converter={StaticResource IntegerStatConverter}, 
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
 
-        <Label Grid.Row="10" Grid.Column="1">Current HP:</Label>
-        <TextBox Grid.Row="11" Grid.Column="1" Margin="5" Text="{Binding Character.HPStats.CurrentHP, Converter={StaticResource IntegerStatConverter}, 
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+        <Label Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2">Total Hit Die:</Label>
+        <TextBox Grid.Row="11" Grid.Column="1" Margin="5" Text="{Binding Character.HPStats.TotalHitDie,
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" ></TextBox>
+        
+        <Label Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2">Hit Die:</Label>
+        <TextBox Grid.Row="11" Grid.Column="3" Margin="5" Text="{Binding Character.HPStats.HitDie,
+            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" ></TextBox>
 
-        <Label Grid.Row="10" Grid.Column="2">Hit Die:</Label>
-        <TextBox Grid.Row="11" Grid.Column="2" Margin="5" Text="{Binding Character.HPStats.HitDie,
-            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+        <Grid Grid.Row="10" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Content="Successes"/>
+            <CheckBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.SuccessSave1}"/>
+            <CheckBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.SuccessSave2}"/>
+            <CheckBox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.SuccessSave3}"/>
+
+            <Label Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" Content="Failures"/>
+            <CheckBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.FailureSave1}"/>
+            <CheckBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.FailureSave2}"/>
+            <CheckBox Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsChecked="{Binding Character.HPStats.FailureSave3}"/>
+        </Grid>
+        
     </Grid>
 </UserControl>

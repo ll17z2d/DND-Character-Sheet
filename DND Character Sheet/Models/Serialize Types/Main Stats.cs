@@ -9,9 +9,10 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 {
     public class MainStats : INotifyPropertyChanged
     {
-        public MainStats() : this(0, 0, 0, 0, 0, 0, "", "", "", "", "", "") { }
+        public MainStats() : this(0, 0, 0, 0, 0, 0, "", "", "", "", "", "", false, false, false, false, false, false) { }
 
-        public MainStats(int Str, int Dex, int Con, int Intl, int Wis, int Cha, string StrSvThr, string DexSvThr, string ConSvThr, string IntlSvThr, string WisSvThr, string ChaSvThr)
+        public MainStats(int Str, int Dex, int Con, int Intl, int Wis, int Cha, string StrSvThr, string DexSvThr, string ConSvThr, string IntlSvThr, string WisSvThr, string ChaSvThr, 
+            bool StrSvThrProf, bool DexSvThrProf, bool ConSvThrProf, bool IntlSvThrProf, bool WisSvThrProf, bool ChaSvThrProf)
         {
             this.Str = Str;
             this.Dex = Dex;
@@ -26,6 +27,13 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             this.IntlSvThr = IntlSvThr;
             this.WisSvThr = WisSvThr;
             this.ChaSvThr = ChaSvThr;
+
+            this.StrSvThrProf = StrSvThrProf;
+            this.DexSvThrProf = DexSvThrProf;
+            this.ConSvThrProf = ConSvThrProf;
+            this.IntlSvThrProf = IntlSvThrProf;
+            this.WisSvThrProf = WisSvThrProf;
+            this.ChaSvThrProf = ChaSvThrProf;
         }
 
         private int str;
@@ -309,6 +317,96 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             {
                 chaSvThr = value;
                 OnPropertyChanged("ChaSvThr");
+            }
+        }
+
+        private bool strSvThrProf;
+
+        public bool StrSvThrProf
+        {
+            get 
+            { 
+                return strSvThrProf; 
+            }
+            set 
+            { 
+                strSvThrProf = value;
+                OnPropertyChanged("StrSvThrProf");
+            }
+        }
+
+        private bool dexSvThrProf;
+
+        public bool DexSvThrProf
+        {
+            get
+            {
+                return dexSvThrProf;
+            }
+            set
+            {
+                dexSvThrProf = value;
+                OnPropertyChanged("DexSvThrProf");
+            }
+        }
+
+        private bool conSvThrProf;
+
+        public bool ConSvThrProf
+        {
+            get
+            {
+                return conSvThrProf;
+            }
+            set
+            {
+                conSvThrProf = value;
+                OnPropertyChanged("ConSvThrProf");
+            }
+        }
+
+        private bool intlSvThrProf;
+
+        public bool IntlSvThrProf
+        {
+            get
+            {
+                return intlSvThrProf;
+            }
+            set
+            {
+                intlSvThrProf = value;
+                OnPropertyChanged("IntlSvThrProf");
+            }
+        }
+
+        private bool wisSvThrProf;
+
+        public bool WisSvThrProf
+        {
+            get
+            {
+                return wisSvThrProf;
+            }
+            set
+            {
+                wisSvThrProf = value;
+                OnPropertyChanged("WisSvThrProf");
+            }
+        }
+
+        private bool chaSvThrProf;
+
+        public bool ChaSvThrProf
+        {
+            get
+            {
+                return chaSvThrProf;
+            }
+            set
+            {
+                chaSvThrProf = value;
+                OnPropertyChanged("ChaSvThrProf");
             }
         }
 

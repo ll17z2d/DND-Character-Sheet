@@ -21,24 +21,25 @@ namespace DND_Character_Sheet.ViewModels
         public ICommand APISearchCommand { get; set; }
         public ICommand SearchSkillsCommand { get; set; }
         public ICommand DiceRollCommand { get; set; }
+        public ICommand OpenDetailsWindowCommand { get; set; }
         public ICommand OpenSkillsWindowCommand { get; set; }
         public ICommand OpenNotesWindowCommand { get; set; }
         public ICommand OpenSpellsWindowCommand { get; set; }
 
-        private SkillsDialogViewModel skillsDialogViewModel;
+        //private SkillsDialogViewModel skillsDialogViewModel;
 
-        public SkillsDialogViewModel SkillsDialogViewModel
-        {
-            get
-            {
-                return skillsDialogViewModel;
-            }
-            set
-            {
-                skillsDialogViewModel = value;
-                OnPropertyChanged("SkillsDialogViewModel");
-            }
-        }
+        //public SkillsDialogViewModel SkillsDialogViewModel
+        //{
+        //    get
+        //    {
+        //        return skillsDialogViewModel;
+        //    }
+        //    set
+        //    {
+        //        skillsDialogViewModel = value;
+        //        OnPropertyChanged("SkillsDialogViewModel");
+        //    }
+        //}
 
         private string outTextbox;
 
@@ -218,6 +219,7 @@ namespace DND_Character_Sheet.ViewModels
             APISearchCommand = new MethodCommands(APISearch, CanAPISearch);
             SearchSkillsCommand = new MethodCommands(SearchSkills);
             DiceRollCommand = new MethodCommands(DiceRoll);
+            OpenDetailsWindowCommand = new MethodCommands(OpenDetailsWindow);
             OpenSkillsWindowCommand = new MethodCommands(OpenSkillsWindow);
             OpenNotesWindowCommand = new MethodCommands(OpenNotesWindow);
             OpenSpellsWindowCommand = new MethodCommands(OpenSpellsWindow);
@@ -311,6 +313,9 @@ namespace DND_Character_Sheet.ViewModels
         public bool NewCharacter() 
             => WindowServiceWrapper.OpenCharacterCreatorWindow(DialogWindowWrapper,
                 StaticClassWrapper, WindowServiceWrapper);
+
+        public bool OpenDetailsWindow()
+            => WindowServiceWrapper.OpenDetailsWindow(Character.DetailsStats);
 
         public bool OpenSkillsWindow() 
             => WindowServiceWrapper.OpenSkillsWindow(Character.AllSkills, false);

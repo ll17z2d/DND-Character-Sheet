@@ -1,0 +1,13 @@
+﻿<Window x:Class="DND_Character_Sheet.Views.DetailsDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:DND_Character_Sheet.User_Controls"
+        xmlns:local="clr-namespace:DND_Character_Sheet.Views"
+        mc:Ignorable="d" Background="Black"
+        Title="Character Appearance &amp; Personality" Height="450" Width="800">
+    <Grid>
+        <uc:Appearance_Personality_Control/>
+    </Grid>
+</Window>

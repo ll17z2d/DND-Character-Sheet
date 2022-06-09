@@ -17,6 +17,9 @@ namespace DND_Character_Sheet.Models.Serialize_Types
         private string abilityDesc;
         private string proficiencies;
         private Money money;
+        private string backstory;
+        private string treasure;
+        private string featuresAndTraits;
 
         public string QuickNotes
         {
@@ -116,15 +119,55 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             }
         }
 
+        public string Backstory
+        {
+            get
+            {
+                return backstory;
+            }
+            set
+            {
+                backstory = value;
+                OnPropertyChanged("Backstory");
+            }
+        }
+
+        public string Treasure
+        {
+            get
+            {
+                return treasure;
+            }
+            set
+            {
+                treasure = value;
+                OnPropertyChanged("Treasure");
+            }
+        }
+
+        public string FeaturesAndTraits
+        {
+            get
+            {
+                return featuresAndTraits;
+            }
+            set
+            {
+                featuresAndTraits = value;
+                OnPropertyChanged("FeaturesAndTraits");
+            }
+        }
+
         public ISerializeCharacterWrapper SerializeCharacterWrapper { get; set; }
 
         public IFileOperationsWrapper FileOperationsWrapper { get; set; }
 
         public CharacterNotes() : this(PlaceholderCharacterAppearance, "", "", "", "", "", new Money(), 
-            new SerializeCharacterWrapper(), new FileOperationsWrapper()) { }
+            "", "", "", new SerializeCharacterWrapper(), new FileOperationsWrapper()) { }
 
         public CharacterNotes(string characterAppearanceFilePath, string quickNotes, string equipment, string sessionNotes, string abilityDesc, 
-            string proficiencies, Money money, ISerializeCharacterWrapper serializeCharacterWrapper, IFileOperationsWrapper fileOperationsWrapper)
+            string proficiencies, Money money, string backstory, string treasure, string featuresAndTraits,
+            ISerializeCharacterWrapper serializeCharacterWrapper, IFileOperationsWrapper fileOperationsWrapper)
         {
             SerializeCharacterWrapper = serializeCharacterWrapper;
             FileOperationsWrapper = fileOperationsWrapper;
@@ -135,6 +178,9 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             AbilityDesc = abilityDesc;
             Proficiencies = proficiencies;
             Money = money;
+            Backstory = backstory;
+            Treasure = treasure;
+            FeaturesAndTraits = featuresAndTraits;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
