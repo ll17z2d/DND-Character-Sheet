@@ -266,6 +266,8 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns(new SaveFileDialog() { FileName = String.Empty });
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog())
                 .Returns(saveDialogResult);
+            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FilterIndex)
+                .Returns(1);
 
             MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
             MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()))

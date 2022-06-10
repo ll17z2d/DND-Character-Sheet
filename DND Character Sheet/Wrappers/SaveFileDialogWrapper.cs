@@ -9,6 +9,8 @@ namespace DND_Character_Sheet.Wrappers
     public interface ISaveFileDialogWrapper : IFileDialogWindowWrapper
     {
         public SaveFileDialog SaveFileDialog { get; set; }
+
+        public int FilterIndex { get; }
     }
 
     public class SaveFileDialogWrapper : ISaveFileDialogWrapper
@@ -17,6 +19,8 @@ namespace DND_Character_Sheet.Wrappers
             => SaveFileDialog = saveFileDialog;
 
         public SaveFileDialog SaveFileDialog { get; set; }
+
+        public int FilterIndex => SaveFileDialog.FilterIndex;
 
         public bool ShowDialog() 
             => (bool)SaveFileDialog.ShowDialog();

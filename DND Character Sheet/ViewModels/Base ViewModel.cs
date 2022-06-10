@@ -112,13 +112,13 @@ namespace DND_Character_Sheet.ViewModels
 
             if (DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog())
             {
-                if (DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FilterIndex == 1) 
+                if (DialogWindowWrapper.SaveFileDialogWrapper.FilterIndex == 1) 
                 {
                     Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
                     SaveJSON();
                     return true; 
                 }
-                else if (DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FilterIndex == 2)
+                else if (DialogWindowWrapper.SaveFileDialogWrapper.FilterIndex == 2)
                 {
                     Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
                     SavePDF();
@@ -150,11 +150,11 @@ namespace DND_Character_Sheet.ViewModels
                 if (!CheckSubMenus())
                 {
                     WindowServiceWrapper.CloseAllSubWindows();
-                    if (DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FilterIndex == 1)
+                    if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 1)
                     {
                         Character = OpenJSON(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
                     }
-                    else if (DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FilterIndex == 2)
+                    else if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 2)
                     {
                         Character = OpenPDF(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
                     }

@@ -261,6 +261,26 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         }
 
         [TestMethod]
+        public void OpenDetailsWindow_Successful()
+        {
+            //arrange
+            var expected1 = true;
+            var expected2 = 1;
+            GetUnderTest();
+            MockWindowWrapper.Setup(x => x.GetDetailsView(It.IsAny<DetailsStats>(),
+                It.IsAny<Action<object, CancelEventArgs>>()))
+                .Returns(new Mock<IView>().Object);
+
+            //act
+            var actual = CharacterSheetViewModel.OpenDetailsWindow();
+
+            //assert
+            Assert.AreEqual(expected1, true);
+            MockWindowWrapper.Verify(x => x.GetDetailsView(It.IsAny<DetailsStats>(),
+                It.IsAny<Action<object, CancelEventArgs>>()), Times.Exactly(expected2));
+        }
+
+        [TestMethod]
         public void ExitWindow_TestCancelOnCloseWindow()
         {
             //arrange
@@ -362,8 +382,11 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
                 .Returns(new SaveFileDialog() { FileName = String.Empty });
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog())
                 .Returns(saveDialogResult);
+            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FilterIndex)
+                .Returns(1);
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.OpenFileDialog).Returns(new OpenFileDialog());
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(openDialogResult);
+            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(1);
 
             MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
             MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()))
