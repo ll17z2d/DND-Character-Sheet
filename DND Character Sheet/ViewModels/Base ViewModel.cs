@@ -75,7 +75,10 @@ namespace DND_Character_Sheet.ViewModels
 
         public IOpenNewViewWrapper WindowServiceWrapper { get; set; }
 
-        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, IOpenNewViewWrapper windowServiceWrapper)
+        public IFileOperationsWrapper FileOperationsWrapper { get; set; }
+
+        public BaseViewModel(ICharacterModel character, IDialogWindowWrapper dialogWindowWrapper, IStaticClassWrapper staticClassWrapper, 
+            IOpenNewViewWrapper windowServiceWrapper)
         {
             InitialiseCharacter(character);
             InitialiseDialogWindowWrapper(dialogWindowWrapper);
@@ -85,16 +88,16 @@ namespace DND_Character_Sheet.ViewModels
 
         #region Initialise
 
+        protected void InitialiseCharacter(ICharacterModel character)
+            => Character = character;
+
         private void InitialiseStaticClassWrapper(IStaticClassWrapper staticClassWrapper) 
             => StaticClassWrapper = staticClassWrapper;
 
         private void InitialiseWindowWrapper(IOpenNewViewWrapper windowServiceWrapper) 
             => WindowServiceWrapper = windowServiceWrapper;
 
-        protected void InitialiseCharacter(ICharacterModel character)
-            => Character = character;
-
-        protected void InitialiseDialogWindowWrapper(IDialogWindowWrapper dialogWindowWrapper) 
+        private void InitialiseDialogWindowWrapper(IDialogWindowWrapper dialogWindowWrapper) 
             => DialogWindowWrapper = dialogWindowWrapper;
 
         protected void InitialiseWindowTitle()
@@ -108,19 +111,19 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
-            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName = "";
+            DialogWindowWrapper.SaveFileDialogWrapper.FileName = "";
 
             if (DialogWindowWrapper.SaveFileDialogWrapper.ShowDialog())
             {
                 if (DialogWindowWrapper.SaveFileDialogWrapper.FilterIndex == 1) 
                 {
-                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
+                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.FileName;
                     SaveJSON();
                     return true; 
                 }
                 else if (DialogWindowWrapper.SaveFileDialogWrapper.FilterIndex == 2)
                 {
-                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.FileName;
+                    Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.FileName;
                     SavePDF();
                     return true;
                 }
@@ -143,7 +146,7 @@ namespace DND_Character_Sheet.ViewModels
         {
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
-            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
+            DialogWindowWrapper.OpenFileDialogWrapper.FileName = "";
 
             if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
@@ -151,13 +154,9 @@ namespace DND_Character_Sheet.ViewModels
                 {
                     WindowServiceWrapper.CloseAllSubWindows();
                     if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 1)
-                    {
-                        Character = OpenJSON(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
-                    }
+                        Character = OpenJSON(DialogWindowWrapper.OpenFileDialogWrapper.FileName);
                     else if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 2)
-                    {
-                        Character = OpenPDF(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName);
-                    }
+                        Character = OpenPDF(DialogWindowWrapper.OpenFileDialogWrapper.FileName);
                     InitialiseWindowTitle();
                     return true;
                 }

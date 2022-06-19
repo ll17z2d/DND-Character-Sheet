@@ -14,6 +14,8 @@ namespace DND_Character_Sheet.Wrappers
         public void SaveCharacterToFilePDF(ICharacterModel character);
 
         public ICharacterModel OpenCharacterFromFileJSON(string filePath);
+
+        public ICharacterModel OpenCharacterFromFilePDF(string filePath);
     }
 
     public class SerializeCharacterWrapper : ISerializeCharacterWrapper
@@ -22,12 +24,12 @@ namespace DND_Character_Sheet.Wrappers
             => SerializeCharacter.SaveCharacterToFileJSON(character, new JsonConvertWrapper(), new FileOperationsWrapper());
 
         public void SaveCharacterToFilePDF(ICharacterModel character)
-            => SerializeCharacter.SaveCharacterToFilePDF(character, new JsonConvertWrapper(), new FileOperationsWrapper());
+            => SerializeCharacter.SaveCharacterToFilePDF(character, new SerializePDF());
 
         public ICharacterModel OpenCharacterFromFileJSON(string filePath) 
             => SerializeCharacter.OpenCharacterFromFileJSON(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
 
         public ICharacterModel OpenCharacterFromFilePDF(string filePath)
-            => SerializeCharacter.OpenCharacterFromFilePDF(filePath, new JsonConvertWrapper(), new FileOperationsWrapper());
+            => SerializeCharacter.OpenCharacterFromFilePDF(filePath, new SerializePDF());
     }
 }

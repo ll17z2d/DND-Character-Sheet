@@ -81,7 +81,7 @@ namespace DND_Character_Sheet.ViewModels
             }
         }
 
-        public void RemoveExtraDeserialisedSpells() 
+        public void RemoveExtraDeserializedSpells() 
             => Spells = new ObservableCollection<Spell>(Spells.Where(spell => Spells.IndexOf(spell) >= Spells.Count / 2).ToList());
 
         public event PropertyChangedEventHandler PropertyChanged;

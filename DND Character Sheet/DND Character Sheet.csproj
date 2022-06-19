@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Default Documents\Official 5E Character Sheet.pdf" />
     <None Remove="Images\Invalid Character Appearance.png" />
     <None Remove="Images\Logo.png" />
     <None Remove="Images\Placeholder Character Appearance.png" />
@@ -24,9 +25,13 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.37" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="ObjectsComparer" Version="1.4.1" />
+    <PackageReference Include="Pather.CSharp" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Default Documents\Official 5E Character Sheet.pdf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Invalid Character Appearance.png" />
     <Resource Include="Images\Logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

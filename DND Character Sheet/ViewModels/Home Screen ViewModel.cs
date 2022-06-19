@@ -47,16 +47,26 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool OpenCharacter()
         {
-            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "DND Characters|*.json|All files|*.*";
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 
             if (DialogWindowWrapper.OpenFileDialogWrapper.ShowDialog())
             {
-                OpenNewViewWrapper.OpenCharacterSheetWindow(
-                    Open(DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName),
-                    DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
-                return true;
+                if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 1)
+                {
+                    OpenNewViewWrapper.OpenCharacterSheetWindow(
+                        OpenJSON(DialogWindowWrapper.OpenFileDialogWrapper.FileName),
+                        DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
+                    return true;
+                }
+                else if (DialogWindowWrapper.OpenFileDialogWrapper.FilterIndex == 2)
+                {
+                    OpenNewViewWrapper.OpenCharacterSheetWindow(
+                        OpenPDF(DialogWindowWrapper.OpenFileDialogWrapper.FileName),
+                        DialogWindowWrapper, StaticClassWrapper, OpenNewViewWrapper);
+                    return true;
+                }
             }
 
             return false;
@@ -103,7 +113,10 @@ namespace DND_Character_Sheet.ViewModels
         //    return result;
         //}
 
-        private ICharacterModel Open(string filePath)
+        private ICharacterModel OpenJSON(string filePath)
             => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
+
+        private ICharacterModel OpenPDF(string filePath)
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFilePDF(filePath);
     }
 }

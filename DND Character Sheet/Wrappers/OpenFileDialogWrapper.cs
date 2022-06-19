@@ -11,6 +11,8 @@ namespace DND_Character_Sheet.Wrappers
         public OpenFileDialog OpenFileDialog { get; set; }
 
         public int FilterIndex { get; }
+
+        public string FileName { get; set; }
     }
 
     public class OpenFileDialogWrapper : IOpenFileDialogWrapper
@@ -21,6 +23,18 @@ namespace DND_Character_Sheet.Wrappers
         public OpenFileDialog OpenFileDialog { get; set; }
 
         public int FilterIndex => OpenFileDialog.FilterIndex;
+
+        public string FileName
+        {
+            get
+            {
+                return OpenFileDialog.FileName;
+            }
+            set
+            {
+                OpenFileDialog.FileName = value;
+            }
+        }
 
         public bool ShowDialog() 
             => (bool)OpenFileDialog.ShowDialog();

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DND_Character_Sheet.Annotations;
+using DND_Character_Sheet.Serialization;
 
 namespace DND_Character_Sheet.Wrappers
 {
@@ -13,8 +14,6 @@ namespace DND_Character_Sheet.Wrappers
         public bool FileExists(string filePath);
 
         public void JSONFileWriteAllText(string filePath, [CanBeNull] string contents);
-
-        public void PDFFileWriteAllText(string filePath, [CanBeNull] string contents);
 
         public string FileReadAllText(string filePath);
     }
@@ -26,11 +25,6 @@ namespace DND_Character_Sheet.Wrappers
 
         public void JSONFileWriteAllText(string filePath, string contents) 
             => File.WriteAllText(filePath, contents);
-
-        public void PDFFileWriteAllText(string filePath, [CanBeNull] string contents)
-        {
-            throw new NotImplementedException();
-        }
 
         public string FileReadAllText(string filePath)
             => File.ReadAllText(filePath);
