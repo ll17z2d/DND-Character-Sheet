@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DND_Character_Sheet.Useful_Methods
 {
@@ -13,51 +11,57 @@ namespace DND_Character_Sheet.Useful_Methods
         {
             foreach (string part in name.Split('.'))
             {
+                object?[] index = null;
+                CheckForIndexedProperty(part, index);
+
                 if (obj == null) { return null; }
 
                 Type type = obj.GetType();
                 PropertyInfo info = type.GetProperty(part);
                 if (info == null) { return null; }
 
-                obj = info.GetValue(obj, null);
+                obj = info.GetValue(obj, index);
             }
             return obj;
         }
 
-        public static void SetNestedPropertyValue(object obj, string name, object value)
+        public static bool SetNestedPropertyValue(object obj, string name, object value)
         {
-            //PropertyInfo info = default(PropertyInfo);
-            //object o = obj;
-            //var properties = name.Split('.');
-            //foreach (string part in name.Split('.'))
-            //{
-            //    info = o.GetType().GetProperty(part);
-            //    o = info.GetValue(o, null);
-            //}
-
-
-            //var newInfo = o.GetType().GetProperty(properties[properties.Length - 1]);
-            //newInfo.SetValue(obj, value, null);
-
-
-            //info.SetValue(obj, value, null);
-
+            if (obj == null) { return false; }
 
             string[] bits = name.Split('.');
             for (int i = 0; i < bits.Length - 1; i++)
             {
+                object?[] index = null;
+                CheckForIndexedProperty(bits[i], index);
                 PropertyInfo propertyToGet = obj.GetType().GetProperty(bits[i]);
-                obj = propertyToGet.GetValue(obj, null);
+                if (propertyToGet == null) { return false; }
+
+                obj = propertyToGet.GetValue(obj, index);
+                if (obj == null) { return false; }
             }
             PropertyInfo propertyToSet = obj.GetType().GetProperty(bits.Last());
+            if (propertyToSet == null) { return false; }
+
+            object?[] finalIndex = null;
+            CheckForIndexedProperty(bits[bits.Length - 1], finalIndex);
 
             if (propertyToSet.PropertyType.Name.ToLower().Contains("int"))
-            {
                 propertyToSet.SetValue(obj, int.Parse(string.Concat(value.ToString().Where(x => char.IsDigit(x)))), null);
-            }
             else
-                propertyToSet.SetValue(obj, value, null);
-            //propertyToSet.SetValue(obj, value, null);
+                propertyToSet.SetValue(obj, value, finalIndex);
+
+            return true;
+        }
+
+        private static void CheckForIndexedProperty(string propertyName, object?[] index)
+        {
+            if (propertyName.Contains("["))
+            {
+                index ??= new object?[1];
+                index.Append(int.Parse(propertyName.Substring(
+                    propertyName.IndexOf("[") + 1, propertyName.IndexOf("]") - propertyName.IndexOf("[") - 1)));
+            }
         }
     }
 }
