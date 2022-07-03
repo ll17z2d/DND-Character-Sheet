@@ -1,4 +1,5 @@
-﻿using DND_Character_Sheet.Models.Serialize_Types;
+﻿using DND_Character_Sheet.Constants;
+using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.Useful_Methods;
 using iText.Forms;
 using iText.Kernel.Pdf;
@@ -74,6 +75,8 @@ namespace DND_Character_Sheet.Serialization
                 var pdfDoc = new PdfDocument(new PdfReader(existingFileStream));
                 var form = PdfAcroForm.GetAcroForm(pdfDoc, true);
 
+                var temp = new CharacterModel(GetMainStats(form), GetAllSkills(form), GetHPStats(form), GetDetailsStats(form);
+
                 foreach (var fieldkey in TempDict)
                 {
                     //fieldkey.Value = 2;
@@ -133,6 +136,100 @@ namespace DND_Character_Sheet.Serialization
             }
 
             return default(ICharacterModel);
+        }
+
+        private DetailsStats GetDetailsStats(PdfAcroForm form)
+        {
+            return new DetailsStats(GetStringFieldOrDefault(form, "CharacterName"),
+                GetStringFieldOrDefault(form, "ClassLevel"),
+                GetStringFieldOrDefault(form, "Background"),
+                GetStringFieldOrDefault(form, "PlayerName"),
+                GetStringFieldOrDefault(form, "Race "),
+                GetStringFieldOrDefault(form, "Alignment"),
+                GetStringFieldOrDefault(form, "XP"),
+                GetStringFieldOrDefault(form, "Age"),
+                GetStringFieldOrDefault(form, "Height"),
+                GetStringFieldOrDefault(form, "Weight"),
+                GetStringFieldOrDefault(form, "Eyes"),
+                GetStringFieldOrDefault(form, "Skin"),
+                GetStringFieldOrDefault(form, "Hair"),
+                GetStringFieldOrDefault(form, "PersonalityTraits "),
+                GetStringFieldOrDefault(form, "Ideals"),
+                GetStringFieldOrDefault(form, "Bonds"),
+                GetStringFieldOrDefault(form, "Flaws"));
+        }
+
+        private HPStats GetHPStats(PdfAcroForm form) 
+            => new HPStats(GetIntFieldOrDefault(form, "HPMax"), 
+                GetIntFieldOrDefault(form, "HPCurrent"), 
+                GetIntFieldOrDefault(form, "HPTemp"),
+                GetStringFieldOrDefault(form, "HD"), 
+                GetStringFieldOrDefault(form, "HDTotal"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 12"),
+                GetCheckBoxFieldOrDefault(form, "Check Box 13"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 14"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 15"),
+                GetCheckBoxFieldOrDefault(form, "Check Box 16"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 17"));
+
+        private AllSkills GetAllSkills(PdfAcroForm form) 
+            => new AllSkills(GetSkill(form, SkillStrings.Acrobatics, "Acrobatics", "Check Box 23"),
+                GetSkill(form, SkillStrings.AnimalHandling, "Animal", "Check Box 24"),
+                GetSkill(form, SkillStrings.Arcana, "Arcana", "Check Box 25"),
+                GetSkill(form, SkillStrings.Athletics, "Athletics", "Check Box 26"),
+                GetSkill(form, SkillStrings.Deception, "Deception ", "Check Box 27"),
+                GetSkill(form, SkillStrings.History, "History ", "Check Box 28"),
+                GetSkill(form, SkillStrings.Insight, "Insight", "Check Box 29"),
+                GetSkill(form, SkillStrings.Intimidation, "Intimidation", "Check Box 30"),
+                GetSkill(form, SkillStrings.Investigation, "Investigation ", "Check Box 31"),
+                GetSkill(form, SkillStrings.Medicine, "Medicine", "Check Box 32"),
+                GetSkill(form, SkillStrings.Nature, "Nature", "Check Box 33"),
+                GetSkill(form, SkillStrings.Perception, "Perception ", "Check Box 34"),
+                GetSkill(form, SkillStrings.Performance, "Performance", "Check Box 35"),
+                GetSkill(form, SkillStrings.Persuasion, "Persuasion", "Check Box 36"),
+                GetSkill(form, SkillStrings.Religion, "Religion", "Check Box 37"),
+                GetSkill(form, SkillStrings.SleightOfHand, "SleightofHand", "Check Box 38"),
+                GetSkill(form, SkillStrings.Stealth, "Stealth ", "Check Box 39"),
+                GetSkill(form, SkillStrings.Survival, "Survival", "Check Box 40"));
+
+        private Skill GetSkill(PdfAcroForm form, string name, string skillScore, string isProficient) 
+            => new Skill(name, GetStringFieldOrDefault(form, skillScore), GetCheckBoxFieldOrDefault(form, isProficient));
+
+        private MainStats GetMainStats(PdfAcroForm form) 
+            => new MainStats(GetIntFieldOrDefault(form, "STR"), 
+                GetIntFieldOrDefault(form, "DEX"), 
+                GetIntFieldOrDefault(form, "CON"), 
+                GetIntFieldOrDefault(form, "INTL"),
+                GetIntFieldOrDefault(form, "WIS"), 
+                GetIntFieldOrDefault(form, "CHA"), 
+                GetStringFieldOrDefault(form, "ST Strength"),
+                GetStringFieldOrDefault(form, "ST Dexterity"),
+                GetStringFieldOrDefault(form, "ST Constitution"), 
+                GetStringFieldOrDefault(form, "ST Intelligence"), 
+                GetStringFieldOrDefault(form, "ST Wisdom"), 
+                GetStringFieldOrDefault(form, "ST Charisma"),
+                GetCheckBoxFieldOrDefault(form, "Check Box 11"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 18"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 19"),
+                GetCheckBoxFieldOrDefault(form, "Check Box 20"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 21"), 
+                GetCheckBoxFieldOrDefault(form, "Check Box 22"),
+                GetStringFieldOrDefault(form, "STRmod"), 
+                GetStringFieldOrDefault(form, "DEXmod"), 
+                GetStringFieldOrDefault(form, "CONmod"),
+                GetStringFieldOrDefault(form, "INTLmod"), 
+                GetStringFieldOrDefault(form, "WISmod"), 
+                GetStringFieldOrDefault(form, "CHAmod"));
+
+        private bool GetCheckBoxFieldOrDefault(PdfAcroForm form, string fieldName) 
+            => form.GetField(fieldName).GetValueAsString() == "" ? false : true;
+
+        private string GetStringFieldOrDefault(PdfAcroForm form, string fieldName) 
+            => form.GetField(fieldName).GetValueAsString() == null ? form.GetField(fieldName).GetValueAsString() : "";
+
+        private int GetIntFieldOrDefault(PdfAcroForm form, string fieldName)
+        { //Will need to test this out by seeing what happens when an int is "18(+1)" or "(+1)14"
+            return int.TryParse((string)form.GetField(fieldName).GetValueAsString().Replace(" ", "").Where(x => char.IsDigit(x)), out int result) ? result : 0;
         }
 
         private string TernaryOperatorOnValue(bool value, string ifTrue, string ifFalse) 

@@ -11,7 +11,8 @@ namespace DND_Character_Sheet.Models.Serialize_Types
     {
         public MainStats() : this(0, 0, 0, 0, 0, 0, "", "", "", "", "", "", false, false, false, false, false, false) { }
 
-        public MainStats(int Str, int Dex, int Con, int Intl, int Wis, int Cha, string StrSvThr, string DexSvThr, string ConSvThr, string IntlSvThr, string WisSvThr, string ChaSvThr, 
+        public MainStats(int Str, int Dex, int Con, int Intl, int Wis, int Cha, 
+            string StrSvThr, string DexSvThr, string ConSvThr, string IntlSvThr, string WisSvThr, string ChaSvThr, 
             bool StrSvThrProf, bool DexSvThrProf, bool ConSvThrProf, bool IntlSvThrProf, bool WisSvThrProf, bool ChaSvThrProf)
         {
             this.Str = Str;
@@ -34,6 +35,21 @@ namespace DND_Character_Sheet.Models.Serialize_Types
             this.IntlSvThrProf = IntlSvThrProf;
             this.WisSvThrProf = WisSvThrProf;
             this.ChaSvThrProf = ChaSvThrProf;
+        }
+
+        public MainStats(int Str, int Dex, int Con, int Intl, int Wis, int Cha, 
+            string StrSvThr, string DexSvThr, string ConSvThr, string IntlSvThr, string WisSvThr, string ChaSvThr,
+            bool StrSvThrProf, bool DexSvThrProf, bool ConSvThrProf, bool IntlSvThrProf, bool WisSvThrProf, bool ChaSvThrProf,
+            string StrMod, string DexMod, string ConMod, string IntlMod, string WisMod, string ChaMod) : this(Str, Dex, Con, Intl, Wis, Cha,
+            StrSvThr, DexSvThr, ConSvThr, IntlSvThr, WisSvThr, ChaSvThr,
+            StrSvThrProf, DexSvThrProf, ConSvThrProf, IntlSvThrProf, WisSvThrProf, ChaSvThrProf)
+        {
+            this.StrMod = StrMod;
+            this.DexMod = DexMod;
+            this.ConMod = ConMod;
+            this.IntlMod = IntlMod;
+            this.WisMod = WisMod;
+            this.ChaMod = ChaMod;
         }
 
         private int str;
