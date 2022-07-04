@@ -68,7 +68,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public SpellLevelViewModel(int numOfSpells, int spellLevel) : this(numOfSpells, spellLevel, "0", "0") { }
 
-        private SpellLevelViewModel(int numOfSpells, int spellLevel, string slotsTotal, string slotsExpended)
+        public SpellLevelViewModel(int numOfSpells, int spellLevel, string slotsTotal, string slotsExpended)
         {
             SpellLevel = spellLevel;
             SlotsTotal = slotsTotal;

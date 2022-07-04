@@ -58,7 +58,7 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
         public Spell() : this("Enter Spell Here", "Press '...' to edit spell details", false, new OpenNewViewWrapper(new WindowWrapper())) { }
 
-        private Spell(string name, string description, bool isPrepared, IOpenNewViewWrapper openNewViewWrapper)
+        public Spell(string name, string description, bool isPrepared, IOpenNewViewWrapper openNewViewWrapper)
         {
             Name = name;
             Description = description;

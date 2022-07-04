@@ -1,11 +1,16 @@
 ﻿using DND_Character_Sheet.Constants;
+using DND_Character_Sheet.Enums;
+using DND_Character_Sheet.Models.API_Models;
 using DND_Character_Sheet.Models.Serialize_Types;
 using DND_Character_Sheet.Useful_Methods;
+using DND_Character_Sheet.ViewModels;
+using DND_Character_Sheet.Wrappers;
 using iText.Forms;
 using iText.Kernel.Pdf;
 using Pather.CSharp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -62,85 +67,201 @@ namespace DND_Character_Sheet.Serialization
         }
 
         public ICharacterModel Deserialize(string filePath)
-        {
-            var character = new CharacterModel();
-            InitialiseDictionary(character);
+        { //Need a proper way to handle if an incorrect pdf is attempted to serialise
+
+            //var character = new CharacterModel();
+            //InitialiseDictionary(character);
+
             //var fileNameExisting = Application.GetResourceStream(new Uri(@"pack://application:,,,/DND Character Sheet;component/Default Documents/Official 5E Character Sheet.pdf"));
             //Put var existingFileStream = fileNameExisting.Stream
 
-            var fileNameExisting = @"C:\Users\zakar\OneDrive\Documents\DnD Sheet Saves\PDF Testing\Vimsor PDF.pdf";
+            var character = new CharacterModel();
+            var fileNameExisting = @"C:\Users\zakar\OneDrive\Documents\DnD Sheet Saves\PDF Testing\Vimsor PDF.pdf"; //Switch this at the end
 
             using (var existingFileStream = new FileStream(fileNameExisting, FileMode.Open)) //Assembly.GetExecutingAssembly().GetManifestResourceStream("DND_Character_Sheet.Default_Documents.Official 5E Character Sheet.pdf")) //new FileStream(fileNameExisting, FileMode.Open))
             {
                 var pdfDoc = new PdfDocument(new PdfReader(existingFileStream));
                 var form = PdfAcroForm.GetAcroForm(pdfDoc, true);
 
-                var temp = new CharacterModel(GetMainStats(form), GetAllSkills(form), GetHPStats(form), GetDetailsStats(form);
-
-                foreach (var fieldkey in TempDict)
-                {
-                    //fieldkey.Value = 2;
-                    //var a = TempDict[character.DetailsStats.ClassAndLevel];
-                    //TempDict[character.DetailsStats.ClassAndLevel] = "New Class & Level";
-                    //var b = character.DetailsStats.ClassAndLevel;
-
-                    //var c = typeof(DetailsStats).GetProperty("ClassAndLevel");
-                    //var d = form.GetField(fieldkey.Key);
-                    //var test = form.GetField("bla bla");
-                    //var e = d.GetValue();
-                    //c.SetValue(character, e);
-
-                    //var g = form.GetField(fieldkey.Key).GetValueAsString();
-                    //var h = form.GetField(fieldkey.Key).GetValue();
-                    //var i = form.GetField(fieldkey.Key).GetFieldName();
-
-
-                    //var testResolver = new Resolver().Resolve("please work lol", "DetailsStats.ClassAndLevel");
-                    //character.GetType().GetProperty(fieldkey.Key).SetValue(character, "please work lol");
-
-                    try
-                    {
-                        object setValue;
-                        if (fieldkey.Key.ToLower().Replace(" ", string.Empty).Contains("checkbox"))
-                        {
-                            //var a = (form.GetField(fieldkey.Key).GetValueAsString() == "1" || form.GetField(fieldkey.Key).GetValueAsString().ToLower() == "true") ? true : false;
-                            //var x = form.GetField(fieldkey.Key).GetValueAsString();
-                            //var y = bool.Parse(form.GetField(fieldkey.Key).GetValueAsString());
-                            setValue = (form.GetField(fieldkey.Key).GetValueAsString() == "1" 
-                                || form.GetField(fieldkey.Key).GetValueAsString().ToLower() == "true") 
-                                ? true : false;
-                        } 
-                        //else if (fieldkey.Key.ToLower().Contains("wpn"))
-                        //{
-                        //    setValue = GetIndexedProperty()
-                        //} 
-                        else
-                        {
-                            setValue = form.GetField(fieldkey.Key).GetValueAsString();
-                        }
-                        AccessClassProperties.SetNestedPropertyValue(character, TempDict[fieldkey.Key], setValue);
-                    }
-                    catch (Exception)
-                    {
-                        pdfDoc.Close();
-                    }
-                    
-
-                    //var x = typeof(CharacterModel).GetProperty(fieldkey.Value.ToString());
-                    //var y = form.GetField(fieldkey.Key).GetValue();
-                    //x.SetValue(character, y);
-                    //typeof(CharacterModel).GetProperty(fieldkey.Value.ToString()).SetValue(character, form.GetField(fieldkey.Key).GetValue());
-                }
+                character = new CharacterModel(GetMainStats(form),
+                GetAllSkills(form),
+                GetHPStats(form),
+                GetDetailsStats(form),
+                GetMiscStats(form),
+                GetCharacterNotes(form, filePath),
+                GetWeaponNotes(form),
+                GetAllSpells(form));
 
                 pdfDoc.Close();
+
+                //foreach (var fieldkey in TempDict)
+                //{
+                //    //fieldkey.Value = 2;
+                //    //var a = TempDict[character.DetailsStats.ClassAndLevel];
+                //    //TempDict[character.DetailsStats.ClassAndLevel] = "New Class & Level";
+                //    //var b = character.DetailsStats.ClassAndLevel;
+
+                //    //var c = typeof(DetailsStats).GetProperty("ClassAndLevel");
+                //    //var d = form.GetField(fieldkey.Key);
+                //    //var test = form.GetField("bla bla");
+                //    //var e = d.GetValue();
+                //    //c.SetValue(character, e);
+
+                //    //var g = form.GetField(fieldkey.Key).GetValueAsString();
+                //    //var h = form.GetField(fieldkey.Key).GetValue();
+                //    //var i = form.GetField(fieldkey.Key).GetFieldName();
+
+
+                //    //var testResolver = new Resolver().Resolve("please work lol", "DetailsStats.ClassAndLevel");
+                //    //character.GetType().GetProperty(fieldkey.Key).SetValue(character, "please work lol");
+
+                //    try
+                //    {
+                //        object setValue;
+                //        if (fieldkey.Key.ToLower().Replace(" ", string.Empty).Contains("checkbox"))
+                //        {
+                //            //var a = (form.GetField(fieldkey.Key).GetValueAsString() == "1" || form.GetField(fieldkey.Key).GetValueAsString().ToLower() == "true") ? true : false;
+                //            //var x = form.GetField(fieldkey.Key).GetValueAsString();
+                //            //var y = bool.Parse(form.GetField(fieldkey.Key).GetValueAsString());
+                //            setValue = (form.GetField(fieldkey.Key).GetValueAsString() == "1" 
+                //                || form.GetField(fieldkey.Key).GetValueAsString().ToLower() == "true") 
+                //                ? true : false;
+                //        } 
+                //        //else if (fieldkey.Key.ToLower().Contains("wpn"))
+                //        //{
+                //        //    setValue = GetIndexedProperty()
+                //        //} 
+                //        else
+                //        {
+                //            setValue = form.GetField(fieldkey.Key).GetValueAsString();
+                //        }
+                //        AccessClassProperties.SetNestedPropertyValue(character, TempDict[fieldkey.Key], setValue);
+                //    }
+                //    catch (Exception)
+                //    {
+                //        pdfDoc.Close();
+                //    }
+
+
+                //    //var x = typeof(CharacterModel).GetProperty(fieldkey.Value.ToString());
+                //    //var y = form.GetField(fieldkey.Key).GetValue();
+                //    //x.SetValue(character, y);
+                //    //typeof(CharacterModel).GetProperty(fieldkey.Value.ToString()).SetValue(character, form.GetField(fieldkey.Key).GetValue());
+                //}
+
+
             }
 
-            return default(ICharacterModel);
+            return character;
         }
 
-        private DetailsStats GetDetailsStats(PdfAcroForm form)
+        private AllSpells GetAllSpells(PdfAcroForm form)
         {
-            return new DetailsStats(GetStringFieldOrDefault(form, "CharacterName"),
+            var allSpells = new AllSpells(new SpellLevelViewModel((int)NumberOfSpells.Cantrip, (int)SpellLevel.Cantrip, "0", "0"),
+            new SpellLevelViewModel((int)NumberOfSpells.FirstLevelSpell, (int)SpellLevel.FirstLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 19"), GetStringFieldOrDefault(form, "SlotsRemaining 19")),
+            new SpellLevelViewModel((int)NumberOfSpells.SecondLevelSpell, (int)SpellLevel.SecondLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 20"), GetStringFieldOrDefault(form, "SlotsRemaining 20")),
+            new SpellLevelViewModel((int)NumberOfSpells.ThirdLevelSpell, (int)SpellLevel.ThirdLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 21"), GetStringFieldOrDefault(form, "SlotsRemaining 21")),
+            new SpellLevelViewModel((int)NumberOfSpells.FourthLevelSpell, (int)SpellLevel.FourthLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 22"), GetStringFieldOrDefault(form, "SlotsRemaining 22")),
+            new SpellLevelViewModel((int)NumberOfSpells.FifthLevelSpell, (int)SpellLevel.FifthLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 23"), GetStringFieldOrDefault(form, "SlotsRemaining 23")),
+            new SpellLevelViewModel((int)NumberOfSpells.SixthLevelSpell, (int)SpellLevel.SixthLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 24"), GetStringFieldOrDefault(form, "SlotsRemaining 24")),
+            new SpellLevelViewModel((int)NumberOfSpells.SeventhLevelSpell, (int)SpellLevel.SeventhLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 25"), GetStringFieldOrDefault(form, "SlotsRemaining 25")),
+            new SpellLevelViewModel((int)NumberOfSpells.EighthLevelSpell, (int)SpellLevel.EighthLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 26"), GetStringFieldOrDefault(form, "SlotsRemaining 26")),
+            new SpellLevelViewModel((int)NumberOfSpells.NinthLevelSpell, (int)SpellLevel.NinthLevelSpell, GetStringFieldOrDefault(form, "SlotsTotal 27"), GetStringFieldOrDefault(form, "SlotsRemaining 27")));
+
+            allSpells.CantripSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1014", "1016", "1017", "1018", "1019", "1020", "1021", "1022" },
+                new string[] { "", "", "", "", "", "", "", "" });
+            allSpells.FirstLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1015", "1023", "1024", "1025", "1026", "1027", "1028", "1029", "1030", "1031", "1032", "1033" },
+                new string[] { "251", "309", "3010", "3011", "3012", "3013", "3014", "3015", "3016", "3017", "3018", "3019" });
+            allSpells.SecondLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1046", "1034", "1035", "1036", "1037", "1038", "1039", "1040", "1041", "1042", "1043", "1044", "1045" },
+                new string[] { "313", "310", "3020", "3021", "3022", "3023", "3024", "3025", "3026", "3027", "3028", "3029", "3030" });
+            allSpells.ThirdLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1048", "1047", "1049", "1050", "1051", "1052", "1053", "1054", "1055", "1056", "1057", "1058", "1059" },
+                new string[] { "315", "314", "3031", "3032", "3033", "3034", "3035", "3036", "3037", "3038", "3039", "3040", "3041" });
+            allSpells.FourthLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1061", "1060", "1062", "1063", "1064", "1065", "1066", "1067", "1068", "1069", "1070", "1071", "1072" },
+                new string[] { "317", "316", "3042", "3043", "3044", "3045", "3046", "3047", "3048", "3049", "3050", "3051", "3052" });
+            allSpells.FifthLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1074", "1073", "1075", "1076", "1077", "1078", "1079", "1080", "1081" },
+                new string[] { "319", "318", "3053", "3054", "3055", "3056", "3057", "3058", "3059" });
+            allSpells.SixthLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1083", "1082", "1084", "1085", "1086", "1087", "1088", "1089", "1090" },
+                new string[] { "321", "320", "3060", "3061", "3062", "3063", "3064", "3065", "3066" });
+            allSpells.SeventhLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "1092", "1091", "1093", "1094", "1095", "1096", "1097", "1098", "1099" },
+                new string[] { "323", "322", "3067", "3068", "3069", "3070", "3071", "3072", "3073" });
+            allSpells.EighthLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "10101", "10100", "10102", "10103", "10104", "10105", "10106" },
+                new string[] { "325", "324", "3074", "3075", "3076", "3077", "3078" });
+            allSpells.NinthLevelSpellViewModel.Spells = GetSpells(form, 
+                new string[] { "10108", "10107", "10109", "101010", "101011", "101012", "101013"},
+                new string[] { "327", "326", "3079", "3080", "3081", "3082", "3083" });
+
+            return allSpells;
+        }
+
+        private ObservableCollection<Spell> GetSpells(PdfAcroForm form, string[] spellNameNumbers, string[] spellsPreparedNumbers)
+        {
+            var spells = new ObservableCollection<Spell>() { };
+            var openNewViewWrapper = new OpenNewViewWrapper(new WindowWrapper());
+            for (int i = 0; i < spellNameNumbers.Length; i++)
+            {
+                spells.Add(new Spell(GetStringFieldOrDefault(form, $"Spells {spellNameNumbers[i]}"), 
+                    GetStringFieldOrDefault(form, $"Spells {spellNameNumbers[i]}"),
+                    spellsPreparedNumbers[i] == "" ? false : GetCheckBoxFieldOrDefault(form, $"Check Box {spellsPreparedNumbers[i]}"), 
+                    openNewViewWrapper));
+            }
+
+            return spells;
+        }
+
+        private WeaponNotes GetWeaponNotes(PdfAcroForm form) 
+            => new WeaponNotes(new ObservableCollection<WeaponsInventory>()
+            {
+                new WeaponsInventory(GetStringFieldOrDefault(form, "Wpn Name"),
+                GetStringFieldOrDefault(form, "Wpn1 AtkBonus"),
+                GetStringFieldOrDefault(form, "Wpn1 Damage")),
+                new WeaponsInventory(GetStringFieldOrDefault(form, "Wpn Name 2"),
+                GetStringFieldOrDefault(form, "Wpn2 AtkBonus "),
+                GetStringFieldOrDefault(form, "Wpn2 Damage ")),
+                new WeaponsInventory(GetStringFieldOrDefault(form, "Wpn Name 3"),
+                GetStringFieldOrDefault(form, "Wpn3 AtkBonus  "),
+                GetStringFieldOrDefault(form, "Wpn3 Damage "))
+            },
+            GetStringFieldOrDefault(form, "AttacksSpellcasting")); //Check if this title is correct
+
+        private CharacterNotes GetCharacterNotes(PdfAcroForm form, string filePath)
+        { //Think about how to serialise and deserialise "Quick Notes", rn I've just set it as ""
+            return new CharacterNotes(filePath,
+                "", //Here is where Quick Notes is
+                GetStringFieldOrDefault(form, "Equipment"),
+                GetStringFieldOrDefault(form, "Allies"),
+                GetStringFieldOrDefault(form, "Features and Traits"),
+                GetStringFieldOrDefault(form, "ProficienciesLang"),
+                new Money(GetStringFieldOrDefault(form, "PP"),
+                GetStringFieldOrDefault(form, "GP"),
+                GetStringFieldOrDefault(form, "SP"),
+                GetStringFieldOrDefault(form, "CP"),
+                GetStringFieldOrDefault(form, "EP")),
+                GetStringFieldOrDefault(form, "Backstory"),
+                GetStringFieldOrDefault(form, "Treasure"),
+                GetStringFieldOrDefault(form, "Feat+Traits"),
+                new SerializeCharacterWrapper(),
+                new FileOperationsWrapper());
+        }
+
+        private MiscStats GetMiscStats(PdfAcroForm form) 
+            => new MiscStats(GetStringFieldOrDefault(form, "ProfBonus"), 
+                GetIntFieldOrDefault(form, "AC"),
+                GetStringFieldOrDefault(form, "Initiative"), 
+                GetStringFieldOrDefault(form, "Speed"),
+                GetStringFieldOrDefault(form, "Inspiration"), 
+                GetStringFieldOrDefault(form, "Passive"));
+
+        private DetailsStats GetDetailsStats(PdfAcroForm form) 
+            => new DetailsStats(GetStringFieldOrDefault(form, "CharacterName"),
                 GetStringFieldOrDefault(form, "ClassLevel"),
                 GetStringFieldOrDefault(form, "Background"),
                 GetStringFieldOrDefault(form, "PlayerName"),
@@ -157,7 +278,6 @@ namespace DND_Character_Sheet.Serialization
                 GetStringFieldOrDefault(form, "Ideals"),
                 GetStringFieldOrDefault(form, "Bonds"),
                 GetStringFieldOrDefault(form, "Flaws"));
-        }
 
         private HPStats GetHPStats(PdfAcroForm form) 
             => new HPStats(GetIntFieldOrDefault(form, "HPMax"), 
@@ -199,7 +319,7 @@ namespace DND_Character_Sheet.Serialization
             => new MainStats(GetIntFieldOrDefault(form, "STR"), 
                 GetIntFieldOrDefault(form, "DEX"), 
                 GetIntFieldOrDefault(form, "CON"), 
-                GetIntFieldOrDefault(form, "INTL"),
+                GetIntFieldOrDefault(form, "INT"),
                 GetIntFieldOrDefault(form, "WIS"), 
                 GetIntFieldOrDefault(form, "CHA"), 
                 GetStringFieldOrDefault(form, "ST Strength"),
@@ -215,11 +335,11 @@ namespace DND_Character_Sheet.Serialization
                 GetCheckBoxFieldOrDefault(form, "Check Box 21"), 
                 GetCheckBoxFieldOrDefault(form, "Check Box 22"),
                 GetStringFieldOrDefault(form, "STRmod"), 
-                GetStringFieldOrDefault(form, "DEXmod"), 
+                GetStringFieldOrDefault(form, "DEXmod "), 
                 GetStringFieldOrDefault(form, "CONmod"),
-                GetStringFieldOrDefault(form, "INTLmod"), 
+                GetStringFieldOrDefault(form, "INTmod"), 
                 GetStringFieldOrDefault(form, "WISmod"), 
-                GetStringFieldOrDefault(form, "CHAmod"));
+                GetStringFieldOrDefault(form, "CHamod"));
 
         private bool GetCheckBoxFieldOrDefault(PdfAcroForm form, string fieldName) 
             => form.GetField(fieldName).GetValueAsString() == "" ? false : true;
@@ -229,7 +349,10 @@ namespace DND_Character_Sheet.Serialization
 
         private int GetIntFieldOrDefault(PdfAcroForm form, string fieldName)
         { //Will need to test this out by seeing what happens when an int is "18(+1)" or "(+1)14"
-            return int.TryParse((string)form.GetField(fieldName).GetValueAsString().Replace(" ", "").Where(x => char.IsDigit(x)), out int result) ? result : 0;
+            var x = (string)form.GetField(fieldName).GetValueAsString().Replace(" ", "");
+            var y = new string(x.Where(x => char.IsDigit(x)).ToArray());
+            var z = int.TryParse(x, out int r);
+            return int.TryParse(new string(form.GetField(fieldName).GetValueAsString().Replace(" ", "").Where(x => char.IsDigit(x)).ToArray()), out int result) ? result : 0;
         }
 
         private string TernaryOperatorOnValue(bool value, string ifTrue, string ifFalse) 
@@ -581,7 +704,7 @@ namespace DND_Character_Sheet.Serialization
                 {"Check Box 3083", "AllSpells.NinthLevelSpellViewModel.Spells[6].IsPrepared"},
             };
 
-            FieldKeyToValueDict = new Dictionary<string, string>()
+            FieldKeyToValueDict = new Dictionary<string, string>() //Think about whether I want to include the spell name & spell desc or just the spell name for serialisation
             {
                 {"ClassLevel", character.DetailsStats.ClassAndLevel},
                 {"Background", character.DetailsStats.Background},

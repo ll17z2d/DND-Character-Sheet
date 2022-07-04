@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DND_Character_Sheet.Annotations;
+using DND_Character_Sheet.Enums;
 using DND_Character_Sheet.ViewModels;
 using Newtonsoft.Json;
 
@@ -200,16 +201,16 @@ namespace DND_Character_Sheet.Models.Serialize_Types
 
 
 
-        public AllSpells() : this(new SpellLevelViewModel(8, 0),
-            new SpellLevelViewModel(12, 1),
-            new SpellLevelViewModel(13, 2),
-            new SpellLevelViewModel(13, 3),
-            new SpellLevelViewModel(13, 4),
-            new SpellLevelViewModel(9, 5),
-            new SpellLevelViewModel(9, 6),
-            new SpellLevelViewModel(9, 7),
-            new SpellLevelViewModel(7, 8),
-            new SpellLevelViewModel(7, 9)) { }
+        public AllSpells() : this(new SpellLevelViewModel((int)NumberOfSpells.Cantrip, (int)SpellLevel.Cantrip),
+            new SpellLevelViewModel((int)NumberOfSpells.FirstLevelSpell, (int)SpellLevel.FirstLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.SecondLevelSpell, (int)SpellLevel.SecondLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.ThirdLevelSpell, (int)SpellLevel.ThirdLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.FourthLevelSpell, (int)SpellLevel.FourthLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.FifthLevelSpell, (int)SpellLevel.FifthLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.SixthLevelSpell, (int)SpellLevel.SixthLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.SeventhLevelSpell, (int)SpellLevel.SeventhLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.EighthLevelSpell, (int)SpellLevel.EighthLevelSpell),
+            new SpellLevelViewModel((int)NumberOfSpells.NinthLevelSpell, (int)SpellLevel.NinthLevelSpell)) { }
 
         public AllSpells(SpellLevelViewModel cantripSpellViewModel, SpellLevelViewModel firstLevelSpellViewModel,
             SpellLevelViewModel secondLevelSpellViewModel, SpellLevelViewModel thirdLevelSpellViewModel,
