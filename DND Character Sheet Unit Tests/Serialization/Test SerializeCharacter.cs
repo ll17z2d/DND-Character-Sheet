@@ -40,7 +40,7 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
             var expected = true;
             GetUnderTest_DeserializedSpells();
             MockJsonConvertWrapper.Setup(x => x.DeserializeObject<ICharacterModel>(It.IsAny<string>())).Returns(CharacterModel);
-            MockFileOperationsWrapper.Setup(x => x.FileReadAllText(It.IsAny<string>())).Returns(string.Empty);
+            MockFileOperationsWrapper.Setup(x => x.JSONFileReadAllText(It.IsAny<string>())).Returns(string.Empty);
 
             //act
             var actual = SerializeCharacter.OpenCharacterFromFileJSON(It.IsAny<string>(), 
@@ -68,6 +68,17 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
 
             //assert
             Assert.AreEqual(expected, new ObjectsComparer.Comparer<ICharacterModel>().Compare(character, CharacterCreatorViewModel.Character, out var dif));
+        }
+
+        [TestMethod]
+        public void OpenCharacterFromFilePDF_Successful()
+        {
+            //arrange
+
+            //act
+
+            //assert
+            Assert.IsTrue(false);
         }
 
         private void GetUnderTest_DeserializedSpells()

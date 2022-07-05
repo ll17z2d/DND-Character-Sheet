@@ -10,6 +10,7 @@ namespace DND_Character_Sheet.Wrappers
         public IOpenFileDialogWrapper OpenFileDialogWrapper { get; set; }
         public ISaveFileDialogWrapper SaveFileDialogWrapper { get; set; }
         public IMessageBoxWrapper MessageBoxWrapper { get; set; }
+        public string FileDialogFilter { get; set; }
     }
 
     public class DialogWindowWrapper : IDialogWindowWrapper
@@ -26,5 +27,7 @@ namespace DND_Character_Sheet.Wrappers
         public ISaveFileDialogWrapper SaveFileDialogWrapper { get; set; }
 
         public IMessageBoxWrapper MessageBoxWrapper { get; set; }
+
+        public string FileDialogFilter { get; set; } = "(JSON) Ultimate DND Character|*.json|(PDF) Official D&D Character Sheet|*.pdf";
     }
 }

@@ -47,7 +47,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool OpenCharacter()
         {
-            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = DialogWindowWrapper.FileDialogFilter;
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.FileName = "";
 

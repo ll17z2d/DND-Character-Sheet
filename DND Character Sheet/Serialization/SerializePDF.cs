@@ -2,20 +2,15 @@
 using DND_Character_Sheet.Enums;
 using DND_Character_Sheet.Models.API_Models;
 using DND_Character_Sheet.Models.Serialize_Types;
-using DND_Character_Sheet.Useful_Methods;
 using DND_Character_Sheet.ViewModels;
 using DND_Character_Sheet.Wrappers;
 using iText.Forms;
 using iText.Kernel.Pdf;
-using Pather.CSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace DND_Character_Sheet.Serialization
@@ -91,6 +86,8 @@ namespace DND_Character_Sheet.Serialization
                 GetCharacterNotes(form, filePath),
                 GetWeaponNotes(form),
                 GetAllSpells(form));
+
+                character.FilePath = filePath;
 
                 pdfDoc.Close();
 
@@ -234,7 +231,7 @@ namespace DND_Character_Sheet.Serialization
 
         private CharacterNotes GetCharacterNotes(PdfAcroForm form, string filePath)
         { //Think about how to serialise and deserialise "Quick Notes", rn I've just set it as ""
-            return new CharacterNotes(filePath,
+            return new CharacterNotes("", //This is where character appearance is (Will try to get this working later)
                 "", //Here is where Quick Notes is
                 GetStringFieldOrDefault(form, "Equipment"),
                 GetStringFieldOrDefault(form, "Allies"),
@@ -345,7 +342,7 @@ namespace DND_Character_Sheet.Serialization
             => form.GetField(fieldName).GetValueAsString() == "" ? false : true;
 
         private string GetStringFieldOrDefault(PdfAcroForm form, string fieldName) 
-            => form.GetField(fieldName).GetValueAsString() == null ? form.GetField(fieldName).GetValueAsString() : "";
+            => form.GetField(fieldName).GetValueAsString() == null ? "" : form.GetField(fieldName).GetValueAsString();
 
         private int GetIntFieldOrDefault(PdfAcroForm form, string fieldName)
         { //Will need to test this out by seeing what happens when an int is "18(+1)" or "(+1)14"

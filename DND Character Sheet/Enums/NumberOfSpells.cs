@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DND_Character_Sheet.Enums
 {
-    public enum NumberOfSpells
+    public enum SpellLevel
     {
         Cantrip = 0,
         FirstLevelSpell = 1,

@@ -14,6 +14,8 @@ namespace DND_Character_Sheet.Wrappers
         public string FormatList<T>(List<T> list, string property);
 
         public string ExtractFileNameFromPath(string filePath);
+
+        public bool IsJSON(string filePath);
     }
 
     public class TextFormatterWrapper : ITextFormatterWrapper
@@ -29,5 +31,8 @@ namespace DND_Character_Sheet.Wrappers
 
         public string ExtractFileNameFromPath(string filePath) 
             => TextFormatter.ExtractFileNameFromPath(filePath);
+
+        public bool IsJSON(string filePath) 
+            => TextFormatter.IsJSON(filePath);
     }
 }

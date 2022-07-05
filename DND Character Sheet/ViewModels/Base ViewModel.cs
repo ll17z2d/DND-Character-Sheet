@@ -109,7 +109,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool SaveCharacterAs()
         {
-            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
+            DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.Filter = DialogWindowWrapper.FileDialogFilter;
             DialogWindowWrapper.SaveFileDialogWrapper.SaveFileDialog.InitialDirectory = Character.FilePath;
             DialogWindowWrapper.SaveFileDialogWrapper.FileName = "";
 
@@ -144,7 +144,7 @@ namespace DND_Character_Sheet.ViewModels
 
         public bool OpenCharacter()
         {
-            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = "Ultimate DND Character (JSON)|*.json|Official D&D Character Sheet (PDF)|*.pdf";
+            DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.Filter = DialogWindowWrapper.FileDialogFilter;
             DialogWindowWrapper.OpenFileDialogWrapper.OpenFileDialog.InitialDirectory = Character.FilePath;
             DialogWindowWrapper.OpenFileDialogWrapper.FileName = "";
 
@@ -181,7 +181,7 @@ namespace DND_Character_Sheet.ViewModels
             {
                 case MessageBoxResult.Yes:
                     WindowServiceWrapper.CloseAllSubWindows();
-                    if (HasCharacterBeenCreated())
+                    if (StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) && HasCharacterBeenCreated())
                     {
                         SaveJSON();
                         e.Cancel = false;
@@ -204,7 +204,7 @@ namespace DND_Character_Sheet.ViewModels
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
             if (HasCharacterBeenCreated())
             {
-                if (!(new Comparer<ICharacterModel>().Compare(OpenJSON(Character.FilePath), Character, out var dif)))
+                if (!StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) || !(new Comparer<ICharacterModel>().Compare(OpenJSON(Character.FilePath), Character, out var dif))) //Look into this being compatible with pdf too
                     return SaveChangesMessageBox;
                 return MessageBoxResult.No;
             }

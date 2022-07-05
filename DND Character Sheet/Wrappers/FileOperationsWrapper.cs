@@ -15,7 +15,7 @@ namespace DND_Character_Sheet.Wrappers
 
         public void JSONFileWriteAllText(string filePath, [CanBeNull] string contents);
 
-        public string FileReadAllText(string filePath);
+        public string JSONFileReadAllText(string filePath);
     }
 
     public class FileOperationsWrapper : IFileOperationsWrapper
@@ -26,7 +26,7 @@ namespace DND_Character_Sheet.Wrappers
         public void JSONFileWriteAllText(string filePath, string contents) 
             => File.WriteAllText(filePath, contents);
 
-        public string FileReadAllText(string filePath)
+        public string JSONFileReadAllText(string filePath)
             => File.ReadAllText(filePath);
     }
 }
