@@ -119,12 +119,14 @@ namespace DND_Character_Sheet.ViewModels
                 {
                     Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.FileName;
                     SaveJSON();
+                    InitialiseWindowTitle();
                     return true; 
                 }
                 else if (DialogWindowWrapper.SaveFileDialogWrapper.FilterIndex == 2)
                 {
                     Character.FilePath = DialogWindowWrapper.SaveFileDialogWrapper.FileName;
                     SavePDF();
+                    InitialiseWindowTitle();
                     return true;
                 }
             }
@@ -137,7 +139,10 @@ namespace DND_Character_Sheet.ViewModels
             if (Character.FilePath == Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 return SaveCharacterAs();
 
-            SaveJSON();
+            if (StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath))
+                SaveJSON();
+            else
+                SavePDF();
 
             return true;
         }
@@ -186,6 +191,11 @@ namespace DND_Character_Sheet.ViewModels
                         SaveJSON();
                         e.Cancel = false;
                     }
+                    else if (!StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) && HasCharacterBeenCreated())
+                    {
+                        SavePDF();
+                        e.Cancel = false;
+                    }
                     else
                         e.Cancel = !SaveCharacterAs();
                     return;
@@ -204,7 +214,9 @@ namespace DND_Character_Sheet.ViewModels
             //The below check is needed to make sure we don't try to save when the user hasn't actually saved their character to the computer yet
             if (HasCharacterBeenCreated())
             {
-                if (!StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) || !(new Comparer<ICharacterModel>().Compare(OpenJSON(Character.FilePath), Character, out var dif))) //Look into this being compatible with pdf too
+                if (StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) && !(new Comparer<ICharacterModel>().Compare(OpenJSON(Character.FilePath), Character, out var difJSON)))
+                    return SaveChangesMessageBox;
+                else if (!StaticClassWrapper.TextFormatterWrapper.IsJSON(Character.FilePath) && !(new Comparer<ICharacterModel>().Compare(OpenPDF(Character.FilePath), Character, out var difPDF)))
                     return SaveChangesMessageBox;
                 return MessageBoxResult.No;
             }
@@ -228,7 +240,7 @@ namespace DND_Character_Sheet.ViewModels
             => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
 
         private ICharacterModel OpenPDF(string filePath)
-            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFileJSON(filePath);
+            => StaticClassWrapper.SerializeCharacterWrapper.OpenCharacterFromFilePDF(filePath);
 
         private bool HasCharacterBeenCreated() 
             => Character.FilePath != Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

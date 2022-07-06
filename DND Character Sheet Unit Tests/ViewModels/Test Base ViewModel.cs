@@ -16,12 +16,13 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public CharacterCreatorViewModel CharacterCreatorViewModel { get; set; }
         public Mock<IDialogWindowWrapper> MockDialogWindowWrapper { get; set; }
         public Mock<ISerializeCharacterWrapper> MockSerializeCharacterWrapper { get; set; }
+        public Mock<ITextFormatterWrapper> MockTextFormatterWrapper { get; set; }
 
         [TestMethod]
         public void OpenCharacterJSON_TestSuccessOnDialogWindow()
         {
             //arrange
-            var expected1 = 4;
+            var expected1 = 2;
             var expected2 = true;
             var expected3 = 1;
             GetUnderTestOpenCharacter(expected2, true);
@@ -40,7 +41,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void OpenCharacterJSON_TestCancelledOnDialogWindow()
         {
             //arrange
-            var expected1 = 3;
+            var expected1 = 2;
             var expected2 = false;
             var expected3 = 0;
             GetUnderTestOpenCharacter(expected2, true);
@@ -59,7 +60,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void SaveCharacterJSON_TestNewlyCreatedCharacter()
         {
             //arrange
-            var expected1 = 4;
+            var expected1 = 2;
             var expected2 = true;
             var expected3 = 1;
             GetUnderTestSaveCharacter(expected2, true);
@@ -78,7 +79,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void SaveCharacterPDF_TestNewlyCreatedCharacter()
         {
             //arrange
-            var expected1 = 4;
+            var expected1 = 2;
             var expected2 = true;
             var expected3 = 1;
             GetUnderTestSaveCharacter(expected2, false);
@@ -97,7 +98,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void SaveCharacterJSON_TestUncreatedCharacterCancelledOnDialogWindow()
         {
             //arrange
-            var expected1 = 3;
+            var expected1 = 2;
             var expected2 = false;
             var expected3 = 0;
             GetUnderTestSaveCharacter(expected2, true);
@@ -116,7 +117,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         public void SaveCharacterJSON_TestUncreatedCharacterSuccessOnDialogWindow()
         {
             //arrange
-            var expected1 = 4;
+            var expected1 = 2;
             var expected2 = true;
             var expected3 = 1;
             GetUnderTestSaveCharacter(expected2, true);
@@ -141,8 +142,11 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
             MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFileJSON(It.IsAny<ICharacterModel>()));
 
+            MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
+            MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()));
+
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object, 
-                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, MockSerializeCharacterWrapper.Object), 
                 new OpenNewViewWrapper(new WindowWrapper()));
         }
 
@@ -156,8 +160,11 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
             MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFileJSON(It.IsAny<string>())).Returns(new CharacterModel());
 
+            MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
+            MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()));
+
             CharacterCreatorViewModel = new CharacterCreatorViewModel(MockDialogWindowWrapper.Object,
-                new StaticClassWrapper(new TextFormatterWrapper(), MockSerializeCharacterWrapper.Object), 
+                new StaticClassWrapper(MockTextFormatterWrapper.Object, MockSerializeCharacterWrapper.Object), 
                 new OpenNewViewWrapper(new WindowWrapper()));
         }
     }

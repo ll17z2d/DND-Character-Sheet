@@ -222,7 +222,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             var expected2 = false;
             var expected3 = 1;
             GetUnderTest(MessageBoxResult.No);
-            var newCharacterStats = TestData.GetInitialisedCharacterModel();
+            var newCharacterStats = TestData.GetEditedCharacterModel();
 
             //act
             CharacterCreatorViewModel.Character = newCharacterStats;
@@ -243,7 +243,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             var expected2 = true;
             var expected3 = 1;
             GetUnderTest(MessageBoxResult.Yes);
-            var newCharacterStats = TestData.GetInitialisedCharacterModel();
+            var newCharacterStats = TestData.GetEditedCharacterModel();
 
             //act
             CharacterCreatorViewModel.Character = newCharacterStats;

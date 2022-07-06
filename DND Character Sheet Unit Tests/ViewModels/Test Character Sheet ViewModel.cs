@@ -281,27 +281,12 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
         }
 
         [TestMethod]
-        public void ExitWindow_TestCancelOnCloseWindow()
+        public void ExitWindow_TestYesOnCloseWindowEditedJSON()
         {
             //arrange
-            var expected = true;
-            GetUnderTest(MessageBoxResult.Cancel);
-            var cancelEventArgs = new CancelEventArgs();
-
-            //act
-            CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
-
-            //assert
-            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
-                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Once);
-            Assert.AreEqual(cancelEventArgs.Cancel, expected);
-        }
-
-        [TestMethod]
-        public void ExitWindow_TestYesOnCloseWindow()
-        {
-            //arrange
-            var expected = false;
+            var expected1 = false;
+            var expected2 = 1;
+            var expected3 = 0;
             GetUnderTest(MessageBoxResult.Yes, true);
             var cancelEventArgs = new CancelEventArgs();
 
@@ -309,16 +294,19 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
 
             //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
             MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
-                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Once);
-            Assert.AreEqual(cancelEventArgs.Cancel, expected);
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
         }
 
         [TestMethod]
-        public void ExitWindow_TestNoOnCloseWindow()
+        public void ExitWindow_TestNoOnCloseWindowEditedJSON()
         {
             //arrange
-            var expected = false;
+            var expected1 = false;
+            var expected2 = 1;
+            var expected3 = 0;
             GetUnderTest(MessageBoxResult.No);
             var cancelEventArgs = new CancelEventArgs();
 
@@ -326,40 +314,109 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
 
             //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
             MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
-                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Once);
-            Assert.AreEqual(cancelEventArgs.Cancel, expected);
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
         }
 
         [TestMethod]
-        public void ExitWindow_TestCancelOnSaveDialogOnCloseWindow()
+        public void ExitWindow_TestCancelOnCloseWindowEditedJSON()
         {
             //arrange
-            var expected1 = false;
+            var expected1 = true;
             var expected2 = 1;
-            GetUnderTest(MessageBoxResult.Yes, saveDialogResult: false);
+            var expected3 = 0;
+            GetUnderTest(MessageBoxResult.Cancel);
             var cancelEventArgs = new CancelEventArgs();
 
             //act
             CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
 
             //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
             MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
                 It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
-            Assert.AreEqual(cancelEventArgs.Cancel, expected1);
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
         }
 
         [TestMethod]
-        public void ExitWindow_TestSaveAsDialogForPDF()
+        public void ExitWindow_TestYesOnCloseWindowEditedPDF()
         {
             //arrange
-            
+            var expected1 = false;
+            var expected2 = 1;
+            var expected3 = 0;
+            GetUnderTest(MessageBoxResult.Yes, saveDialogResult: true, isJSON: false);
+            var cancelEventArgs = new CancelEventArgs();
 
             //act
-
+            CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
 
             //assert
-            Assert.IsTrue(false);
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
+            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
+        }
+
+        [TestMethod]
+        public void ExitWindow_TestNoOnCloseWindowEditedPDF()
+        {
+            var expected1 = false;
+            var expected2 = 1;
+            var expected3 = 0;
+            GetUnderTest(MessageBoxResult.No, isJSON: false);
+            var cancelEventArgs = new CancelEventArgs();
+
+            //act
+            CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
+
+            //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
+            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
+        }
+
+        [TestMethod]
+        public void ExitWindow_TestCancelOnCloseWindowEditedPDF()
+        {
+            //arrange
+            var expected1 = true;
+            var expected2 = 1;
+            var expected3 = 0;
+            GetUnderTest(MessageBoxResult.Cancel, isJSON: false);
+            var cancelEventArgs = new CancelEventArgs();
+
+            //act
+            CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
+
+            //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
+            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
+        }
+
+        [TestMethod]
+        public void ExitWindow_TestUneditedJSON()
+        {
+            //arrange
+            var expected1 = false;
+            var expected2 = 0;
+            var expected3 = 0;
+            GetUnderTest(MessageBoxResult.Yes, saveDialogResult: false, isEditedCharacter: false);
+            var cancelEventArgs = new CancelEventArgs();
+
+            //act
+            CharacterSheetViewModel.ExitWindow(new object(), cancelEventArgs);
+
+            //assert
+            Assert.AreEqual(expected1, cancelEventArgs.Cancel);
+            MockDialogWindowWrapper.Verify(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+            It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()), Times.Exactly(expected2));
+            MockDialogWindowWrapper.Verify(x => x.SaveFileDialogWrapper.ShowDialog(), Times.Exactly(expected3));
         }
 
         [TestMethod]
@@ -383,33 +440,40 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             Assert.IsTrue(CharacterSheetViewModel.WindowServiceWrapper.ActiveSubWindows.Count == 0);
         }
 
-        private void GetUnderTest(MessageBoxResult messageBoxResult = MessageBoxResult.None, bool saveDialogResult = false, bool openDialogResult = false)
+        private void GetUnderTest(MessageBoxResult messageBoxResult = MessageBoxResult.None, bool saveDialogResult = false, bool openDialogResult = false, bool isJSON = true, bool isEditedCharacter = true)
         {
-            var character = TestData.GetInitialisedCharacterModel();
+            var character = TestData.GetEditedCharacterModel();
+            character.FilePath = isJSON ? character.FilePath : character.FilePath.Replace(".json", ".pdf");
 
             MockDialogWindowWrapper = new Mock<IDialogWindowWrapper>();
             MockDialogWindowWrapper.Setup(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>()))
                 .Returns(messageBoxResult);
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.SaveFileDialog)
-                .Returns(new SaveFileDialog() { FileName = String.Empty });
+                .Returns(new SaveFileDialog() { FileName = string.Empty });
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog())
                 .Returns(saveDialogResult);
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FilterIndex)
-                .Returns(1);
+                .Returns(1); //This should stay 1 bc I don't want to save pdfs as pdfs for these tests
+
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.OpenFileDialog).Returns(new OpenFileDialog());
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(openDialogResult);
-            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(1);
+            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(isJSON ? 1 : 2);
 
             MockTextFormatterWrapper = new Mock<ITextFormatterWrapper>();
             MockTextFormatterWrapper.Setup(x => x.ExtractFileNameFromPath(It.IsAny<string>()))
-                .Returns(TestData.GetInitialisedCharacterModel().FilePath);
+                .Returns(TestData.GetEditedCharacterModel().FilePath);
+            MockTextFormatterWrapper.Setup(x => x.IsJSON(It.IsAny<string>()))
+                .Returns(isJSON);
             MockTextFormatterWrapper.Setup(x => x.ListToString(It.IsAny<List<string>>(), It.IsAny<bool>()))
                 .Returns("Oops! That wasn't a valid search option, please try again");
 
             MockSerializeCharacterWrapper = new Mock<ISerializeCharacterWrapper>();
             MockSerializeCharacterWrapper.Setup(x => x.SaveCharacterToFileJSON(It.IsAny<ICharacterModel>()));
-            MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFileJSON(It.IsAny<string>())).Returns(new CharacterModel());
+            if (isJSON)
+                MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFileJSON(It.IsAny<string>())).Returns(isEditedCharacter ? new CharacterModel() : character);
+            else
+                MockSerializeCharacterWrapper.Setup(x => x.OpenCharacterFromFilePDF(It.IsAny<string>())).Returns(isEditedCharacter ? new CharacterModel() : character);
 
             MockWindowWrapper = new Mock<IWindowWrapper>();
             MockWindowWrapper.Setup(x => x.Show(It.IsAny<IView>()));

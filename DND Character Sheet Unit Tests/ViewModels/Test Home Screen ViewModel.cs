@@ -27,6 +27,7 @@ namespace DND_Character_Sheet_Unit_Tests.ViewModels
             GetUnderTest();
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.OpenFileDialog).Returns(new OpenFileDialog());
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(true);
+            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(1);
             MockOpenNewViewWrapper.Setup(x => x.OpenCharacterSheetWindow(It.IsAny<ICharacterModel>(), 
                     It.IsAny<IDialogWindowWrapper>(), It.IsAny<IStaticClassWrapper>(), 
                     It.IsAny<IOpenNewViewWrapper>()))

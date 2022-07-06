@@ -31,7 +31,7 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
 
         public ICharacterModel CharacterModel { get; set; }
 
-        public string TempFilePath { get; set; } = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Newly Created Character.json");
+        public string TempFilePath { get; set; } = string.Concat(AppDomain.CurrentDomain.BaseDirectory, "Newly Created Character");
 
         [TestMethod]
         public void OpenCharacterFromFile_TestDeserializeSpells()
@@ -55,30 +55,43 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
         {
             //arrange
             var expected = true;
-            var character = TestData.GetInitialisedCharacterModel();
-            GetUnderTest();
+            var character = TestData.GetEditedCharacterModel();
+            var fileType = ".json";
+            GetUnderTest(true);
 
             //act
             CharacterCreatorViewModel.Character = character;
-            CharacterCreatorViewModel.Character.FilePath = TempFilePath;
+            CharacterCreatorViewModel.Character.FilePath = string.Concat(TempFilePath, fileType);
             CharacterCreatorViewModel.SaveCharacter();
 
             CharacterCreatorViewModel.OpenCharacter();
-            File.Delete(TempFilePath);
 
             //assert
+            Assert.AreEqual(expected, File.Exists(string.Concat(TempFilePath, fileType)));
             Assert.AreEqual(expected, new ObjectsComparer.Comparer<ICharacterModel>().Compare(character, CharacterCreatorViewModel.Character, out var dif));
+            File.Delete(string.Concat(TempFilePath, fileType));
         }
 
         [TestMethod]
         public void OpenCharacterFromFilePDF_Successful()
         {
             //arrange
+            var expected = true;
+            var character = TestData.GetEditedCharacterModel();
+            var fileType = ".pdf";
+            GetUnderTest(false);
 
             //act
+            CharacterCreatorViewModel.Character = character;
+            CharacterCreatorViewModel.Character.FilePath = string.Concat(TempFilePath, fileType);
+            CharacterCreatorViewModel.SaveCharacter();
+
+            CharacterCreatorViewModel.OpenCharacter();
 
             //assert
-            Assert.IsTrue(false);
+            Assert.AreEqual(expected, File.Exists(string.Concat(TempFilePath, fileType)));
+            Assert.AreEqual(expected, new ObjectsComparer.Comparer<ICharacterModel>().Compare(character, CharacterCreatorViewModel.Character, out var dif));
+            File.Delete(string.Concat(TempFilePath, fileType));
         }
 
         private void GetUnderTest_DeserializedSpells()
@@ -95,18 +108,23 @@ namespace DND_Character_Sheet_Unit_Tests.Serialization
             }
         }
 
-        private void GetUnderTest()
+        private void GetUnderTest(bool isJSON)
         {
+            var fileType = isJSON ? ".json" : ".pdf";
+
             MockDialogWindowWrapper = new Mock<IDialogWindowWrapper>();
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.SaveFileDialog).Returns(new SaveFileDialog());
             MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.ShowDialog()).Returns(true);
-            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FilterIndex).Returns(1);
-            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FileName).Returns(TempFilePath);
+            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FilterIndex).Returns(isJSON ? 1 : 2);
+            MockDialogWindowWrapper.Setup(x => x.SaveFileDialogWrapper.FileName).Returns(string.Concat(TempFilePath, fileType));
 
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.OpenFileDialog).Returns(new OpenFileDialog());
             MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.ShowDialog()).Returns(true);
-            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(1);
-            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FileName).Returns(TempFilePath);
+            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FilterIndex).Returns(isJSON ? 1 : 2);
+            MockDialogWindowWrapper.Setup(x => x.OpenFileDialogWrapper.FileName).Returns(string.Concat(TempFilePath, fileType));
+
+            MockDialogWindowWrapper.Setup(x => x.MessageBoxWrapper.Show(It.IsAny<string>(), It.IsAny<string>(),
+                It.IsAny<MessageBoxButton>(), It.IsAny<MessageBoxImage>(), It.IsAny<MessageBoxResult>())).Returns(MessageBoxResult.Yes);
 
             var MockWindowWrapper = new Mock<IOpenNewViewWrapper>();
             MockWindowWrapper.Setup(x => x.CloseAllSubWindows());
